@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SDLabelCell" id="Hgm-hm-HOV" customClass="SDLabelCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hgm-hm-HOV" id="Lwc-V4-4Qu">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQV-b7-foL" userLabel="Label - Left">
+                        <rect key="frame" x="15" y="11" width="226" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="226" id="3TP-Zm-1jJ"/>
+                            <constraint firstAttribute="height" constant="22" id="ict-iw-0wa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4TN-AX-oly" userLabel="Label - Right">
+                        <rect key="frame" x="130" y="11" width="170" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="170" id="MII-sy-X1l"/>
+                            <constraint firstAttribute="height" constant="22" id="ymM-PD-djj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="PQV-b7-foL" firstAttribute="leading" secondItem="Lwc-V4-4Qu" secondAttribute="leading" constant="15" id="7UY-DL-bS8"/>
+                    <constraint firstAttribute="trailing" secondItem="4TN-AX-oly" secondAttribute="trailing" constant="20" id="GxE-vw-Pgh"/>
+                    <constraint firstItem="PQV-b7-foL" firstAttribute="top" secondItem="Lwc-V4-4Qu" secondAttribute="top" constant="11" id="opF-XX-WnR"/>
+                    <constraint firstItem="4TN-AX-oly" firstAttribute="top" secondItem="Lwc-V4-4Qu" secondAttribute="top" constant="11" id="xcw-bN-BH9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="PQV-b7-foL" id="U0M-uQ-fBp"/>
+                <outlet property="valueLabel" destination="4TN-AX-oly" id="Mit-8A-nCY"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

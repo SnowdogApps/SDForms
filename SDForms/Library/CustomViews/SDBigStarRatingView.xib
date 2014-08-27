@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SDBigStarRatingView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="5ZB-k2-Gbs">
+                    <rect key="frame" x="20" y="24" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Fc3-W5-2hI"/>
+                        <constraint firstAttribute="width" constant="40" id="QpK-26-Naw"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="84X-zR-y4C">
+                    <rect key="frame" x="80" y="24" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="D8A-RB-Cs6"/>
+                        <constraint firstAttribute="height" constant="40" id="VcT-Gd-l3X"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="4vt-04-a9k">
+                    <rect key="frame" x="140" y="24" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="NXF-y1-6Ov"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="QEx-nh-HxK">
+                    <rect key="frame" x="200" y="24" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="hkj-sw-6Ho"/>
+                        <constraint firstAttribute="width" constant="40" id="vz0-QP-JWm"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="og3-fH-Kgd">
+                    <rect key="frame" x="260" y="24" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="0o2-OG-ZEt"/>
+                        <constraint firstAttribute="width" constant="40" id="ZbY-GK-Ns0"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="5ZB-k2-Gbs" secondAttribute="centerY" constant="-0.5" id="Czi-mo-QmK"/>
+                <constraint firstAttribute="trailing" secondItem="4vt-04-a9k" secondAttribute="trailing" constant="140" id="ESf-DE-JAr"/>
+                <constraint firstItem="QEx-nh-HxK" firstAttribute="leading" secondItem="4vt-04-a9k" secondAttribute="trailing" constant="20" id="PFg-H2-Xb9"/>
+                <constraint firstAttribute="centerY" secondItem="og3-fH-Kgd" secondAttribute="centerY" constant="-0.5" id="Slb-q9-XCn"/>
+                <constraint firstAttribute="centerY" secondItem="4vt-04-a9k" secondAttribute="centerY" constant="-0.5" id="UFc-EY-uJV"/>
+                <constraint firstItem="84X-zR-y4C" firstAttribute="leading" secondItem="5ZB-k2-Gbs" secondAttribute="trailing" constant="20" id="Vff-Yq-ARd"/>
+                <constraint firstItem="og3-fH-Kgd" firstAttribute="leading" secondItem="QEx-nh-HxK" secondAttribute="trailing" constant="20" id="VuZ-9p-jr6"/>
+                <constraint firstItem="5ZB-k2-Gbs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="W7I-ob-QJM"/>
+                <constraint firstAttribute="centerY" secondItem="84X-zR-y4C" secondAttribute="centerY" constant="-0.5" id="YBD-Wk-0mY"/>
+                <constraint firstItem="4vt-04-a9k" firstAttribute="leading" secondItem="84X-zR-y4C" secondAttribute="trailing" constant="20" id="fYT-fa-ofd"/>
+                <constraint firstAttribute="centerY" secondItem="QEx-nh-HxK" secondAttribute="centerY" constant="-0.5" id="wKg-9f-hok"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="starsCollection" destination="5ZB-k2-Gbs" id="Ka2-OW-26H"/>
+                <outletCollection property="starsCollection" destination="84X-zR-y4C" id="9Wr-bV-cAV"/>
+                <outletCollection property="starsCollection" destination="4vt-04-a9k" id="FTY-OP-4hw"/>
+                <outletCollection property="starsCollection" destination="QEx-nh-HxK" id="eNx-a7-kTc"/>
+                <outletCollection property="starsCollection" destination="og3-fH-Kgd" id="dwV-4K-xYz"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="icn_star_empty.png" width="40" height="40"/>
+    </resources>
+</document>
