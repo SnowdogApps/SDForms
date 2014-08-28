@@ -14,12 +14,6 @@ static NSString * const kSliderCell = @"SDSliderCell";
 
 @class SDSliderCell;
 
-@protocol SDSliderCellDelegate <NSObject>
-
-- (void) sliderCell:(SDSliderCell*)cell sliderValueHasChanged:(float)value;
-
-@end
-
 @interface SDSliderCell : SDFormCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

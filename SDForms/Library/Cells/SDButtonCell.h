@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDFormCell.h"
 
 static NSString * const kButtonCell = @"SDButtonCell";
 
-@interface SDButtonCell : UITableViewCell
+@interface SDButtonCell : SDFormCell
 
-@property (weak, nonatomic) IBOutlet UILabel *mainLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *doneImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

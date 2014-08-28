@@ -56,7 +56,11 @@
     }
 }
 
-
+- (void)setField:(SDFormField *)field
+{
+    [super setField:field];
+    self.textView.text = field.value;
+}
 
 
 @end

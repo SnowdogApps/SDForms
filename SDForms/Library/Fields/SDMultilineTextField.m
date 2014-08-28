@@ -32,15 +32,4 @@
     }
 }
 
-//- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
-//{
-//    SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
-//    
-//    if ([cell isKindOfClass:[SDTextViewCell class]]) {
-//        SDTextViewCell *textViewCell = (SDTextViewCell *)cell;
-//    }
-//    
-//    return cell;
-//}
-
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B55F0F1819AF0F9C00685BCA /* SDButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = B55F0F1719AF0F9C00685BCA /* SDButtonField.m */; };
 		B561239D19AB3590002BB86D /* SDItemSelectionField.m in Sources */ = {isa = PBXBuildFile; fileRef = B561239C19AB3590002BB86D /* SDItemSelectionField.m */; };
 		B56123A319AB40D8002BB86D /* SDItemsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56123A119AB40D8002BB86D /* SDItemsPickerViewController.m */; };
 		B56123A419AB40D8002BB86D /* SDItemsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56123A219AB40D8002BB86D /* SDItemsPickerViewController.xib */; };
@@ -194,6 +195,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B55F0F1619AF0F9C00685BCA /* SDButtonField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDButtonField.h; sourceTree = "<group>"; };
+		B55F0F1719AF0F9C00685BCA /* SDButtonField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDButtonField.m; sourceTree = "<group>"; };
 		B561239B19AB3590002BB86D /* SDItemSelectionField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDItemSelectionField.h; sourceTree = "<group>"; };
 		B561239C19AB3590002BB86D /* SDItemSelectionField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDItemSelectionField.m; sourceTree = "<group>"; };
 		B56123A019AB40D8002BB86D /* SDItemsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDItemsPickerViewController.h; sourceTree = "<group>"; };
@@ -389,6 +392,8 @@
 				B59DD0A919ACC074005204A1 /* SDSliderField.m */,
 				B5F8763F19ADD13400C4AF33 /* SDLabelField.h */,
 				B5F8764019ADD13400C4AF33 /* SDLabelField.m */,
+				B55F0F1619AF0F9C00685BCA /* SDButtonField.h */,
+				B55F0F1719AF0F9C00685BCA /* SDButtonField.m */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
@@ -819,6 +824,7 @@
 				B5F876A019AE1E4D00C4AF33 /* SDSwitchCell.m in Sources */,
 				B5F876A119AE1E4D00C4AF33 /* SDTextFieldCell.m in Sources */,
 				B5F876A219AE1E4D00C4AF33 /* SDTextViewCell.m in Sources */,
+				B55F0F1819AF0F9C00685BCA /* SDButtonField.m in Sources */,
 				B5F8768A19AE1E2B00C4AF33 /* UIColor+HexColor.m in Sources */,
 				B5F8768B19AE1E2B00C4AF33 /* UIImage+Colorize.m in Sources */,
 				B5F8768C19AE1E2B00C4AF33 /* NSMutableArray+IndexSelection.m in Sources */,

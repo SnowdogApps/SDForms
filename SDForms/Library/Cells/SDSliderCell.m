@@ -37,8 +37,6 @@
     [super setField:field];
     self.titleLabel.text = self.field.title;
     self.valueLabel.text = self.field.formattedValue;
-    self.slider.minimumValue = field.min;
-    self.slider.maximumValue = field.max;
     [self.slider setValue:[field.value floatValue] animated:YES];
 
 }

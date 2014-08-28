@@ -38,6 +38,7 @@
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
+    
     if (self.presentingMode == SDFormFieldPresentingModePush) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else {

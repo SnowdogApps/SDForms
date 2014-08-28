@@ -37,7 +37,7 @@
     
 }
 
-- (SDFormCell*)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
+- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     if (index < self.reuseIdentifiers.count) {
         NSString *reuseIdentifier = [self.reuseIdentifiers objectAtIndex:index];

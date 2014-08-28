@@ -26,4 +26,10 @@
     // Configure the view for the selected state
 }
 
+- (void)setField:(SDFormField *)field
+{
+    [super setField:field];
+    self.titleLabel.text = field.title;
+}
+
 @end

@@ -66,14 +66,12 @@
     }
 }
 
-#pragma mark - Setters
-
-- (void)setField:(SDFormField <SDTextFieldDelegate> *)field
+- (void)setField:(SDFormField *)field
 {
     [super setField:field];
-    if (self.field.valueType == SDFormFieldValueTypeText) {
+    if (field.valueType == SDFormFieldValueTypeText) {
         self.textField.text = field.value;
-    } else if (self.field.valueType == SDFormFieldValueTypeDouble || self.field.valueType == SDFormFieldValueTypeInt) {
+    } else if (field.valueType == SDFormFieldValueTypeDouble || field.valueType == SDFormFieldValueTypeInt) {
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
         [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
         [formatter setPositiveFormat:@"####.##"];

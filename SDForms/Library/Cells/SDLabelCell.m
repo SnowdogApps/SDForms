@@ -26,13 +26,11 @@
     // Configure the view for the selected state
 }
 
-#pragma mark - Setters
-
 - (void)setField:(SDFormField *)field
 {
     [super setField:field];
-    self.titleLabel.text = self.field.title;
-    self.valueLabel.text = self.field.formattedValue;
+    self.titleLabel.text = field.title;
+    self.valueLabel.text = field.formattedValue;
 }
 
 @end

@@ -9,6 +9,10 @@
 #import "SDSliderField.h"
 #import "SDSliderCell.h"
 
+@interface SDSliderField ()
+
+@end
+
 @implementation SDSliderField
 
 - (id)init
@@ -27,6 +31,19 @@
     [tableView registerNib:[UINib nibWithNibName:kSliderCell bundle:nil] forCellReuseIdentifier:kSliderCell];
     self.reuseIdentifiers = @[kSliderCell];
     self.cellHeights = @[@88.0];
+}
+
+- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
+{
+    SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
+    
+    if ([cell isKindOfClass:[SDSliderCell class]]) {
+        SDSliderCell *sliderCell = (SDSliderCell *)cell;
+        sliderCell.slider.minimumValue = self.min;
+        sliderCell.slider.maximumValue = self.max;
+    }
+    
+    return cell;
 }
 
 @end
