@@ -7,6 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52BE29A19AF657E0071BA57 /* SDForms.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F876C019AE201D00C4AF33 /* SDForms.h */; };
+		B52BE29B19AF657E0071BA57 /* SDItemsPickerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B56123A019AB40D8002BB86D /* SDItemsPickerViewController.h */; };
+		B52BE29C19AF657E0071BA57 /* SDDatePickerField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B57ABC8519A777950062BDBB /* SDDatePickerField.h */; };
+		B52BE29D19AF657E0071BA57 /* SDTextFormField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B57ABC8719A777950062BDBB /* SDTextFormField.h */; };
+		B52BE29E19AF657E0071BA57 /* SDPickerField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B57ABC8B19A777BE0062BDBB /* SDPickerField.h */; };
+		B52BE29F19AF657E0071BA57 /* SDItemSelectionField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B561239B19AB3590002BB86D /* SDItemSelectionField.h */; };
+		B52BE2A019AF657E0071BA57 /* SDMultilineTextField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B59DD0A419AC8DE3005204A1 /* SDMultilineTextField.h */; };
+		B52BE2A119AF657E0071BA57 /* SDSliderField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B59DD0A819ACC074005204A1 /* SDSliderField.h */; };
+		B52BE2A219AF657E0071BA57 /* SDLabelField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F8763F19ADD13400C4AF33 /* SDLabelField.h */; };
+		B52BE2A319AF657E0071BA57 /* SDButtonField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B55F0F1619AF0F9C00685BCA /* SDButtonField.h */; };
+		B52BE2A419AF657E0071BA57 /* SDSwitchField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B55F0F1D19AF2F0B00685BCA /* SDSwitchField.h */; };
+		B52BE2A519AF657E0071BA57 /* SDDataValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBB7199B995E000AB3A5 /* SDDataValidator.h */; };
+		B52BE2A619AF657E0071BA57 /* SDTimeFormatter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBB9199B995E000AB3A5 /* SDTimeFormatter.h */; };
+		B52BE2A719AF657E0071BA57 /* SDTimeIntervalComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBBB199B995E000AB3A5 /* SDTimeIntervalComponents.h */; };
+		B52BE2A819AF657E0071BA57 /* UIColor+HexColor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBAE199B98B0000AB3A5 /* UIColor+HexColor.h */; };
+		B52BE2A919AF657E0071BA57 /* UIImage+Colorize.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBB0199B98B0000AB3A5 /* UIImage+Colorize.h */; };
+		B52BE2AA19AF657E0071BA57 /* NSMutableArray+IndexSelection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B56123A519AB4BFC002BB86D /* NSMutableArray+IndexSelection.h */; };
+		B52BE2AB19AF657E0071BA57 /* SDBigStarRatingView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB9D199B9836000AB3A5 /* SDBigStarRatingView.h */; };
+		B52BE2AC19AF657E0071BA57 /* SDStarRatingView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBA0199B9836000AB3A5 /* SDStarRatingView.h */; };
+		B52BE2AD19AF657E0071BA57 /* SDTextField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBA3199B9836000AB3A5 /* SDTextField.h */; };
+		B52BE2AE19AF657E0071BA57 /* SDTextView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBA5199B9836000AB3A5 /* SDTextView.h */; };
+		B52BE2AF19AF657E0071BA57 /* SDNavigationToolbar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB98199B97FB000AB3A5 /* SDNavigationToolbar.h */; };
+		B52BE2B019AF657E0071BA57 /* SDBigMutableStarRatingCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAAC199B95DB000AB3A5 /* SDBigMutableStarRatingCell.h */; };
+		B52BE2B119AF657E0071BA57 /* SDButtonCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAAF199B95DB000AB3A5 /* SDButtonCell.h */; };
+		B52BE2B219AF657E0071BA57 /* SDDataWithUnitCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC1199B95DB000AB3A5 /* SDDataWithUnitCell.h */; };
+		B52BE2B319AF657E0071BA57 /* SDDatePickerCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC4199B95DB000AB3A5 /* SDDatePickerCell.h */; };
+		B52BE2B419AF657E0071BA57 /* SDDatePickerWithLabelCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC7199B95DB000AB3A5 /* SDDatePickerWithLabelCell.h */; };
+		B52BE2B519AF657E0071BA57 /* SDDescriptionCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CACA199B95DB000AB3A5 /* SDDescriptionCell.h */; };
+		B52BE2B619AF657E0071BA57 /* SDMutableStarRatingCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAEE199B95DB000AB3A5 /* SDMutableStarRatingCell.h */; };
+		B52BE2B719AF657E0071BA57 /* SDPickerCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAF7199B95DB000AB3A5 /* SDPickerCell.h */; };
+		B52BE2B819AF657E0071BA57 /* SDLabelCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB00199B95DB000AB3A5 /* SDLabelCell.h */; };
+		B52BE2B919AF657E0071BA57 /* SDPollNameDataCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB03199B95DB000AB3A5 /* SDPollNameDataCell.h */; };
+		B52BE2BA19AF657E0071BA57 /* SDTextFieldWithLabelCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB06199B95DB000AB3A5 /* SDTextFieldWithLabelCell.h */; };
+		B52BE2BB19AF657E0071BA57 /* SDResizableTextCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB12199B95DB000AB3A5 /* SDResizableTextCell.h */; };
+		B52BE2BC19AF657E0071BA57 /* SDSliderCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB15199B95DB000AB3A5 /* SDSliderCell.h */; };
+		B52BE2BD19AF657E0071BA57 /* SDStarRatingCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB1B199B95DB000AB3A5 /* SDStarRatingCell.h */; };
+		B52BE2BE19AF657E0071BA57 /* SDSwitchCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB1E199B95DC000AB3A5 /* SDSwitchCell.h */; };
+		B52BE2BF19AF657E0071BA57 /* SDTextFieldCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB21199B95DC000AB3A5 /* SDTextFieldCell.h */; };
+		B52BE2C019AF657E0071BA57 /* SDTextViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB24199B95DC000AB3A5 /* SDTextViewCell.h */; };
+		B52BE2C119AF657E0071BA57 /* SDForm.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBC2199BB236000AB3A5 /* SDForm.h */; };
+		B52BE2C219AF657E0071BA57 /* SDFormSection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBC5199BB244000AB3A5 /* SDFormSection.h */; };
+		B52BE2C319AF657E0071BA57 /* SDFormField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBC8199BB250000AB3A5 /* SDFormField.h */; };
+		B52BE2C419AF657E0071BA57 /* SDFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5C04A2E199CFC8500B09374 /* SDFormCell.h */; };
+		B52BE2C719AF66260071BA57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596CA6C199B9533000AB3A5 /* Foundation.framework */; };
 		B55F0F1819AF0F9C00685BCA /* SDButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = B55F0F1719AF0F9C00685BCA /* SDButtonField.m */; };
 		B55F0F1C19AF2EDE00685BCA /* SDButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = B55F0F1719AF0F9C00685BCA /* SDButtonField.m */; };
 		B55F0F1F19AF2F0B00685BCA /* SDSwitchField.m in Sources */ = {isa = PBXBuildFile; fileRef = B55F0F1E19AF2F0B00685BCA /* SDSwitchField.m */; };
@@ -177,6 +221,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B52BE29319AF64210071BA57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B596CA61199B9533000AB3A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B55F0F7619AF416E00685BCA;
+			remoteInfo = SDFormsResources;
+		};
 		B596CA8F199B9533000AB3A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B596CA61199B9533000AB3A5 /* Project object */;
@@ -193,6 +244,49 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				B52BE29A19AF657E0071BA57 /* SDForms.h in CopyFiles */,
+				B52BE29B19AF657E0071BA57 /* SDItemsPickerViewController.h in CopyFiles */,
+				B52BE29C19AF657E0071BA57 /* SDDatePickerField.h in CopyFiles */,
+				B52BE29D19AF657E0071BA57 /* SDTextFormField.h in CopyFiles */,
+				B52BE29E19AF657E0071BA57 /* SDPickerField.h in CopyFiles */,
+				B52BE29F19AF657E0071BA57 /* SDItemSelectionField.h in CopyFiles */,
+				B52BE2A019AF657E0071BA57 /* SDMultilineTextField.h in CopyFiles */,
+				B52BE2A119AF657E0071BA57 /* SDSliderField.h in CopyFiles */,
+				B52BE2A219AF657E0071BA57 /* SDLabelField.h in CopyFiles */,
+				B52BE2A319AF657E0071BA57 /* SDButtonField.h in CopyFiles */,
+				B52BE2A419AF657E0071BA57 /* SDSwitchField.h in CopyFiles */,
+				B52BE2A519AF657E0071BA57 /* SDDataValidator.h in CopyFiles */,
+				B52BE2A619AF657E0071BA57 /* SDTimeFormatter.h in CopyFiles */,
+				B52BE2A719AF657E0071BA57 /* SDTimeIntervalComponents.h in CopyFiles */,
+				B52BE2A819AF657E0071BA57 /* UIColor+HexColor.h in CopyFiles */,
+				B52BE2A919AF657E0071BA57 /* UIImage+Colorize.h in CopyFiles */,
+				B52BE2AA19AF657E0071BA57 /* NSMutableArray+IndexSelection.h in CopyFiles */,
+				B52BE2AB19AF657E0071BA57 /* SDBigStarRatingView.h in CopyFiles */,
+				B52BE2AC19AF657E0071BA57 /* SDStarRatingView.h in CopyFiles */,
+				B52BE2AD19AF657E0071BA57 /* SDTextField.h in CopyFiles */,
+				B52BE2AE19AF657E0071BA57 /* SDTextView.h in CopyFiles */,
+				B52BE2AF19AF657E0071BA57 /* SDNavigationToolbar.h in CopyFiles */,
+				B52BE2B019AF657E0071BA57 /* SDBigMutableStarRatingCell.h in CopyFiles */,
+				B52BE2B119AF657E0071BA57 /* SDButtonCell.h in CopyFiles */,
+				B52BE2B219AF657E0071BA57 /* SDDataWithUnitCell.h in CopyFiles */,
+				B52BE2B319AF657E0071BA57 /* SDDatePickerCell.h in CopyFiles */,
+				B52BE2B419AF657E0071BA57 /* SDDatePickerWithLabelCell.h in CopyFiles */,
+				B52BE2B519AF657E0071BA57 /* SDDescriptionCell.h in CopyFiles */,
+				B52BE2B619AF657E0071BA57 /* SDMutableStarRatingCell.h in CopyFiles */,
+				B52BE2B719AF657E0071BA57 /* SDPickerCell.h in CopyFiles */,
+				B52BE2B819AF657E0071BA57 /* SDLabelCell.h in CopyFiles */,
+				B52BE2B919AF657E0071BA57 /* SDPollNameDataCell.h in CopyFiles */,
+				B52BE2BA19AF657E0071BA57 /* SDTextFieldWithLabelCell.h in CopyFiles */,
+				B52BE2BB19AF657E0071BA57 /* SDResizableTextCell.h in CopyFiles */,
+				B52BE2BC19AF657E0071BA57 /* SDSliderCell.h in CopyFiles */,
+				B52BE2BD19AF657E0071BA57 /* SDStarRatingCell.h in CopyFiles */,
+				B52BE2BE19AF657E0071BA57 /* SDSwitchCell.h in CopyFiles */,
+				B52BE2BF19AF657E0071BA57 /* SDTextFieldCell.h in CopyFiles */,
+				B52BE2C019AF657E0071BA57 /* SDTextViewCell.h in CopyFiles */,
+				B52BE2C119AF657E0071BA57 /* SDForm.h in CopyFiles */,
+				B52BE2C219AF657E0071BA57 /* SDFormSection.h in CopyFiles */,
+				B52BE2C319AF657E0071BA57 /* SDFormField.h in CopyFiles */,
+				B52BE2C419AF657E0071BA57 /* SDFormCell.h in CopyFiles */,
 				B5F876AA19AE1F0A00C4AF33 /* SDItemsPickerViewController.xib in CopyFiles */,
 				B5F876AB19AE1F0A00C4AF33 /* SDBigStarRatingView.xib in CopyFiles */,
 				B5F876AC19AE1F0A00C4AF33 /* SDStarRatingView.xib in CopyFiles */,
@@ -360,6 +454,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52BE2C719AF66260071BA57 /* Foundation.framework in Frameworks */,
 				B55F0F7919AF416E00685BCA /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,6 +825,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B52BE29419AF64210071BA57 /* PBXTargetDependency */,
 			);
 			name = SDForms;
 			productName = SDForms;
@@ -964,6 +1060,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B52BE29419AF64210071BA57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B55F0F7619AF416E00685BCA /* SDFormsResources */;
+			targetProxy = B52BE29319AF64210071BA57 /* PBXContainerItemProxy */;
+		};
 		B596CA90199B9533000AB3A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B596CA68199B9533000AB3A5 /* SDFormsExamples */;
@@ -1210,6 +1311,7 @@
 				B55F0F8319AF416F00685BCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B596CA64199B9533000AB3A5 /* Build configuration list for PBXProject "SDForms" */ = {
 			isa = XCConfigurationList;

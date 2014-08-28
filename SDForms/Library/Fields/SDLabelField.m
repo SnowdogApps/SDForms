@@ -13,7 +13,7 @@
 
 - (void)registerCellsInTableView:(UITableView *)tableView
 {
-    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:nil] forCellReuseIdentifier:kLabelCell];
+    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
     self.reuseIdentifiers = @[kLabelCell];
 }
 

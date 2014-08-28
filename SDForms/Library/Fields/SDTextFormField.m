@@ -32,8 +32,8 @@
     } else {
         cellId = kTextFieldWithLabelCell;
     }
-    
-    [tableView registerNib:[UINib nibWithNibName:cellId bundle:nil] forCellReuseIdentifier:cellId];
+
+    [tableView registerNib:[UINib nibWithNibName:cellId bundle:self.defaultBundle] forCellReuseIdentifier:cellId];
     self.reuseIdentifiers = @[cellId];
 }
 

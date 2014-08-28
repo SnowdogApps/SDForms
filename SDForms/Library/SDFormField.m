@@ -115,4 +115,10 @@
     }
 }
 
+- (NSBundle *)defaultBundle
+{
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
+    return bundle;
+}
+
 @end

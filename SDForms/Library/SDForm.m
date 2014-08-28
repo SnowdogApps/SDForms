@@ -36,7 +36,8 @@
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
-        self.toolbar = (SDNavigationToolbar *)[[[NSBundle mainBundle] loadNibNamed:kSDNavigationToolbar owner:self options:nil] lastObject];
+        NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
+        self.toolbar = (SDNavigationToolbar *)[[bundle loadNibNamed:kSDNavigationToolbar owner:[[SDNavigationToolbar alloc] init] options:nil] lastObject];
         [self.toolbar setToolbarDelegate:self];
     }
     return self;

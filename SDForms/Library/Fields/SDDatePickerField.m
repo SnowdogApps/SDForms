@@ -28,8 +28,8 @@ static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
 
 - (void)registerCellsInTableView:(UITableView *)tableView
 {
-    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:nil] forCellReuseIdentifier:kLabelCell];
-    [tableView registerNib:[UINib nibWithNibName:kDatePickerCell bundle:nil] forCellReuseIdentifier:kDatePickerCell];
+    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
+    [tableView registerNib:[UINib nibWithNibName:kDatePickerCell bundle:self.defaultBundle] forCellReuseIdentifier:kDatePickerCell];
     self.reuseIdentifiers = @[kLabelCell, kDatePickerCell];
     self.cellHeights = @[@44.0, @162.0];
 }

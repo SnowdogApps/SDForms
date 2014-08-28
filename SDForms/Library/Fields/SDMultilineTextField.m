@@ -22,7 +22,7 @@
 
 - (void)registerCellsInTableView:(UITableView *)tableView
 {
-    [tableView registerNib:[UINib nibWithNibName:kTextViewCell bundle:nil] forCellReuseIdentifier:kTextViewCell];
+    [tableView registerNib:[UINib nibWithNibName:kTextViewCell bundle:self.defaultBundle] forCellReuseIdentifier:kTextViewCell];
     self.reuseIdentifiers = @[kTextViewCell];
     
     if (self.textViewHeight > 0.0) {

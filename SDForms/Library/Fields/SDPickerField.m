@@ -32,12 +32,12 @@
 - (void)registerCellsInTableView:(UITableView *)tableView
 {
     if (self.pickerType == SDPickerFieldPickerTypeInRow) {
-        [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:nil] forCellReuseIdentifier:kLabelCell];
-        [tableView registerNib:[UINib nibWithNibName:kPickerCell bundle:nil] forCellReuseIdentifier:kPickerCell];
+        [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
+        [tableView registerNib:[UINib nibWithNibName:kPickerCell bundle:self.defaultBundle] forCellReuseIdentifier:kPickerCell];
         self.reuseIdentifiers = @[kLabelCell, kPickerCell];
         self.cellHeights = @[@44.0, @162.0];
     } else {
-        [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:nil] forCellReuseIdentifier:kLabelCell];
+        [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
         self.reuseIdentifiers = @[kLabelCell];
         self.cellHeights = @[@44.0];
     }

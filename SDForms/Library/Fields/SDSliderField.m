@@ -28,7 +28,7 @@
 
 - (void)registerCellsInTableView:(UITableView *)tableView
 {
-    [tableView registerNib:[UINib nibWithNibName:kSliderCell bundle:nil] forCellReuseIdentifier:kSliderCell];
+    [tableView registerNib:[UINib nibWithNibName:kSliderCell bundle:self.defaultBundle] forCellReuseIdentifier:kSliderCell];
     self.reuseIdentifiers = @[kSliderCell];
     self.cellHeights = @[@88.0];
 }
