@@ -1,7 +1,7 @@
 SDForms
 =======
 
-# Installation:
+## Installation:
 1. Drag and drop SDForms.xcodeproj to your project/workspace
 
 2. Add Appriopriate path in Header Search Paths option in Build Settings of your project
