@@ -60,13 +60,20 @@
 
 - (void)setValue:(id)value
 {
+    [self setValue:value withCellRefresh:YES];
+}
+
+- (void)setValue:(id)value withCellRefresh:(BOOL)refresh
+{
     _value = value;
     
     if (self.relatedObject && self.relatedPropertyKey) {
         [self.relatedObject setValue:value forKey:self.relatedPropertyKey];
     }
     
-    [self refreshFieldCell];
+    if (refresh) {
+        [self refreshFieldCell];
+    }
 }
 
 - (NSString *)formattedValue

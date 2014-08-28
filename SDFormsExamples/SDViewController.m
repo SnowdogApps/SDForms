@@ -14,6 +14,8 @@
 #import "SDMultilineTextField.h"
 #import "SDSliderField.h"
 #import "SDLabelField.h"
+#import "SDButtonField.h"
+#import "SDSwitchField.h"
 #import "SDForm.h"
 
 
@@ -256,7 +258,14 @@
     hired.value = [NSDate date];
     hired.datePickerMode = UIDatePickerModeDateAndTime;
     
-    self.section2Fields = @[hired];
+    SDSwitchField *switchField = [[SDSwitchField alloc] init];
+    switchField.title = @"Switch";
+    switchField.value = @YES;
+    
+    SDButtonField *submit = [[SDButtonField alloc] init];
+    submit.title = @"Submit";
+    
+    self.section2Fields = @[hired, switchField, submit];
 }
 
 @end

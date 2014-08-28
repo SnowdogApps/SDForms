@@ -26,4 +26,16 @@
     // Configure the view for the selected state
 }
 
+- (void)setField:(SDFormField *)field
+{
+    [super setField:field];
+    self.titleLabel.text = field.title;
+    [self.switchControl setOn:[field.value boolValue] animated:NO];
+}
+
+- (IBAction)switchValueChanged:(UISwitch *)switchView
+{
+    [self.field setValue:@(switchView.isOn) withCellRefresh:NO];
+}
+
 @end

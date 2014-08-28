@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDFormCell.h"
 
 static NSString * const kSwitchCell = @"SDSwitchCell";
 
-@interface SDSwitchCell : UITableViewCell
+@interface SDSwitchCell : SDFormCell
 @property (weak, nonatomic) IBOutlet UISwitch *switchControl;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
