@@ -11,6 +11,28 @@
 		B55F0F1C19AF2EDE00685BCA /* SDButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = B55F0F1719AF0F9C00685BCA /* SDButtonField.m */; };
 		B55F0F1F19AF2F0B00685BCA /* SDSwitchField.m in Sources */ = {isa = PBXBuildFile; fileRef = B55F0F1E19AF2F0B00685BCA /* SDSwitchField.m */; };
 		B55F0F2019AF32F900685BCA /* SDSwitchField.m in Sources */ = {isa = PBXBuildFile; fileRef = B55F0F1E19AF2F0B00685BCA /* SDSwitchField.m */; };
+		B55F0F7919AF416E00685BCA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55F0F7819AF416E00685BCA /* CoreFoundation.framework */; };
+		B55F0F7F19AF416F00685BCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B55F0F7D19AF416F00685BCA /* InfoPlist.strings */; };
+		B55F0F8419AF418300685BCA /* SDBigStarRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB9F199B9836000AB3A5 /* SDBigStarRatingView.xib */; };
+		B55F0F8519AF418300685BCA /* SDStarRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CBA2199B9836000AB3A5 /* SDStarRatingView.xib */; };
+		B55F0F8619AF418300685BCA /* SDNavigationToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB9A199B97FB000AB3A5 /* SDNavigationToolbar.xib */; };
+		B55F0F8719AF418300685BCA /* SDBigMutableStarRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAAE199B95DB000AB3A5 /* SDBigMutableStarRatingCell.xib */; };
+		B55F0F8819AF418300685BCA /* SDButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAB1199B95DB000AB3A5 /* SDButtonCell.xib */; };
+		B55F0F8919AF418300685BCA /* SDDataWithUnitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAC3199B95DB000AB3A5 /* SDDataWithUnitCell.xib */; };
+		B55F0F8A19AF418300685BCA /* SDDatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAC6199B95DB000AB3A5 /* SDDatePickerCell.xib */; };
+		B55F0F8B19AF418300685BCA /* SDDatePickerWithLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelCell.xib */; };
+		B55F0F8C19AF418300685BCA /* SDDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CACC199B95DB000AB3A5 /* SDDescriptionCell.xib */; };
+		B55F0F8D19AF418300685BCA /* SDMutableStarRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAF0199B95DB000AB3A5 /* SDMutableStarRatingCell.xib */; };
+		B55F0F8E19AF418300685BCA /* SDPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAF9199B95DB000AB3A5 /* SDPickerCell.xib */; };
+		B55F0F8F19AF418300685BCA /* SDLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB02199B95DB000AB3A5 /* SDLabelCell.xib */; };
+		B55F0F9019AF418300685BCA /* SDPollNameDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB05199B95DB000AB3A5 /* SDPollNameDataCell.xib */; };
+		B55F0F9119AF418300685BCA /* SDTextFieldWithLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelCell.xib */; };
+		B55F0F9219AF418300685BCA /* SDResizableTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB14199B95DB000AB3A5 /* SDResizableTextCell.xib */; };
+		B55F0F9319AF418300685BCA /* SDSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB17199B95DB000AB3A5 /* SDSliderCell.xib */; };
+		B55F0F9419AF418300685BCA /* SDStarRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB1D199B95DB000AB3A5 /* SDStarRatingCell.xib */; };
+		B55F0F9519AF418300685BCA /* SDSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB20199B95DC000AB3A5 /* SDSwitchCell.xib */; };
+		B55F0F9619AF418300685BCA /* SDTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB23199B95DC000AB3A5 /* SDTextFieldCell.xib */; };
+		B55F0F9719AF418300685BCA /* SDTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB26199B95DC000AB3A5 /* SDTextViewCell.xib */; };
 		B561239D19AB3590002BB86D /* SDItemSelectionField.m in Sources */ = {isa = PBXBuildFile; fileRef = B561239C19AB3590002BB86D /* SDItemSelectionField.m */; };
 		B56123A319AB40D8002BB86D /* SDItemsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56123A119AB40D8002BB86D /* SDItemsPickerViewController.m */; };
 		B56123A419AB40D8002BB86D /* SDItemsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56123A219AB40D8002BB86D /* SDItemsPickerViewController.xib */; };
@@ -202,6 +224,11 @@
 		B55F0F1719AF0F9C00685BCA /* SDButtonField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDButtonField.m; sourceTree = "<group>"; };
 		B55F0F1D19AF2F0B00685BCA /* SDSwitchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSwitchField.h; sourceTree = "<group>"; };
 		B55F0F1E19AF2F0B00685BCA /* SDSwitchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSwitchField.m; sourceTree = "<group>"; };
+		B55F0F7719AF416E00685BCA /* SDFormsResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDFormsResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		B55F0F7819AF416E00685BCA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		B55F0F7C19AF416E00685BCA /* SDFormsResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SDFormsResources-Info.plist"; sourceTree = "<group>"; };
+		B55F0F7E19AF416F00685BCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B55F0F8019AF416F00685BCA /* SDFormsResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SDFormsResources-Prefix.pch"; sourceTree = "<group>"; };
 		B561239B19AB3590002BB86D /* SDItemSelectionField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDItemSelectionField.h; sourceTree = "<group>"; };
 		B561239C19AB3590002BB86D /* SDItemSelectionField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDItemSelectionField.m; sourceTree = "<group>"; };
 		B56123A019AB40D8002BB86D /* SDItemsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDItemsPickerViewController.h; sourceTree = "<group>"; };
@@ -329,6 +356,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B55F0F7419AF416E00685BCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B55F0F7919AF416E00685BCA /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B596CA66199B9533000AB3A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,6 +397,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B55F0F7A19AF416E00685BCA /* SDFormsResources */ = {
+			isa = PBXGroup;
+			children = (
+				B55F0F7B19AF416E00685BCA /* Supporting Files */,
+			);
+			path = SDFormsResources;
+			sourceTree = "<group>";
+		};
+		B55F0F7B19AF416E00685BCA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B55F0F7C19AF416E00685BCA /* SDFormsResources-Info.plist */,
+				B55F0F7D19AF416F00685BCA /* InfoPlist.strings */,
+				B55F0F8019AF416F00685BCA /* SDFormsResources-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B561239E19AB40D8002BB86D /* FormControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +464,7 @@
 				B5F8764319AE1BAB00C4AF33 /* SDFormsExamples */,
 				B596CA72199B9533000AB3A5 /* SDForms */,
 				B596CA91199B9533000AB3A5 /* SDFormsTests */,
+				B55F0F7A19AF416E00685BCA /* SDFormsResources */,
 				B596CA6B199B9533000AB3A5 /* Frameworks */,
 				B596CA6A199B9533000AB3A5 /* Products */,
 			);
@@ -422,6 +476,7 @@
 				B596CA69199B9533000AB3A5 /* SDFormsExamples.app */,
 				B596CA8A199B9533000AB3A5 /* SDFormsTests.xctest */,
 				B5F8765B19AE1CD900C4AF33 /* libSDForms.a */,
+				B55F0F7719AF416E00685BCA /* SDFormsResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -433,6 +488,7 @@
 				B596CA6E199B9533000AB3A5 /* CoreGraphics.framework */,
 				B596CA70199B9533000AB3A5 /* UIKit.framework */,
 				B596CA8B199B9533000AB3A5 /* XCTest.framework */,
+				B55F0F7819AF416E00685BCA /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -611,6 +667,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B55F0F7619AF416E00685BCA /* SDFormsResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B55F0F8119AF416F00685BCA /* Build configuration list for PBXNativeTarget "SDFormsResources" */;
+			buildPhases = (
+				B55F0F7319AF416E00685BCA /* Sources */,
+				B55F0F7419AF416E00685BCA /* Frameworks */,
+				B55F0F7519AF416E00685BCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDFormsResources;
+			productName = SDFormsResources;
+			productReference = B55F0F7719AF416E00685BCA /* SDFormsResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		B596CA68199B9533000AB3A5 /* SDFormsExamples */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B596CA9B199B9533000AB3A5 /* Build configuration list for PBXNativeTarget "SDFormsExamples" */;
@@ -694,11 +767,40 @@
 				B596CA68199B9533000AB3A5 /* SDFormsExamples */,
 				B596CA89199B9533000AB3A5 /* SDFormsTests */,
 				B5F8765A19AE1CD900C4AF33 /* SDForms */,
+				B55F0F7619AF416E00685BCA /* SDFormsResources */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B55F0F7519AF416E00685BCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B55F0F8419AF418300685BCA /* SDBigStarRatingView.xib in Resources */,
+				B55F0F8519AF418300685BCA /* SDStarRatingView.xib in Resources */,
+				B55F0F8619AF418300685BCA /* SDNavigationToolbar.xib in Resources */,
+				B55F0F8719AF418300685BCA /* SDBigMutableStarRatingCell.xib in Resources */,
+				B55F0F8819AF418300685BCA /* SDButtonCell.xib in Resources */,
+				B55F0F8919AF418300685BCA /* SDDataWithUnitCell.xib in Resources */,
+				B55F0F8A19AF418300685BCA /* SDDatePickerCell.xib in Resources */,
+				B55F0F8B19AF418300685BCA /* SDDatePickerWithLabelCell.xib in Resources */,
+				B55F0F8C19AF418300685BCA /* SDDescriptionCell.xib in Resources */,
+				B55F0F8D19AF418300685BCA /* SDMutableStarRatingCell.xib in Resources */,
+				B55F0F8E19AF418300685BCA /* SDPickerCell.xib in Resources */,
+				B55F0F8F19AF418300685BCA /* SDLabelCell.xib in Resources */,
+				B55F0F9019AF418300685BCA /* SDPollNameDataCell.xib in Resources */,
+				B55F0F9119AF418300685BCA /* SDTextFieldWithLabelCell.xib in Resources */,
+				B55F0F9219AF418300685BCA /* SDResizableTextCell.xib in Resources */,
+				B55F0F9319AF418300685BCA /* SDSliderCell.xib in Resources */,
+				B55F0F9419AF418300685BCA /* SDStarRatingCell.xib in Resources */,
+				B55F0F9519AF418300685BCA /* SDSwitchCell.xib in Resources */,
+				B55F0F9619AF418300685BCA /* SDTextFieldCell.xib in Resources */,
+				B55F0F9719AF418300685BCA /* SDTextViewCell.xib in Resources */,
+				B55F0F7F19AF416F00685BCA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B596CA67199B9533000AB3A5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -742,6 +844,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B55F0F7319AF416E00685BCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B596CA65199B9533000AB3A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -863,6 +972,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B55F0F7D19AF416F00685BCA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B55F0F7E19AF416F00685BCA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		B5F8764419AE1BAB00C4AF33 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -882,6 +999,43 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B55F0F8219AF416F00685BCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SDFormsResources/SDFormsResources-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SDFormsResources/SDFormsResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		B55F0F8319AF416F00685BCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SDFormsResources/SDFormsResources-Prefix.pch";
+				INFOPLIST_FILE = "SDFormsResources/SDFormsResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		B596CA99199B9533000AB3A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1049,6 +1203,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B55F0F8119AF416F00685BCA /* Build configuration list for PBXNativeTarget "SDFormsResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B55F0F8219AF416F00685BCA /* Debug */,
+				B55F0F8319AF416F00685BCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B596CA64199B9533000AB3A5 /* Build configuration list for PBXProject "SDForms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
