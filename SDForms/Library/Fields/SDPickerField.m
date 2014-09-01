@@ -174,6 +174,9 @@
 {
     if (component < self.selectedIndexes.count) {
         [self.selectedIndexes replaceObjectAtIndex:component withObject:@(row)];
+        if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerView:didSelectRow:inComponent:)]) {
+            [self.pickerFieldDelegate pickerField:self didSelectRow:row inComponent:component];
+        }
     }
     [self refreshFieldCell];
 }
