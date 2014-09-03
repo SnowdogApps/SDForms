@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSNumber *salary;
 @property (nonatomic, strong) NSDate *dateOfBirth;
+@property (nonatomic, strong) NSString *sex;
 
 @end
 
@@ -24,7 +25,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsalary:%@\ndob:%@", self.name, self.surname, self.age, self.salary, self.dateOfBirth];
+    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth];
 }
 
 @end
@@ -203,6 +204,15 @@
     age.placeholder = @"Age";
     age.valueType = SDFormFieldValueTypeInt;
     
+    SDPickerField *sex = [[SDPickerField alloc] init];
+    sex.name = @"sex";
+    sex.title = @"Sex";
+    [sex setItems:@[@[@"Male", @"Female", @"Other"]]];
+    [sex setValues:@[@[@"male", @"female", @"other"]]];
+    sex.relatedObjects = @[self.person];
+    sex.relatedPropertyKeys = @[@"sex"];
+    [sex selectItem:1 inComponent:0];
+    
     SDTextFormField *salary = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"salary"];
     salary.placeholder = @"Salary";
     salary.valueType = SDFormFieldValueTypeDouble;
@@ -241,7 +251,7 @@
     slider.max = 100.0;
     slider.step = 10.0;
     
-    self.section1Fields = @[name, surname, password, age, salary, label, bio, date1, picker1, selection, slider];
+    self.section1Fields = @[name, surname, password, age, sex, salary, label, bio, date1, picker1, selection, slider];
     
     SDDatePickerField *hired = [[SDDatePickerField alloc] init];
     hired.title = @"Hired";
