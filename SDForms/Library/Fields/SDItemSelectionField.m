@@ -39,6 +39,12 @@
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
+    if ([cell isKindOfClass:[SDLabelCell class]]) {
+        SDLabelCell *labelCell = (SDLabelCell *)cell;
+        labelCell.titleLabel.text = self.title;
+        labelCell.valueLabel.text = self.formattedValue;
+    }
+    
     if (self.presentingMode == SDFormFieldPresentingModePush) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else {

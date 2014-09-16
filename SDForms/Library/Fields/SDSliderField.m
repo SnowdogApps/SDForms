@@ -41,6 +41,9 @@
         SDSliderCell *sliderCell = (SDSliderCell *)cell;
         sliderCell.slider.minimumValue = self.min;
         sliderCell.slider.maximumValue = self.max;
+        sliderCell.titleLabel.text = self.title;
+        sliderCell.valueLabel.text = self.formattedValue;
+        [sliderCell.slider setValue:[self.value floatValue] animated:YES];
     }
     
     return cell;

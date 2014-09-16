@@ -19,6 +19,7 @@
         self.autocapitalizationType = UITextAutocapitalizationTypeSentences;
         self.autocorrectionType = UITextAutocorrectionTypeDefault;
         self.secure = NO;
+        self.enabled = YES;
         self.cellType = SDTextFormFieldCellTypeTextOnly;
     }
     return self;
@@ -29,8 +30,10 @@
     NSString *cellId;
     if (self.cellType == SDTextFormFieldCellTypeTextOnly) {
         cellId = kTextFieldCell;
-    } else {
+    } else if (self.cellType == SDTextFormFieldCellTypeTextAndLabel) {
         cellId = kTextFieldWithLabelCell;
+    } else {
+        cellId = kTextFieldCell;
     }
 
     [tableView registerNib:[UINib nibWithNibName:cellId bundle:self.defaultBundle] forCellReuseIdentifier:cellId];
@@ -46,14 +49,27 @@
         
         if (self.valueType == SDFormFieldValueTypeText) {
             textFieldCell.textField.keyboardType = UIKeyboardTypeDefault;
-        } else if (self.valueType == SDFormFieldValueTypeDouble) {
-            textFieldCell.textField.keyboardType = UIKeyboardTypeDecimalPad;
-        } else if (self.valueType == SDFormFieldValueTypeInt) {
-            textFieldCell.textField.keyboardType = UIKeyboardTypeNumberPad;
+            textFieldCell.textField.text = self.value;
         } else {
-            textFieldCell.textField.keyboardType = UIKeyboardTypeDefault;
+            if (self.valueType == SDFormFieldValueTypeDouble) {
+                textFieldCell.textField.keyboardType = UIKeyboardTypeDecimalPad;
+            } else if (self.valueType == SDFormFieldValueTypeInt) {
+                textFieldCell.textField.keyboardType = UIKeyboardTypeNumberPad;
+            } else {
+                textFieldCell.textField.keyboardType = UIKeyboardTypeDefault;
+            }
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            [formatter setPositiveFormat:@"####.##"];
+            textFieldCell.textField.text = [formatter stringFromNumber:self.value];
         }
         
+        if ([cell isKindOfClass:[SDTextFieldWithLabelCell class]]) {
+            SDTextFieldWithLabelCell *tfWithLabelCell = (SDTextFieldWithLabelCell *)cell;
+            tfWithLabelCell.titleLabel.text = self.title;
+        }
+        
+        textFieldCell.textField.enabled = self.enabled;
         textFieldCell.textField.placeholder = self.placeholder;
         textFieldCell.textField.autocapitalizationType = self.autocapitalizationType;
         textFieldCell.textField.autocorrectionType = self.autocorrectionType;

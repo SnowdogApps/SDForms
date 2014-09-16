@@ -35,10 +35,6 @@
 - (void)setField:(SDSliderField *)field
 {
     [super setField:field];
-    self.titleLabel.text = self.field.title;
-    self.valueLabel.text = self.field.formattedValue;
-    [self.slider setValue:[field.value floatValue] animated:YES];
-
 }
 
 @end

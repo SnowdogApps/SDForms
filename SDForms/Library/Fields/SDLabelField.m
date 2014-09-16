@@ -17,4 +17,12 @@
     self.reuseIdentifiers = @[kLabelCell];
 }
 
+- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
+{
+    SDLabelCell *cell = (SDLabelCell *)[super cellForTableView:tableView atIndex:index];
+    cell.titleLabel.text = self.title;
+    cell.valueLabel.text = self.formattedValue;
+    return cell;
+}
+
 @end

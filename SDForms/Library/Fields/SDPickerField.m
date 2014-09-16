@@ -52,7 +52,11 @@
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
-    if ([cell isKindOfClass:[SDPickerCell class]]) {
+    if ([cell isKindOfClass:[SDLabelCell class]]) {
+        SDLabelCell *labelCell = (SDLabelCell *)cell;
+        labelCell.titleLabel.text = self.title;
+        labelCell.valueLabel.text = self.formattedValue;
+    } else if ([cell isKindOfClass:[SDPickerCell class]]) {
         SDPickerCell *pickerCell = (SDPickerCell *)cell;
         pickerCell.picker.delegate = self;
         pickerCell.picker.dataSource = self;

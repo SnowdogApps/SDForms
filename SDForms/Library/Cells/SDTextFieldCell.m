@@ -69,14 +69,6 @@
 - (void)setField:(SDFormField *)field
 {
     [super setField:field];
-    if (field.valueType == SDFormFieldValueTypeText) {
-        self.textField.text = field.value;
-    } else if (field.valueType == SDFormFieldValueTypeDouble || field.valueType == SDFormFieldValueTypeInt) {
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        [formatter setPositiveFormat:@"####.##"];
-        self.textField.text = [formatter stringFromNumber:field.value];
-    }
 }
 
 @end

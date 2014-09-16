@@ -189,10 +189,20 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     SDFormField *field = [self fieldForIndexPath:indexPath];
-    if ([indexPath compare:self.pickerIndexPath] != NSOrderedSame) {
-        [field form:self didSelectFieldAtIndex:0];
+    
+    if (field.segueIdentifier.length > 0) {
+        [self.viewController performSegueWithIdentifier:field.segueIdentifier sender:field];
+    } else {
+        if ([indexPath compare:self.pickerIndexPath] != NSOrderedSame) {
+            [field form:self didSelectFieldAtIndex:0];
+        }
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(form:didSelectFieldAtIndexPath:)]) {
+            [self.delegate form:self didSelectFieldAtIndexPath:field.indexPath];
+        }
+        
+        [self togglePickerForIndexPath:indexPath];
     }
-    [self togglePickerForIndexPath:indexPath];
 }
 
 #pragma mark - Moving screen during editing stuff

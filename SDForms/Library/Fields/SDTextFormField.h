@@ -17,6 +17,7 @@ typedef enum {SDTextFormFieldCellTypeTextOnly, SDTextFormFieldCellTypeTextAndLab
 @property (nonatomic) UITextAutocapitalizationType autocapitalizationType;
 @property (nonatomic) UITextAutocorrectionType autocorrectionType;
 @property (nonatomic) BOOL secure;
+@property (nonatomic) BOOL enabled;
 @property (nonatomic) SDTextFormFieldCellType cellType;
 
 @end

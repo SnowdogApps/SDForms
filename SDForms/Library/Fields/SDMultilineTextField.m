@@ -32,4 +32,11 @@
     }
 }
 
+- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
+{
+    SDTextViewCell *cell = (SDTextViewCell *)[super cellForTableView:tableView atIndex:index];
+    cell.textView.text = self.value;
+    return cell;
+}
+
 @end

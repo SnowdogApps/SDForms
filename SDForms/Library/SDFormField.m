@@ -44,6 +44,11 @@
         SDFormCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.field = self;
+        
+        if (self.segueIdentifier.length > 0) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        
         return cell;
     }
     return nil;

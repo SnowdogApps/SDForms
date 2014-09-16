@@ -156,6 +156,7 @@
 		B5F876BD19AE1F0A00C4AF33 /* SDTextFieldCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB23199B95DC000AB3A5 /* SDTextFieldCell.xib */; };
 		B5F876BE19AE1F0A00C4AF33 /* SDTextViewCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB26199B95DC000AB3A5 /* SDTextViewCell.xib */; };
 		B5F876C219AE201D00C4AF33 /* SDForms.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F876C119AE201D00C4AF33 /* SDForms.m */; };
+		BF71123019C7040B007F6AB6 /* SDTextViewField.m in Sources */ = {isa = PBXBuildFile; fileRef = BF71122F19C7040B007F6AB6 /* SDTextViewField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +400,8 @@
 		B5F876BF19AE201D00C4AF33 /* SDForms-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDForms-Prefix.pch"; sourceTree = "<group>"; };
 		B5F876C019AE201D00C4AF33 /* SDForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDForms.h; sourceTree = "<group>"; };
 		B5F876C119AE201D00C4AF33 /* SDForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDForms.m; sourceTree = "<group>"; };
+		BF71122E19C7040B007F6AB6 /* SDTextViewField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTextViewField.h; sourceTree = "<group>"; };
+		BF71122F19C7040B007F6AB6 /* SDTextViewField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTextViewField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,24 +487,26 @@
 		B57ABC8419A777950062BDBB /* Fields */ = {
 			isa = PBXGroup;
 			children = (
-				B57ABC8519A777950062BDBB /* SDDatePickerField.h */,
-				B57ABC8619A777950062BDBB /* SDDatePickerField.m */,
-				B57ABC8719A777950062BDBB /* SDTextFormField.h */,
-				B57ABC8819A777950062BDBB /* SDTextFormField.m */,
-				B57ABC8B19A777BE0062BDBB /* SDPickerField.h */,
-				B57ABC8C19A777BE0062BDBB /* SDPickerField.m */,
-				B561239B19AB3590002BB86D /* SDItemSelectionField.h */,
-				B561239C19AB3590002BB86D /* SDItemSelectionField.m */,
-				B59DD0A419AC8DE3005204A1 /* SDMultilineTextField.h */,
-				B59DD0A519AC8DE3005204A1 /* SDMultilineTextField.m */,
-				B59DD0A819ACC074005204A1 /* SDSliderField.h */,
-				B59DD0A919ACC074005204A1 /* SDSliderField.m */,
-				B5F8763F19ADD13400C4AF33 /* SDLabelField.h */,
-				B5F8764019ADD13400C4AF33 /* SDLabelField.m */,
 				B55F0F1619AF0F9C00685BCA /* SDButtonField.h */,
 				B55F0F1719AF0F9C00685BCA /* SDButtonField.m */,
+				B57ABC8519A777950062BDBB /* SDDatePickerField.h */,
+				B57ABC8619A777950062BDBB /* SDDatePickerField.m */,
+				B561239B19AB3590002BB86D /* SDItemSelectionField.h */,
+				B561239C19AB3590002BB86D /* SDItemSelectionField.m */,
+				B5F8763F19ADD13400C4AF33 /* SDLabelField.h */,
+				B5F8764019ADD13400C4AF33 /* SDLabelField.m */,
+				B59DD0A419AC8DE3005204A1 /* SDMultilineTextField.h */,
+				B59DD0A519AC8DE3005204A1 /* SDMultilineTextField.m */,
+				B57ABC8B19A777BE0062BDBB /* SDPickerField.h */,
+				B57ABC8C19A777BE0062BDBB /* SDPickerField.m */,
+				B59DD0A819ACC074005204A1 /* SDSliderField.h */,
+				B59DD0A919ACC074005204A1 /* SDSliderField.m */,
 				B55F0F1D19AF2F0B00685BCA /* SDSwitchField.h */,
 				B55F0F1E19AF2F0B00685BCA /* SDSwitchField.m */,
+				B57ABC8719A777950062BDBB /* SDTextFormField.h */,
+				B57ABC8819A777950062BDBB /* SDTextFormField.m */,
+				BF71122E19C7040B007F6AB6 /* SDTextViewField.h */,
+				BF71122F19C7040B007F6AB6 /* SDTextViewField.m */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
@@ -946,6 +951,7 @@
 				B5F8768519AE1E1000C4AF33 /* SDSliderField.m in Sources */,
 				B5F8768619AE1E1000C4AF33 /* SDLabelField.m in Sources */,
 				B5F8767F19AE1E0300C4AF33 /* SDItemsPickerViewController.m in Sources */,
+				BF71123019C7040B007F6AB6 /* SDTextViewField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

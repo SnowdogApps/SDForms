@@ -16,6 +16,7 @@
 @protocol SDFormDelegate <NSObject>
 
 - (UIViewController *)viewControllerForForm:(SDForm *)form;
+- (void)form:(SDForm *)form didSelectFieldAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

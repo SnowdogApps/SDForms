@@ -13,7 +13,6 @@
 - (void)setField:(SDFormField <SDTextFieldDelegate> *)field
 {
     [super setField:field];
-    self.titleLabel.text = field.title;
 }
 
 @end

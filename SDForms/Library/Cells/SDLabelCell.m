@@ -29,8 +29,6 @@
 - (void)setField:(SDFormField *)field
 {
     [super setField:field];
-    self.titleLabel.text = field.title;
-    self.valueLabel.text = field.formattedValue;
 }
 
 @end

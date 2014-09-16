@@ -16,6 +16,7 @@
 #import "SDLabelField.h"
 #import "SDButtonField.h"
 #import "SDSwitchField.h"
+#import "SDTextViewField.h"
 #import "SDForm.h"
 
 @interface SDForms : NSObject

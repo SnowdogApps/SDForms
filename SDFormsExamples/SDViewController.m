@@ -100,6 +100,11 @@
     return self;
 }
 
+- (void)form:(SDForm *)form didSelectFieldAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Did select field in section: %ld row: %ld", indexPath.section, indexPath.row);
+}
+
 - (NSInteger)numberOfSectionsForForm:(SDForm *)form
 {
     return 2;
@@ -222,6 +227,7 @@
     label.value = @"5h";
     
     SDMultilineTextField *bio = [[SDMultilineTextField alloc] init];
+    bio.value = @"Tell us about yourself";
     
     SDDatePickerField *date1 = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth"];
     date1.title = @"Date of birth";

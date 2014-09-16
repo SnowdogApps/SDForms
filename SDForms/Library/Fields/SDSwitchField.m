@@ -17,4 +17,12 @@
     self.reuseIdentifiers = @[kSwitchCell];
 }
 
+- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
+{
+    SDSwitchCell *cell = (SDSwitchCell *)[super cellForTableView:tableView atIndex:index];
+    cell.titleLabel.text = self.title;
+    [cell.switchControl setOn:[self.value boolValue] animated:NO];
+    return cell;
+}
+
 @end

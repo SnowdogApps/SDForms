@@ -17,4 +17,11 @@
     self.reuseIdentifiers = @[kButtonCell];
 }
 
+- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
+{
+    SDButtonCell *cell = (SDButtonCell *)[super cellForTableView:tableView atIndex:index];
+    cell.titleLabel.text = self.title;
+    return cell;
+}
+
 @end

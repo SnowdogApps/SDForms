@@ -37,8 +37,11 @@ static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
-    
-    if ([cell isKindOfClass:[SDDatePickerCell class]]) {
+    if ([cell isKindOfClass:[SDLabelCell class]]) {
+        SDLabelCell *labelCell = (SDLabelCell *)cell;
+        labelCell.titleLabel.text = self.title;
+        labelCell.valueLabel.text = self.formattedValue;
+    } else if ([cell isKindOfClass:[SDDatePickerCell class]]) {
         SDDatePickerCell *datePickerCell = (SDDatePickerCell *)cell;
         if (self.timeZone) {
             datePickerCell.datePicker.timeZone = self.timeZone;
@@ -46,6 +49,7 @@ static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
         if (self.datePickerMode) {
             datePickerCell.datePicker.datePickerMode = self.datePickerMode;
         }
+        [datePickerCell.datePicker setDate:self.value animated:NO];
     }
     
     return cell;

@@ -34,9 +34,6 @@
 - (void)setField:(SDFormField *)field
 {
     [super setField:field];
-    if ([field.value isKindOfClass:[NSDate class]]) {
-        [self.datePicker setDate:field.value animated:NO];
-    }
 }
 
 - (IBAction)dateChanged:(id)sender {
