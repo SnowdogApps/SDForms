@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
+        <deployment version="1808" defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -22,7 +21,7 @@
                         </connections>
                     </switch>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPH-Iz-I3v">
-                        <rect key="frame" x="13" y="11" width="214" height="21"/>
+                        <rect key="frame" x="13" y="12" width="214" height="21"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -30,10 +29,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="PtO-mp-WZi" firstAttribute="leading" secondItem="BPH-Iz-I3v" secondAttribute="trailing" constant="24" id="0Bh-cd-yef"/>
+                    <constraint firstAttribute="trailing" secondItem="PtO-mp-WZi" secondAttribute="trailing" constant="20" id="7Fq-lF-giS"/>
                     <constraint firstAttribute="centerY" secondItem="BPH-Iz-I3v" secondAttribute="centerY" id="AQ3-9D-ep7"/>
-                    <constraint firstItem="BPH-Iz-I3v" firstAttribute="leading" secondItem="v8t-am-NuU" secondAttribute="leadingMargin" constant="5" id="VBh-Rl-Zuc"/>
+                    <constraint firstItem="BPH-Iz-I3v" firstAttribute="leading" secondItem="v8t-am-NuU" secondAttribute="leading" constant="13" id="jWj-sg-1kX"/>
                     <constraint firstAttribute="centerY" secondItem="PtO-mp-WZi" secondAttribute="centerY" id="uQR-lP-oxh"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="PtO-mp-WZi" secondAttribute="trailing" constant="12" id="y7H-vI-olY"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
