@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5183A0819C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */; };
+		B5183A0A19C9D7DC00A9B858 /* SDLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */; };
+		B5183A0B19C9DD1800A9B858 /* SDItemsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56123A219AB40D8002BB86D /* SDItemsPickerViewController.xib */; };
 		B52BE29A19AF657E0071BA57 /* SDForms.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F876C019AE201D00C4AF33 /* SDForms.h */; };
 		B52BE29B19AF657E0071BA57 /* SDItemsPickerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B56123A019AB40D8002BB86D /* SDItemsPickerViewController.h */; };
 		B52BE29C19AF657E0071BA57 /* SDDatePickerField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B57ABC8519A777950062BDBB /* SDDatePickerField.h */; };
@@ -267,6 +270,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B5183A0619C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SDExtensions.h"; sourceTree = "<group>"; };
+		B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SDExtensions.m"; sourceTree = "<group>"; };
+		B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDLaunchScreen.xib; sourceTree = "<group>"; };
 		B55F0F1619AF0F9C00685BCA /* SDButtonField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDButtonField.h; sourceTree = "<group>"; };
 		B55F0F1719AF0F9C00685BCA /* SDButtonField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDButtonField.m; sourceTree = "<group>"; };
 		B55F0F1D19AF2F0B00685BCA /* SDSwitchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSwitchField.h; sourceTree = "<group>"; };
@@ -683,6 +689,8 @@
 				B596CBB1199B98B0000AB3A5 /* UIImage+Colorize.m */,
 				B56123A519AB4BFC002BB86D /* NSMutableArray+IndexSelection.h */,
 				B56123A619AB4BFC002BB86D /* NSMutableArray+IndexSelection.m */,
+				B5183A0619C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.h */,
+				B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -713,6 +721,7 @@
 				B5F8764D19AE1BAB00C4AF33 /* SDForms-Prefix.pch */,
 				B5F8764E19AE1BAB00C4AF33 /* SDViewController.h */,
 				B5F8764F19AE1BAB00C4AF33 /* SDViewController.m */,
+				B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */,
 			);
 			path = SDFormsExamples;
 			sourceTree = "<group>";
@@ -833,6 +842,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5183A0B19C9DD1800A9B858 /* SDItemsPickerViewController.xib in Resources */,
 				B55F0F8419AF418300685BCA /* SDBigStarRatingView.xib in Resources */,
 				B55F0F8519AF418300685BCA /* SDStarRatingView.xib in Resources */,
 				B55F0F8619AF418300685BCA /* SDNavigationToolbar.xib in Resources */,
@@ -861,6 +871,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5183A0A19C9D7DC00A9B858 /* SDLaunchScreen.xib in Resources */,
 				B558865A19B755750082CCF9 /* SDFormsResources.bundle in Resources */,
 				B5F876A919AE1ED100C4AF33 /* Main.storyboard in Resources */,
 				B5F8765119AE1BAB00C4AF33 /* InfoPlist.strings in Resources */,
@@ -941,6 +952,7 @@
 				B5F8768B19AE1E2B00C4AF33 /* UIImage+Colorize.m in Sources */,
 				B5F8768C19AE1E2B00C4AF33 /* NSMutableArray+IndexSelection.m in Sources */,
 				B5F8768719AE1E2100C4AF33 /* SDDataValidator.m in Sources */,
+				B5183A0819C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m in Sources */,
 				B5F8768819AE1E2100C4AF33 /* SDTimeFormatter.m in Sources */,
 				B5F8768919AE1E2100C4AF33 /* SDTimeIntervalComponents.m in Sources */,
 				B5F8768019AE1E1000C4AF33 /* SDDatePickerField.m in Sources */,

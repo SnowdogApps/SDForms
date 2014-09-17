@@ -13,6 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSLog (@"Window frame: %@", NSStringFromCGRect(self.window.frame));
     return YES;
 }
 							

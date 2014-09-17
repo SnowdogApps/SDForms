@@ -10,6 +10,11 @@
 
 @interface SDMultilineTextField : SDFormField
 
+@property (nonatomic) BOOL editable;
+@property (nonatomic) BOOL selectable;
+@property (nonatomic, strong) UIFont *textFont;
+@property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic) CGFloat textViewHeight;
+@property (nonatomic) BOOL automaticHeight;
 
 @end

@@ -47,12 +47,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog (@"VC frame: %@", NSStringFromCGRect(self.view.frame));
+    NSLog (@"TableView frame: %@", NSStringFromCGRect(self.tableView.frame));
     
     UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(saveButtonTapped:)];
     self.navigationItem.rightBarButtonItem = save;
     
     [self initFields];
-    
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    NSLog (@"After layout VC frame: %@", NSStringFromCGRect(self.view.frame));
+    NSLog (@"After layout TableView frame: %@", NSStringFromCGRect(self.tableView.frame));
     [self.form reloadData];
 }
 
@@ -233,7 +241,7 @@
     label.value = @"5h";
     
     SDMultilineTextField *bio = [[SDMultilineTextField alloc] init];
-    bio.value = bio.relatedObject = self.person;
+    bio.relatedObject = self.person;
     bio.relatedPropertyKey = @"bio";
     
     SDDatePickerField *dob = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth"];
@@ -274,10 +282,18 @@
     hired.value = [NSDate date];
     hired.datePickerMode = UIDatePickerModeDateAndTime;
     
+    SDMultilineTextField *autoHeightText = [[SDMultilineTextField alloc] init];
+    autoHeightText.editable = NO;
+    autoHeightText.automaticHeight = YES;
+    autoHeightText.value = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. \
+        \n\nNullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.\
+        \n\nNam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.\
+        \n\nDonec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut";
+    
     SDButtonField *submit = [[SDButtonField alloc] init];
     submit.title = @"Submit";
     
-    self.section2Fields = @[picker1, selection, hired, submit];
+    self.section2Fields = @[picker1, selection, hired, autoHeightText, submit];
 }
 
 @end
