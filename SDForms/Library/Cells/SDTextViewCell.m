@@ -56,6 +56,11 @@
     }
 }
 
+- (void)textViewDidChange:(UITextView *)textView
+{
+    [self.field setValue:textView.text withCellRefresh:NO];
+}
+
 - (void)setField:(SDFormField *)field
 {
     [super setField:field];

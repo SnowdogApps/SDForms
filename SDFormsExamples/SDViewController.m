@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSNumber *salary;
 @property (nonatomic, strong) NSDate *dateOfBirth;
 @property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *bio;
+@property (nonatomic, strong) NSNumber *hp;
+@property (nonatomic, strong) NSNumber *isStudent;
 
 @end
 
@@ -25,7 +28,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth];
+    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent];
 }
 
 @end
@@ -184,6 +187,9 @@
     self.person.salary = @3000;
     self.person.dateOfBirth = [[NSDate date] dateByAddingTimeInterval:(3600 * 24 * 365 * 25)];
     self.person.age = @25;
+    self.person.bio = @"There was a boy";
+    self.person.hp = @70;
+    self.person.isStudent = @YES;
     
     self.form = [[SDForm alloc] initWithTableView:self.tableView];
     self.form.delegate = self;
@@ -227,12 +233,25 @@
     label.value = @"5h";
     
     SDMultilineTextField *bio = [[SDMultilineTextField alloc] init];
-    bio.value = @"Tell us about yourself";
+    bio.value = bio.relatedObject = self.person;
+    bio.relatedPropertyKey = @"bio";
     
-    SDDatePickerField *date1 = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth"];
-    date1.title = @"Date of birth";
-    date1.value = [NSDate date];
-    date1.datePickerMode = UIDatePickerModeDateAndTime;
+    SDDatePickerField *dob = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth"];
+    dob.title = @"Date of birth";
+    dob.value = [NSDate date];
+    dob.datePickerMode = UIDatePickerModeDateAndTime;
+    
+    SDSliderField *hp = [[SDSliderField alloc] initWithObject:self.person relatedPropertyKey:@"hp"];
+    hp.title = @"HP";
+    hp.min = 0.0;
+    hp.max = 100.0;
+    hp.step = 10.0;
+    
+    SDSwitchField *isStudent = [[SDSwitchField alloc] initWithObject:self.person relatedPropertyKey:@"isStudent"];
+    isStudent.title = @"Is student";
+    
+    self.section1Fields = @[name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent];
+    
     
     SDPickerField *picker1 = [[SDPickerField alloc] init];
     picker1.formatDelegate = self;
@@ -250,28 +269,15 @@
     [selection setItems:@[@"Option 1", @"Option 2", @"Option 3", @"Option 4"]];
     [selection setSelectedIndexes:[@[@0] mutableCopy]];
     
-    SDSliderField *slider = [[SDSliderField alloc] init];
-    slider.title = @"Slider 1";
-    slider.value = @0.0;
-    slider.min = 0.0;
-    slider.max = 100.0;
-    slider.step = 10.0;
-    
-    self.section1Fields = @[name, surname, password, age, sex, salary, label, bio, date1, picker1, selection, slider];
-    
     SDDatePickerField *hired = [[SDDatePickerField alloc] init];
     hired.title = @"Hired";
     hired.value = [NSDate date];
     hired.datePickerMode = UIDatePickerModeDateAndTime;
     
-    SDSwitchField *switchField = [[SDSwitchField alloc] init];
-    switchField.title = @"Switch";
-    switchField.value = @YES;
-    
     SDButtonField *submit = [[SDButtonField alloc] init];
     submit.title = @"Submit";
     
-    self.section2Fields = @[hired, switchField, submit];
+    self.section2Fields = @[picker1, selection, hired, submit];
 }
 
 @end

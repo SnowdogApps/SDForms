@@ -95,34 +95,10 @@
 - (void)setItems:(NSArray *)items
 {
     [self validateItemsArray:items];
-    
-    if (self.values) {
-        [self validateValuesArray:self.values];
-    }
-    
+    [self validateValuesArray:self.values];
     _items = items;
-    
     [self createSelectedIndexesArrayWithItems:items];
     [self fillSelectedValues];
-}
-
-- (void)createSelectedIndexesArrayWithItems:(NSArray *)items
-{
-    NSMutableArray *selected = [NSMutableArray array];
-    for (int i = 0; i < items.count; i++) {
-        [selected addObject:@0];
-    }
-    self.selectedIndexes = [selected mutableCopy];
-}
-
-- (void)validateItemsArray:(NSArray *)items
-{
-    for (id obj in items) {
-        NSAssert([obj isKindOfClass:[NSArray class]], @"All objects of items array should be of (NSArray *) type");
-        for (id item in (NSArray*)obj) {
-            NSAssert([item isKindOfClass:[NSString class]], @"All items should be of (NSString *) type");
-        }
-    }
 }
 
 
@@ -131,45 +107,6 @@
     [self validateValuesArray:values];
     _values = values;
     [self fillSelectedValues];
-}
-
-
-- (void)validateValuesArray:(NSArray *)values
-{
-    if (self.items) {
-        NSAssert(values.count == self.items.count, @"values array should have the same number of objecta as items array");
-    }
-    
-    int i = 0;
-    for (id obj in values) {
-        NSAssert([obj isKindOfClass:[NSArray class]], @"All objects of values array should be of (NSArray *) type");
-        
-        NSArray *items = [self.items objectAtIndex:i];
-        NSAssert(((NSArray*)obj).count == items.count, @"All objects in values should have the same number of elements as corresponding objects in items array");
-        i++;
-    }
-}
-
-
-- (void)fillSelectedValues
-{
-    if (self.values) {
-        NSMutableArray *selectedValues = [[NSMutableArray alloc] init];
-        if (self.selectedIndexes) {
-            for (int i = 0; i < self.selectedIndexes.count; i++) {
-                NSNumber *index = [self.selectedIndexes objectAtIndex:i];
-                NSArray *values = [self.values objectAtIndex:i];
-                [selectedValues addObject:[values objectAtIndex:index.integerValue]];
-            }
-        } else {
-            for (int i = 0; i < _values.count; i++) {
-                NSArray *values = [self.values objectAtIndex:i];
-                NSInteger index = 0;
-                [selectedValues addObject:[values objectAtIndex:index]];
-            }
-        }
-        self.value = selectedValues;
-    }
 }
 
 
@@ -198,6 +135,145 @@
     }
 }
 
+- (void)setRelatedObjects:(NSArray *)relatedObjects
+{
+    [self validateValuesArray:self.values];
+    _relatedObjects = relatedObjects;
+    [self setValueBasedOnRelatedObjectProperty];
+}
+
+- (void)setRelatedPropertyKeys:(NSArray *)relatedPropertyKeys
+{
+    [self validateValuesArray:self.values];
+    _relatedPropertyKeys = relatedPropertyKeys;
+    [self setValueBasedOnRelatedObjectProperty];
+}
+
+- (id)relatedObject
+{
+    if (self.relatedObjects.count > 0) {
+        return [self.relatedObjects objectAtIndex:0];
+    }
+    return nil;
+}
+
+- (void)setRelatedObject:(id)relatedObject
+{
+    if (relatedObject) {
+        self.relatedObjects = @[relatedObject];
+    } else {
+        self.relatedObjects = nil;
+    }
+}
+
+- (NSString *)relatedPropertyKey
+{
+    if (self.relatedPropertyKeys.count > 0) {
+        return [self.relatedPropertyKeys objectAtIndex:0];
+    }
+    return nil;
+}
+
+- (void)setRelatedPropertyKey:(NSString *)relatedPropertyKey
+{
+    if (relatedPropertyKey) {
+        self.relatedPropertyKeys = @[relatedPropertyKey];
+    } else {
+        self.relatedPropertyKeys = nil;
+    }
+}
+
+- (void)validateValuesArray:(NSArray *)values
+{
+    if (values) {
+        if (self.items) {
+            NSAssert(values.count == self.items.count, @"values array should have the same number of objecta as items array");
+        }
+        
+        if (self.relatedObjects) {
+            NSAssert(values.count == self.relatedObjects.count, @"values array should have the same number of objecta as relatedObjects array");
+        }
+        
+        if (self.relatedPropertyKeys) {
+            NSAssert(values.count == self.relatedPropertyKeys.count, @"values array should have the same number of objecta as relatedPropertyKeys array");
+        }
+        
+        int i = 0;
+        for (id obj in values) {
+            NSAssert([obj isKindOfClass:[NSArray class]], @"All objects of values array should be of (NSArray *) type");
+            
+            NSArray *items = [self.items objectAtIndex:i];
+            NSAssert(((NSArray*)obj).count == items.count, @"All objects in values should have the same number of elements as corresponding objects in items array");
+            i++;
+        }
+    }
+}
+
+
+- (void)fillSelectedValues
+{
+    if (self.values) {
+        NSMutableArray *selectedValues = [[NSMutableArray alloc] init];
+        if (self.selectedIndexes) {
+            for (int i = 0; i < self.selectedIndexes.count; i++) {
+                NSNumber *index = [self.selectedIndexes objectAtIndex:i];
+                NSArray *values = [self.values objectAtIndex:i];
+                [selectedValues addObject:[values objectAtIndex:index.integerValue]];
+            }
+        } else {
+            for (int i = 0; i < _values.count; i++) {
+                NSArray *values = [self.values objectAtIndex:i];
+                NSInteger index = 0;
+                [selectedValues addObject:[values objectAtIndex:index]];
+            }
+        }
+        self.value = selectedValues;
+    }
+}
+
+- (void)createSelectedIndexesArrayWithItems:(NSArray *)items
+{
+    NSMutableArray *selected = [NSMutableArray array];
+    for (int i = 0; i < items.count; i++) {
+        [selected addObject:@0];
+    }
+    self.selectedIndexes = [selected mutableCopy];
+}
+
+- (void)validateItemsArray:(NSArray *)items
+{
+    for (id obj in items) {
+        NSAssert([obj isKindOfClass:[NSArray class]], @"All objects of items array should be of (NSArray *) type");
+        for (id item in (NSArray*)obj) {
+            NSAssert([item isKindOfClass:[NSString class]], @"All items should be of (NSString *) type");
+        }
+    }
+}
+
+- (void)setValueBasedOnRelatedObjectProperty
+{
+    if (self.relatedObjects && self.relatedPropertyKeys ) {
+        for (int i = 0; i < self.relatedObjects.count; i++) {
+            id val = [[self.relatedObjects objectAtIndex:i] valueForKey:[self.relatedPropertyKeys objectAtIndex:i]];
+            NSArray *values = [self.values objectAtIndex:i];
+            __block NSUInteger valueIndex = NSNotFound;
+            [values enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                if ([obj isEqual:val]) {
+                    valueIndex = idx;
+                    *stop = YES;
+                }
+            }];
+            
+            if (valueIndex == NSNotFound) {
+                valueIndex = 0;
+            }
+            
+            [self.selectedIndexes replaceObjectAtIndex:i withObject:@(valueIndex)];
+            
+        }
+        [self fillSelectedValues];
+    }
+}
 
 #pragma mark - Managing items
 

@@ -11,6 +11,7 @@
 
 @implementation SDFormField
 
+
 - (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key
 {
     self = [self init];
@@ -18,7 +19,7 @@
         self.relatedObject = object;
         self.relatedPropertyKey = key;
         
-        _value = [self.relatedObject valueForKey:self.relatedPropertyKey];
+        [self setValueBasedOnRelatedObjectProperty];
     }
     return self;
 }
@@ -72,12 +73,36 @@
 {
     _value = value;
     
-    if (self.relatedObject && self.relatedPropertyKey) {
-        [self.relatedObject setValue:value forKey:self.relatedPropertyKey];
-    }
+    [self setRelatedObjectProperty];
     
     if (refresh) {
         [self refreshFieldCell];
+    }
+}
+
+- (void)setRelatedObject:(id)relatedObject
+{
+    _relatedObject = relatedObject;
+    [self setValueBasedOnRelatedObjectProperty];
+}
+
+- (void) setRelatedPropertyKey:(NSString *)relatedPropertyKey
+{
+    _relatedPropertyKey = relatedPropertyKey;
+    [self setValueBasedOnRelatedObjectProperty];
+}
+
+- (void)setRelatedObjectProperty
+{
+    if (self.relatedObject && self.relatedPropertyKey) {
+        [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
+    }
+}
+
+- (void)setValueBasedOnRelatedObjectProperty
+{
+    if (self.relatedObject && self.relatedPropertyKey) {
+        self.value = [self.relatedObject valueForKey:self.relatedPropertyKey];
     }
 }
 

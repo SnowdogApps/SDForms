@@ -24,6 +24,7 @@
     [super awakeFromNib];
     
     self.textField.delegate = self;
+    [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.responders = @[self.textField];
 }
 
@@ -53,16 +54,26 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if (self.field.valueType == SDFormFieldValueTypeText) {
-        self.field.value = textField.text;
-    } else if (self.field.valueType == SDFormFieldValueTypeDouble || self.field.valueType == SDFormFieldValueTypeInt) {
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        self.field.value = [formatter numberFromString:textField.text];
-    }
+    [self setFieldValueFromTextField:textField withCellRefresh:YES];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(formCell:didDeactivateResponder:)]) {
         [self.delegate formCell:self didDeactivateResponder:textField];
+    }
+}
+
+- (void)textFieldDidChange:(SDTextField *)textField
+{
+    [self setFieldValueFromTextField:textField withCellRefresh:NO];
+}
+
+- (void)setFieldValueFromTextField:(UITextField *)textField withCellRefresh:(BOOL)refresh
+{
+    if (self.field.valueType == SDFormFieldValueTypeText) {
+        [self.field setValue:textField.text withCellRefresh:refresh];
+    } else if (self.field.valueType == SDFormFieldValueTypeDouble || self.field.valueType == SDFormFieldValueTypeInt) {
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [self.field setValue:[formatter numberFromString:textField.text] withCellRefresh:refresh];
     }
 }
 
