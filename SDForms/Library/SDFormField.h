@@ -37,6 +37,7 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 @property (nonatomic) SDFormFieldValueType valueType;
 @property (nonatomic, strong) NSString *formattedValue;
 @property (nonatomic) BOOL hasPicker;
+@property (nonatomic) BOOL enabled;
 @property (nonatomic, strong) NSArray *reuseIdentifiers;
 @property (nonatomic, strong) NSArray *cellHeights;
 @property (nonatomic, strong) NSIndexPath *indexPath;

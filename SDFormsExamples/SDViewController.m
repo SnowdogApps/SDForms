@@ -228,6 +228,7 @@
     sex.title = @"Sex";
     [sex setItems:@[@[@"Male", @"Female", @"Other"]]];
     [sex setValues:@[@[@"male", @"female", @"other"]]];
+    sex.enabled = NO;
     sex.relatedObjects = @[self.person];
     sex.relatedPropertyKeys = @[@"sex"];
     [sex selectItem:1 inComponent:0];

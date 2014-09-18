@@ -190,18 +190,20 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     SDFormField *field = [self fieldForIndexPath:indexPath];
     
-    if (field.segueIdentifier.length > 0) {
-        [self.viewController performSegueWithIdentifier:field.segueIdentifier sender:field];
-    } else {
-        if ([indexPath compare:self.pickerIndexPath] != NSOrderedSame) {
-            [field form:self didSelectFieldAtIndex:0];
+    if (field.enabled) {
+        if (field.segueIdentifier.length > 0) {
+            [self.viewController performSegueWithIdentifier:field.segueIdentifier sender:field];
+        } else {
+            if ([indexPath compare:self.pickerIndexPath] != NSOrderedSame) {
+                [field form:self didSelectFieldAtIndex:0];
+            }
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(form:didSelectFieldAtIndexPath:)]) {
+                [self.delegate form:self didSelectFieldAtIndexPath:field.indexPath];
+            }
+            
+            [self togglePickerForIndexPath:indexPath];
         }
-        
-        if (self.delegate && [self.delegate respondsToSelector:@selector(form:didSelectFieldAtIndexPath:)]) {
-            [self.delegate form:self didSelectFieldAtIndexPath:field.indexPath];
-        }
-        
-        [self togglePickerForIndexPath:indexPath];
     }
 }
 

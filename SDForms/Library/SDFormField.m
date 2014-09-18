@@ -29,6 +29,7 @@
     self = [super init];
     if (self) {
         _hasPicker = NO;
+        _enabled = YES;
     }
     return self;
 }
