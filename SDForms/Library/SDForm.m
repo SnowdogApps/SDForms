@@ -101,6 +101,8 @@
         
         self.sections = sections;
     }
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - TableView stuff

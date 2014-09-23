@@ -368,7 +368,7 @@
         [self.selectedIndexes replaceObjectAtIndex:component withObject:@(row)];
         [self fillSelectedValues];
         
-        if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerView:didSelectRow:inComponent:)]) {
+        if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerField:didSelectRow:inComponent:)]) {
             [self.pickerFieldDelegate pickerField:self didSelectRow:row inComponent:component];
         }
     }
