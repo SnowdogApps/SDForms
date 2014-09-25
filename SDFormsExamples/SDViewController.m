@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSNumber *salary;
 @property (nonatomic, strong) NSDate *dateOfBirth;
+@property (nonatomic, readonly) NSString *formattedDOB;
 @property (nonatomic, strong) NSString *sex;
 @property (nonatomic, strong) NSString *bio;
 @property (nonatomic, strong) NSNumber *hp;
@@ -29,6 +30,13 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent];
+}
+
+- (NSString *) formattedDOB
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"dd MMM yyyy";
+    return [NSString stringWithFormat:@"%@", [formatter stringFromDate:self.dateOfBirth]];;
 }
 
 @end
@@ -245,7 +253,7 @@
     bio.relatedObject = self.person;
     bio.relatedPropertyKey = @"bio";
     
-    SDDatePickerField *dob = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth"];
+    SDDatePickerField *dob = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth" formattedValueKey:@"formattedDOB"];
     dob.title = @"Date of birth";
     dob.value = [NSDate date];
     dob.datePickerMode = UIDatePickerModeDateAndTime;

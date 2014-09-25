@@ -62,7 +62,9 @@ static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
 {
     if (self.formatDelegate && [self.formatDelegate respondsToSelector:@selector(formattedValueForField:)]) {
         return [self.formatDelegate formattedValueForField:self];
-    } else {    
+    } else if (self.relatedObject && self.formattedValueKey) {
+        return [self.relatedObject valueForKey:self.formattedValueKey];
+    } else {
         if ([self.value isKindOfClass:[NSDate class]]) {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             

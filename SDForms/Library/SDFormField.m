@@ -24,6 +24,15 @@
     return self;
 }
 
+- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey
+{
+    self = [self initWithObject:object relatedPropertyKey:key];
+    if (self) {
+        self.formattedValueKey = formattedKey;
+    }
+    return self;
+}
+
 - (id)init
 {
     self = [super init];
@@ -112,6 +121,8 @@
     if (self.formatDelegate && [self.formatDelegate respondsToSelector:@selector(formattedValueForField:)]) {
         NSString *title = [self.formatDelegate formattedValueForField:self];
         return title;
+    } else if (self.relatedObject && self.formattedValueKey) {
+        return [self.relatedObject valueForKey:self.formattedValueKey];
     }
     
     if (self.value) {

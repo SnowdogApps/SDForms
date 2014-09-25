@@ -44,6 +44,7 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 @property (nonatomic) SDFormFieldPresentingMode presentingMode; ///<Tells the field how it should present its view controllers. By default it's set to SDFormFieldPresentingModePush
 @property (nonatomic, strong) id relatedObject;
 @property (nonatomic, strong) NSString *relatedPropertyKey;
+@property (nonatomic, strong) NSString *formattedValueKey;
 @property (nonatomic, strong) NSString *segueIdentifier;
 @property (nonatomic, readonly) NSBundle *defaultBundle;
 
@@ -51,6 +52,7 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 @property (nonatomic, weak) id<SDFormFieldCustomizationDelegate> formatDelegate;
 
 - (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key;
+- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey;
 - (void)registerCellsInTableView:(UITableView*)tableView;
 - (SDFormCell *)cellForTableView:(UITableView*)tableView atIndex:(NSUInteger)index;
 - (CGFloat)heightForCellInTableView:(UITableView *)tableView atIndex:(NSUInteger)index;
