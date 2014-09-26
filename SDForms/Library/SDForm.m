@@ -587,7 +587,7 @@
 - (NSIndexPath *)fieldCellIndexPathWithPickerIndexPath:(NSIndexPath*)pickerIndexPath
 {
     if (pickerIndexPath && self.section == pickerIndexPath.section) {
-        if (self.row > pickerIndexPath.row) {
+        if (self.row >= pickerIndexPath.row) {
             return [NSIndexPath indexPathForRow:self.row + 1 inSection:self.section];
         } else {
             return self;
