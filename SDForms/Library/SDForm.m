@@ -20,6 +20,7 @@
 @property (nonatomic) CGRect prevFrame;
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
 @property (nonatomic, strong) NSIndexPath *pickerIndexPath;
+@property (nonatomic, strong) SDFormField *fieldShowingPicker;
 @property (nonatomic, strong) UIView *activeResponder;
 @property (nonatomic, readonly) UIViewController *viewController;
 @property (nonatomic, strong) NSArray *sections;
@@ -51,10 +52,15 @@
     return formField;
 }
 
+- (void)removeFieldAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation
+{
+    
+}
+
 - (void)reloadData
 {
     self.sections = nil;
-    
+    BOOL foundFieldShowingPicker = NO;
     NSInteger numberOfSections = 0;
     
     if (self.dataSource) {
@@ -63,6 +69,7 @@
         }
         
         NSMutableArray *sections = [[NSMutableArray alloc] init];
+        
         for (NSInteger i = 0; i < numberOfSections; ++i) {
             SDFormSection *section = [[SDFormSection alloc] init];
             if ([self.dataSource respondsToSelector:@selector(form:titleForHeaderInSection:)]) {
@@ -86,12 +93,22 @@
             
             if ([self.dataSource respondsToSelector:@selector(form:numberOfFieldsInSection:)]) {
                 NSInteger numberOfFields = [self.dataSource form:self numberOfFieldsInSection:i];
+                
                 if ([self.dataSource respondsToSelector:@selector(form:fieldForRow:inSection:)]) {
                     NSMutableArray *fields = [[NSMutableArray alloc] init];
+                    
                     for (int j = 0; j < numberOfFields; ++j) {
                         SDFormField *field = [self.dataSource form:self fieldForRow:j inSection:i];
                         NSAssert(field != nil, @"SDForm dataSource must return a field from form:fieldForRow:inSection:");
+                        
+                        [field registerCellsInTableView:self.tableView];
+                        field.delegate = self;
+                        field.indexPath = [NSIndexPath indexPathForRow:j inSection:i];
                         [fields addObject:field];
+                        
+                        if (self.fieldShowingPicker && self.fieldShowingPicker == field) {
+                            foundFieldShowingPicker = YES;
+                        }
                     }
                     section.fields = fields;
                 }
@@ -100,6 +117,11 @@
         }
         
         self.sections = sections;
+    }
+    
+    if (!foundFieldShowingPicker) {
+        self.fieldShowingPicker = nil;
+        self.pickerIndexPath = nil;
     }
     
     [self.tableView reloadData];
@@ -405,6 +427,7 @@
         
         NSIndexPath *lastPickerIndexPath = self.pickerIndexPath;
         self.pickerIndexPath = nil;
+        self.fieldShowingPicker = nil;
         [self hidePickerOnIndexPath:lastPickerIndexPath];
     } else {
         
@@ -413,14 +436,17 @@
             
             if (!self.pickerIndexPath) {
                 self.pickerIndexPath = probablePickerIndex;
+                self.fieldShowingPicker = field;
                 [self showPickerOnIndexPath:probablePickerIndex];
                 pickerToggled = YES;
             } else {
                 NSIndexPath *lastPickerIndexPath = self.pickerIndexPath;
                 self.pickerIndexPath = nil;
+                self.fieldShowingPicker = nil;
                 
                 [self hidePickerOnIndexPath:lastPickerIndexPath];
                 self.pickerIndexPath = probablePickerIndex;
+                self.fieldShowingPicker = field;
                 [self showPickerOnIndexPath:self.pickerIndexPath];
                 pickerToggled = YES;
             }
@@ -429,6 +455,7 @@
         if(!pickerToggled) {
             NSIndexPath *lastPickerIndexPath = self.pickerIndexPath;
             self.pickerIndexPath = nil;
+            self.fieldShowingPicker = nil;
             NSLog(@"last_picker:%ld newPicker:%ld", (long)lastPickerIndexPath.row, (long)probablePickerIndex.row);
             [self hidePickerOnIndexPath:lastPickerIndexPath];
         }
@@ -501,18 +528,6 @@
 - (void)setSections:(NSArray *)sections
 {
     _sections = sections;
-    
-    int i = 0;
-    for (SDFormSection *section in sections) {
-        int j = 0;
-        for (SDFormField *field in section.fields) {
-            [field registerCellsInTableView:self.tableView];
-            field.delegate = self;
-            field.indexPath = [NSIndexPath indexPathForRow:j inSection:i];
-            j++;
-        }
-        i++;
-    }
 }
 
 - (void)setDelegate:(id<SDFormDelegate>)delegate

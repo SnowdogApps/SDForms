@@ -39,6 +39,7 @@
 @interface SDForm : NSObject <SDFormFieldDelegate, SDFormCellDelegate, SDNavigationToolbarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 - (id)initWithTableView:(UITableView*)tableView;
+- (SDFormField *)fieldForIndexPath:(NSIndexPath *)indexPath;
 - (void)reloadData;
 
 @property (nonatomic, strong) UITableView *tableView;

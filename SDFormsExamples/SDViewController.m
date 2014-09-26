@@ -45,8 +45,8 @@
 
 @property (nonatomic, strong) SDForm *form;
 @property (nonatomic, strong) Person *person;
-@property (nonatomic, strong) NSArray *section1Fields;
-@property (nonatomic, strong) NSArray *section2Fields;
+@property (nonatomic, strong) NSMutableArray *section1Fields;
+@property (nonatomic, strong) NSMutableArray *section2Fields;
 
 @end
 
@@ -60,6 +60,10 @@
     
     UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(saveButtonTapped:)];
     self.navigationItem.rightBarButtonItem = save;
+    
+    UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cellWasSwiped:)];
+    [self.tableView addGestureRecognizer:swipeRecognizer];
+    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     
     [self initFields];
 }
@@ -236,7 +240,7 @@
     sex.title = @"Sex";
     [sex setItems:@[@[@"Male", @"Female", @"Other"]]];
     [sex setValues:@[@[@"male", @"female", @"other"]]];
-    sex.enabled = NO;
+    sex.enabled = YES;
     sex.relatedObjects = @[self.person];
     sex.relatedPropertyKeys = @[@"sex"];
     [sex selectItem:1 inComponent:0];
@@ -267,7 +271,7 @@
     SDSwitchField *isStudent = [[SDSwitchField alloc] initWithObject:self.person relatedPropertyKey:@"isStudent"];
     isStudent.title = @"Is student";
     
-    self.section1Fields = @[name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent];
+    self.section1Fields = [@[name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
     
     
     SDPickerField *picker1 = [[SDPickerField alloc] init];
@@ -302,7 +306,26 @@
     SDButtonField *submit = [[SDButtonField alloc] init];
     submit.title = @"Submit";
     
-    self.section2Fields = @[picker1, selection, hired, autoHeightText, submit];
+    self.section2Fields = [@[picker1, selection, hired, autoHeightText, submit] mutableCopy];
+}
+
+- (void) cellWasSwiped:(UIGestureRecognizer *)recognizer
+{
+    CGPoint swipeLocation = [recognizer locationInView:self.tableView];
+    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+    if(swipedIndexPath)
+    {
+        SDFormField *field = [self.form fieldForIndexPath:swipedIndexPath];
+        if (swipedIndexPath.section == 0) {
+            [self.section1Fields removeObject:field];
+        } else {
+            [self.section2Fields removeObject:field];
+        }
+
+        
+        [self.form reloadData];
+//        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:swipedIndexPath.section] withRowAnimation:UITableViewRowAnimationLeft];
+    }
 }
 
 @end
