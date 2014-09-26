@@ -73,9 +73,9 @@
 
             NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:valueString attributes:@{NSFontAttributeName: self.textFont, NSForegroundColorAttributeName: self.textColor}];
             cell.textView.attributedText = attrString;
-            
             cell.textView.editable = self.editable;
             cell.textView.selectable = self.selectable;
+            cell.textView.userInteractionEnabled = (self.editable || self.selectable);
         }
     }
     
