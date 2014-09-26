@@ -322,9 +322,7 @@
             [self.section2Fields removeObject:field];
         }
 
-        
-        [self.form reloadData];
-//        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:swipedIndexPath.section] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.form removeFieldAtIndexPath:field.indexPath withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
 

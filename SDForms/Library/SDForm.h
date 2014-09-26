@@ -40,6 +40,7 @@
 
 - (id)initWithTableView:(UITableView*)tableView;
 - (SDFormField *)fieldForIndexPath:(NSIndexPath *)indexPath;
+- (void)removeFieldAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 - (void)reloadData;
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -51,6 +52,6 @@
 @interface NSIndexPath (FieldIndex)
 
 - (NSInteger)fieldIndexWithPickerIndexPath:(NSIndexPath*)pickerIndexPath;
-- (NSIndexPath *)fieldIndexPathWithPickerIndexPath:(NSIndexPath*)pickerIndexPath;
+- (NSIndexPath *)fieldCellIndexPathWithPickerIndexPath:(NSIndexPath*)pickerIndexPath;
 
 @end

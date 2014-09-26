@@ -11,7 +11,7 @@
 
 @interface SDFormSection : NSObject
 
-@property (nonatomic, strong) NSArray *fields;
+@property (nonatomic, strong) NSMutableArray *fields;
 @property (nonatomic, strong) NSString *headerTitle;
 @property (nonatomic, strong) NSString *footerTitle;
 @property (nonatomic) CGFloat headerHeight;

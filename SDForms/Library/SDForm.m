@@ -23,7 +23,7 @@
 @property (nonatomic, strong) SDFormField *fieldShowingPicker;
 @property (nonatomic, strong) UIView *activeResponder;
 @property (nonatomic, readonly) UIViewController *viewController;
-@property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, strong) NSMutableArray *sections;
 
 @end
 
@@ -54,7 +54,25 @@
 
 - (void)removeFieldAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation
 {
+    SDFormSection *section = [self.sections objectAtIndex:indexPath.section];
+    NSMutableArray *fields = section.fields;
+    SDFormField *field = [fields objectAtIndex:indexPath.row];
     
+    NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+    NSIndexPath *cellIP = [field.indexPath fieldCellIndexPathWithPickerIndexPath:self.pickerIndexPath];
+    [indexPaths addObject:cellIP];
+    
+    NSIndexPath *probablePickerIP = [NSIndexPath indexPathForRow:cellIP.row + 1 inSection:cellIP.section];
+    if ([probablePickerIP compare:self.pickerIndexPath] == NSOrderedSame) {
+        [indexPaths addObject:probablePickerIP];
+        self.pickerIndexPath = nil;
+        self.fieldShowingPicker = nil;
+    }
+    
+    [fields removeObject:field];
+    [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:rowAnimation];
+    
+    [self updateFieldsIndexPaths];
 }
 
 - (void)reloadData
@@ -103,7 +121,6 @@
                         
                         [field registerCellsInTableView:self.tableView];
                         field.delegate = self;
-                        field.indexPath = [NSIndexPath indexPathForRow:j inSection:i];
                         [fields addObject:field];
                         
                         if (self.fieldShowingPicker && self.fieldShowingPicker == field) {
@@ -124,7 +141,19 @@
         self.pickerIndexPath = nil;
     }
     
+    [self updateFieldsIndexPaths];
     [self.tableView reloadData];
+}
+
+- (void)updateFieldsIndexPaths
+{
+    for (int i = 0; i < self.sections.count; i++) {
+        SDFormSection *section = [self.sections objectAtIndex:i];
+        for (int j = 0; j < section.fields.count; j++) {
+            SDFormField *field = [section.fields objectAtIndex:j];
+            field.indexPath = [NSIndexPath indexPathForRow:j inSection:i];
+        }
+    }
 }
 
 #pragma mark - TableView stuff
@@ -271,7 +300,7 @@
 
 - (void)formFieldDidUpdateValue:(SDFormField *)field
 {
-    NSIndexPath *indexPath = [field.indexPath fieldIndexPathWithPickerIndexPath:self.pickerIndexPath];
+    NSIndexPath *indexPath = [field.indexPath fieldCellIndexPathWithPickerIndexPath:self.pickerIndexPath];
     if (indexPath) {
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
@@ -463,7 +492,6 @@
 }
 
 
-// Implement in subclass
 - (void)showPickerOnIndexPath:(NSIndexPath*)indexPath
 {
     if(indexPath) {
@@ -471,7 +499,7 @@
     }
 }
 
-// implement in subclass
+
 - (void)hidePickerOnIndexPath:(NSIndexPath*)indexPath
 {
     if (indexPath) {
@@ -525,11 +553,6 @@
     }
 }
 
-- (void)setSections:(NSArray *)sections
-{
-    _sections = sections;
-}
-
 - (void)setDelegate:(id<SDFormDelegate>)delegate
 {
     _delegate = delegate;
@@ -559,7 +582,9 @@
     return self.row;
 }
 
-- (NSIndexPath *)fieldIndexPathWithPickerIndexPath:(NSIndexPath*)pickerIndexPath
+
+
+- (NSIndexPath *)fieldCellIndexPathWithPickerIndexPath:(NSIndexPath*)pickerIndexPath
 {
     if (pickerIndexPath && self.section == pickerIndexPath.section) {
         if (self.row > pickerIndexPath.row) {
