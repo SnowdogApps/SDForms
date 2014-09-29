@@ -67,6 +67,12 @@
     if (cell != nil && value != nil) {
         NSString *valueString = [NSString stringWithFormat:@"%@", value];
         
+        if (self.backgroundColor) {
+            cell.textView.backgroundColor = self.backgroundColor;
+        } else {
+            cell.textView.backgroundColor = nil;
+        }
+        
         if (valueString.length > 0) {
             cell.textView.editable = YES;
             cell.textView.selectable = YES;

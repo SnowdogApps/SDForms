@@ -45,6 +45,7 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 @property (nonatomic, strong) id relatedObject;
 @property (nonatomic, strong) NSString *relatedPropertyKey;
 @property (nonatomic, strong) NSString *formattedValueKey;
+@property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) NSString *segueIdentifier;
 @property (nonatomic, readonly) NSBundle *defaultBundle;
 

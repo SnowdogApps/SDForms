@@ -56,6 +56,12 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.field = self;
         
+        if (self.backgroundColor) {
+            cell.contentView.backgroundColor = self.backgroundColor;
+        }  else {
+            cell.contentView.backgroundColor = nil;
+        }
+        
         if (self.segueIdentifier.length > 0) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
