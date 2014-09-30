@@ -110,8 +110,13 @@
 
 - (void)setRelatedObjectProperty
 {
-    if (self.relatedObject && self.relatedPropertyKey) {
-        [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
+    if (self.relatedObject) {
+        if (self.relatedPropertyKey) {
+            [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
+        }
+        if (self.settabeFormattedValueKey) {
+            [self.relatedObject setValue:self.formattedValue forKey:self.settabeFormattedValueKey];
+        }
     }
 }
 

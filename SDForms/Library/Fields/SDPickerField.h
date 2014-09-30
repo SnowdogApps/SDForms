@@ -12,6 +12,12 @@ typedef enum {SDPickerFieldPickerTypeInRow, SDPickerFieldPickerTypeInView} SDPic
 
 @class SDPickerField;
 
+@protocol SDPickerFieldCustomizationDelegate <SDFormFieldCustomizationDelegate>
+
+- (NSString *)formattedValueForField:(SDPickerField *)field inComponent:(NSInteger)component;
+
+@end
+
 @protocol SDPickerFieldProtocol <NSObject>
 
 - (void)pickerField:(SDPickerField *)field didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
@@ -25,8 +31,12 @@ typedef enum {SDPickerFieldPickerTypeInRow, SDPickerFieldPickerTypeInView} SDPic
 @property (nonatomic, strong) NSArray *items;   ///< Array of arrays of items. For each component contains array of its items. Items should be of NSString type
 @property (nonatomic, strong) NSArray *values; ///< Array of arrays of values. For each component contains array of its values. Values can be of any object type
 @property (nonatomic, strong) NSArray *value; ///< Array of selected values in all components
+@property (nonatomic, strong) NSArray *formattedValue;
 @property (nonatomic, strong) NSArray *relatedObjects;
 @property (nonatomic, strong) NSArray *relatedPropertyKeys;
+@property (nonatomic, strong) NSArray *settableFormattedValueKeys;
+
+@property (nonatomic, weak) id<SDPickerFieldCustomizationDelegate> formatDelegate;
 @property (nonatomic, weak) id<SDPickerFieldProtocol> pickerFieldDelegate;
 
 - (NSInteger)numberOfComponents:(NSInteger)component;

@@ -55,7 +55,7 @@
     if ([cell isKindOfClass:[SDLabelCell class]]) {
         SDLabelCell *labelCell = (SDLabelCell *)cell;
         labelCell.titleLabel.text = self.title;
-        labelCell.valueLabel.text = self.formattedValue;
+        labelCell.valueLabel.text = self.formattedValue.firstObject;
     } else if ([cell isKindOfClass:[SDPickerCell class]]) {
         SDPickerCell *pickerCell = (SDPickerCell *)cell;
         pickerCell.picker.delegate = self;
@@ -73,23 +73,34 @@
 #pragma mark - Getters, Setters and Validation
 
 
-- (NSString *)formattedValue
+- (NSArray *)formattedValue
 {
-    if (self.formatDelegate && [self.formatDelegate respondsToSelector:@selector(formattedValueForField:)]) {
-        return [self.formatDelegate formattedValueForField:self];
-    } else {
-        NSString *title = @"";
-        NSInteger component = 0;
-        NSUInteger index = [self indexOfSelectedItemInComponent:component];
-        if (component < self.items.count) {
-            NSArray *array = [self.items objectAtIndex:component];
-            
-            if (index < array.count) {
-                title = [array objectAtIndex:index];
-            }
+    NSMutableArray *formattedValues = [NSMutableArray array];
+    
+    if (self.formatDelegate && [self.formatDelegate respondsToSelector:@selector(formattedValueForField:inComponent:)]) {
+        
+        for (int i = 0; i < self.value.count; i++) {
+            NSString *formattedValue = [self.formatDelegate formattedValueForField:self inComponent:i];
+            [formattedValues addObject:formattedValue];
         }
-        return title;
+
+    } else if (self.relatedObject && self.formattedValueKey) {
+        for (int i = 0; i < self.relatedObjects.count; i++) {
+            id relatedObject = [self.relatedObjects objectAtIndex:i];
+            NSString *key = [self.relatedPropertyKeys objectAtIndex:i];
+            NSString *formattedValue = [relatedObject valueForKey:key];
+            [formattedValues addObject:formattedValue];
+        }
+    } else {
+        for (int i = 0; i < self.items.count; i++) {
+            NSUInteger index = [self indexOfSelectedItemInComponent:i];
+            NSArray *array = [self.items objectAtIndex:i];
+            NSString *formattedValue = [array objectAtIndex:index];
+            [formattedValues addObject:formattedValue];
+        }
     }
+    
+    return formattedValues;
 }
 
 - (void)setItems:(NSArray *)items
@@ -119,9 +130,17 @@
 {
     _value = value;
     
+    [self setRelatedObjectsProperties];
+    
+    if (refresh) {
+        [self refreshFieldCell];
+    }
+}
+
+- (void)setRelatedObjectsProperties
+{
     int i = 0;
     for (id val in _value) {
-        
         if (i < self.relatedObjects.count && i < self.relatedPropertyKeys.count) {
             id relatedObject = [self.relatedObjects objectAtIndex:i];
             NSString *relatedKey = [self.relatedPropertyKeys objectAtIndex:i];
@@ -130,8 +149,14 @@
         i++;
     }
     
-    if (refresh) {
-        [self refreshFieldCell];
+    int j = 0;
+    for (id formattedValue in self.formattedValue) {
+        if (j < self.relatedObjects.count && j < self.settableFormattedValueKeys.count) {
+            id relatedObject = [self.relatedObjects objectAtIndex:j];
+            NSString *relatedKey = [self.settableFormattedValueKeys objectAtIndex:j];
+            [relatedObject setValue:formattedValue forKey:relatedKey];
+        }
+        j++;
     }
 }
 
@@ -181,6 +206,22 @@
     } else {
         self.relatedPropertyKeys = nil;
     }
+}
+
+- (void)setSettabeFormattedValueKey:(NSString *)settabeFormattedValueKey
+{
+    if (settabeFormattedValueKey) {
+        self.settableFormattedValueKeys = @[settabeFormattedValueKey];
+    } else {
+        self.settableFormattedValueKeys = nil;
+    }
+}
+
+- (void)setSettableFormattedValueKeys:(NSArray *)settableFormattedValueKeys
+{
+    _settableFormattedValueKeys = settableFormattedValueKeys;
+    [self setRelatedObjectsProperties];
+    
 }
 
 - (void)validateValuesArray:(NSArray *)values
