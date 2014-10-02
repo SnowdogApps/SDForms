@@ -73,16 +73,19 @@
             cell.textView.backgroundColor = nil;
         }
         
+        cell.textView.editable = YES;
+        cell.textView.selectable = YES;
+        
         if (valueString.length > 0) {
-            cell.textView.editable = YES;
-            cell.textView.selectable = YES;
-
             NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:valueString attributes:@{NSFontAttributeName: self.textFont, NSForegroundColorAttributeName: self.textColor}];
             cell.textView.attributedText = attrString;
-            cell.textView.editable = self.editable;
-            cell.textView.selectable = self.selectable;
-            cell.textView.userInteractionEnabled = (self.editable || self.selectable);
+        } else {
+            cell.textView.attributedText = nil;
         }
+        
+        cell.textView.editable = self.editable;
+        cell.textView.selectable = self.selectable;
+        cell.textView.userInteractionEnabled = (self.editable || self.selectable);
     }
     
     return cell;
