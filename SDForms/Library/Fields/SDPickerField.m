@@ -13,6 +13,7 @@
 @interface SDPickerField ()
 
 @property (nonatomic, strong) NSMutableArray *selectedIndexes;
+@property (nonatomic, strong) SDPickerCell *pickerCell;
 
 @end
 
@@ -64,9 +65,20 @@
         for (NSInteger i = 0; i < pickerCell.picker.numberOfComponents; i++) {
             [pickerCell.picker selectRow:[self indexOfSelectedItemInComponent:i] inComponent:i animated:NO];
         }
+        
+        self.pickerCell = pickerCell;
     }
     
     return cell;
+}
+
+- (void)dealloc
+{
+    if (self.pickerCell.picker.delegate == self && self.pickerCell.picker.dataSource == self) {
+        self.pickerCell.picker.delegate = nil;
+        self.pickerCell.picker.dataSource = nil;
+    }
+    _pickerCell = nil;
 }
 
 
