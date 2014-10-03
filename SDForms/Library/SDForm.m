@@ -24,6 +24,7 @@
 @property (nonatomic, strong) UIView *activeResponder;
 @property (nonatomic, readonly) UIViewController *viewController;
 @property (nonatomic, strong) NSMutableArray *sections;
+@property (nonatomic) CGFloat keyboardHeight;
 
 @end
 
@@ -40,15 +41,22 @@
         NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
         self.toolbar = (SDNavigationToolbar *)[[bundle loadNibNamed:kSDNavigationToolbar owner:[[SDNavigationToolbar alloc] init] options:nil] lastObject];
         [self.toolbar setToolbarDelegate:self];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+        self.keyboardHeight = KEYBOARD_HEIGHT;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (SDFormField *)fieldForIndexPath:(NSIndexPath *)indexPath
 {
     SDFormSection *formSection = [self.sections objectAtIndex:indexPath.section];
     SDFormField *formField = [formSection.fields objectAtIndex:[indexPath fieldIndexWithPickerIndexPath:self.pickerIndexPath]];
-    
     return formField;
 }
 
@@ -274,14 +282,14 @@
         self.prevFrame = self.tableView.frame;
         CGPoint point = [self.tableView convertPoint:responderView.frame.origin fromView:responderView.superview];
         CGFloat offset = point.y;
-        offset -= (self.viewController.view.frame.size.height - KEYBOARD_HEIGHT) / 2;
+        offset -= (self.viewController.view.frame.size.height - self.keyboardHeight) / 2;
         
         if (offset > 0) {
             [UIView beginAnimations:nil context:NULL];
             [UIView setAnimationBeginsFromCurrentState:YES];
             [UIView setAnimationDuration:0.3];
             CGRect frame = self.tableView.frame;
-            frame.size.height = frame.size.height - KEYBOARD_HEIGHT;
+            frame.size.height = frame.size.height - self.keyboardHeight;
             self.tableView.frame = frame;
             [self.tableView setContentOffset:CGPointMake(0, offset)];
             [UIView commitAnimations];
@@ -525,6 +533,17 @@
     [self moveToPreviousResponder];
 }
 
+#pragma mark - Notifications
+
+- (void)keyboardWasShown:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGFloat height = MIN(keyboardSize.height,keyboardSize.width);
+    CGFloat width = MAX(keyboardSize.height,keyboardSize.width);
+    NSLog (@"Keyboard width:%f height:%f", width, height);
+    self.keyboardHeight = height;
+}
+
 #pragma mark - Getters & Setters
 
 - (UIViewController *)viewController
@@ -543,10 +562,6 @@
         _activeResponder = activeResponder;
         CGPoint pos = [_activeResponder convertPoint:CGPointZero toView:self.tableView];
         self.currentIndexPath = [self.tableView indexPathForRowAtPoint:pos];
-        
-        if (!self.currentIndexPath) {
-            NSLog(@"");
-        }
         
         if(!_activeResponder.isFirstResponder)
             [_activeResponder becomeFirstResponder];
