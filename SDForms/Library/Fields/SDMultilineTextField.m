@@ -77,9 +77,11 @@
     cell.placeholderVisible = self.placeholderVisible;
     id value = self.value;
     
-    if (cell != nil && value != nil) {
+    if (value != nil) {
         NSString *valueString = [NSString stringWithFormat:@"%@", value];
         cell.text = valueString;
+    } else {
+        cell.text = nil;
     }
     
     cell.textView.userInteractionEnabled = (self.editable || self.selectable);
