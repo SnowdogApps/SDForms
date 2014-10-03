@@ -103,4 +103,12 @@
     return _textColor;
 }
 
+- (void)setTitle:(NSString *)title
+{
+    [super setTitle:title];
+    if (!self.placeholder) {
+        self.placeholder = title;
+    }
+}
+
 @end
