@@ -256,6 +256,7 @@
     SDMultilineTextField *bio = [[SDMultilineTextField alloc] init];
     bio.relatedObject = self.person;
     bio.relatedPropertyKey = @"bio";
+    bio.placeholder = @"Biography";
     
     SDDatePickerField *dob = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth" formattedValueKey:@"formattedDOB"];
     dob.title = @"Date of birth";

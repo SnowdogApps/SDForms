@@ -14,6 +14,10 @@
 #define PADDING        5.0
 #define INSET          16.0
 
+@interface SDMultilineTextField ()
+
+@end
+
 @implementation SDMultilineTextField
 
 - (id)init
@@ -24,6 +28,7 @@
         self.editable = YES;
         self.selectable = YES;
         self.automaticHeight = NO;
+        self.placeholderVisible = YES;
     }
     return self;
 }
@@ -62,31 +67,22 @@
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDTextViewCell *cell = (SDTextViewCell *)[super cellForTableView:tableView atIndex:index];
+    
+    cell.editable = self.editable;
+    cell.selectable = self.selectable;
+    cell.placeHolder = self.placeholder;
+    cell.textColor = self.textColor;
+    cell.textFont = self.textFont;
+    cell.textView.backgroundColor = self.backgroundColor;
+    cell.placeholderVisible = self.placeholderVisible;
     id value = self.value;
     
     if (cell != nil && value != nil) {
         NSString *valueString = [NSString stringWithFormat:@"%@", value];
-        
-        if (self.backgroundColor) {
-            cell.textView.backgroundColor = self.backgroundColor;
-        } else {
-            cell.textView.backgroundColor = nil;
-        }
-        
-        cell.textView.editable = YES;
-        cell.textView.selectable = YES;
-        
-        if (valueString.length > 0) {
-            NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:valueString attributes:@{NSFontAttributeName: self.textFont, NSForegroundColorAttributeName: self.textColor}];
-            cell.textView.attributedText = attrString;
-        } else {
-            cell.textView.attributedText = nil;
-        }
-        
-        cell.textView.editable = self.editable;
-        cell.textView.selectable = self.selectable;
-        cell.textView.userInteractionEnabled = (self.editable || self.selectable);
+        cell.text = valueString;
     }
+    
+    cell.textView.userInteractionEnabled = (self.editable || self.selectable);
     
     return cell;
 }

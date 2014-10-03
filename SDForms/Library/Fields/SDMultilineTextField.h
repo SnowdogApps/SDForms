@@ -16,5 +16,7 @@
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic) CGFloat textViewHeight;
 @property (nonatomic) BOOL automaticHeight;
+@property (nonatomic, strong) NSString *placeholder;
+@property (nonatomic) BOOL placeholderVisible;
 
 @end
