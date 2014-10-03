@@ -82,4 +82,19 @@
     [super setField:field];
 }
 
+- (void)setEnabled:(BOOL)enabled
+{
+    self.textField.enabled = enabled;
+    if (enabled) {
+        self.responders = @[self.textField];
+    } else {
+        self.responders = nil;
+    }
+}
+
+- (BOOL)enabled
+{
+    return self.textField.enabled;
+}
+
 @end

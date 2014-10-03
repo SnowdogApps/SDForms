@@ -281,9 +281,9 @@
         self.prevOffset = self.tableView.contentOffset.y;
         self.prevFrame = self.tableView.frame;
         CGPoint point = [self.tableView convertPoint:responderView.frame.origin fromView:responderView.superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
         CGFloat offset = point.y;
         offset -= (self.viewController.view.frame.size.height - self.keyboardHeight) / 2;
-        
         if (offset > 0) {
             [UIView beginAnimations:nil context:NULL];
             [UIView setAnimationBeginsFromCurrentState:YES];
@@ -291,15 +291,16 @@
             CGRect frame = self.tableView.frame;
             frame.size.height = frame.size.height - self.keyboardHeight;
             self.tableView.frame = frame;
-            [self.tableView setContentOffset:CGPointMake(0, offset)];
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
             [UIView commitAnimations];
+            
         }
     } else {
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationBeginsFromCurrentState:YES];
         [UIView setAnimationDuration:0.3];
         self.tableView.frame = self.prevFrame;
-        [self.tableView setContentOffset:CGPointMake(0, self.prevOffset)];
+        
         [UIView commitAnimations];
     }
 }

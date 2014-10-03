@@ -69,7 +69,7 @@
             tfWithLabelCell.titleLabel.text = self.title;
         }
         
-        textFieldCell.textField.enabled = self.enabled;
+        textFieldCell.enabled = self.enabled;
         textFieldCell.textField.placeholder = self.placeholder;
         textFieldCell.textField.autocapitalizationType = self.autocapitalizationType;
         textFieldCell.textField.autocorrectionType = self.autocorrectionType;

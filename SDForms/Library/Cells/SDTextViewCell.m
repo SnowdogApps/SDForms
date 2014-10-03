@@ -22,6 +22,8 @@
     self.textView.delegate = self;
     self.responders = @[self.textView];
     self.placeholderVisible = YES;
+    self.editable = YES;
+    self.selectable = YES;
 }
 
 - (void)markCorrectValue
@@ -145,6 +147,16 @@
         _textColor = [UIColor darkTextColor];
     }
     return _textColor;
+}
+
+- (void)setEditable:(BOOL)editable
+{
+    _editable = editable;
+    if (editable) {
+        self.responders = @[self.textView];
+    } else {
+        self.responders = nil;
+    }
 }
 
 

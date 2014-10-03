@@ -15,5 +15,6 @@ static NSString * const kTextFieldCell = @"SDTextFieldCell";
 @interface SDTextFieldCell : SDFormCell <SDTextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet SDTextField *textField;
+@property (nonatomic) BOOL enabled;
 
 @end
