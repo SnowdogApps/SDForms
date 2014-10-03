@@ -42,7 +42,7 @@
         self.toolbar = (SDNavigationToolbar *)[[bundle loadNibNamed:kSDNavigationToolbar owner:[[SDNavigationToolbar alloc] init] options:nil] lastObject];
         [self.toolbar setToolbarDelegate:self];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         self.keyboardHeight = KEYBOARD_HEIGHT;
     }
     return self;
@@ -536,13 +536,13 @@
 
 #pragma mark - Notifications
 
-- (void)keyboardWasShown:(NSNotification *)notification
+- (void)keyboardWillShow:(NSNotification *)notification
 {
-    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    CGFloat height = MIN(keyboardSize.height,keyboardSize.width);
-    CGFloat width = MAX(keyboardSize.height,keyboardSize.width);
-    NSLog (@"Keyboard width:%f height:%f", width, height);
-    self.keyboardHeight = height;
+    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat yBegin = keyboardBeginFrame.origin.y;
+    CGFloat yEnd = keyboardEndFrame.origin.y;
+    self.keyboardHeight = yBegin - yEnd;
 }
 
 #pragma mark - Getters & Setters
