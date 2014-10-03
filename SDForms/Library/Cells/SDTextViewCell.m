@@ -93,20 +93,19 @@
     _placeholderVisible = placeholderVisible;
     self.field.placeholderVisible = placeholderVisible;
     
-    if (self.placeHolder) {
-        self.textView.editable = YES;
-        self.textView.selectable = YES;
-        
-        if (placeholderVisible) {
-            self.textView.attributedText = [[NSAttributedString alloc] initWithString:self.placeHolder attributes:@{NSFontAttributeName : self.textFont, NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
-        } else {
-            self.textView.textColor = self.textColor;
-            self.textView.text = nil;
-        }
-        
-        self.textView.editable = self.editable;
-        self.textView.selectable = self.selectable;
+    self.textView.editable = YES;
+    self.textView.selectable = YES;
+    
+    if (placeholderVisible) {
+        self.textView.attributedText = [[NSAttributedString alloc] initWithString:(self.placeHolder ? self.placeHolder : @"") attributes:@{NSFontAttributeName : self.textFont, NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
+    } else {
+        self.textView.textColor = self.textColor;
+        self.textView.font = self.textFont;
+        self.textView.text = nil;
     }
+    
+    self.textView.editable = self.editable;
+    self.textView.selectable = self.selectable;
 }
 
 - (NSString *)text
@@ -118,7 +117,6 @@
 {
     if (text.length > 0) {
         self.placeholderVisible = NO;
-        
         self.textView.editable = YES;
         self.textView.selectable = YES;
         NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: self.textFont, NSForegroundColorAttributeName: self.textColor}];
@@ -126,6 +124,8 @@
         self.textView.editable = self.editable;
         self.textView.selectable = self.selectable;
     } else {
+        self.textView.textColor = self.textColor;
+        self.textView.font = self.textFont;
         self.textView.attributedText = nil;
         self.placeholderVisible = YES;
     }
