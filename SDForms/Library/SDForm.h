@@ -19,7 +19,8 @@
 
 @optional
 - (void)form:(SDForm *)form didSelectFieldAtIndexPath:(NSIndexPath *)indexPath;
-
+- (BOOL)form:(SDForm *)form canEditRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)form:(SDForm *)form commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @protocol SDFormDataSource <NSObject>
@@ -40,7 +41,10 @@
 
 - (id)initWithTableView:(UITableView*)tableView;
 - (SDFormField *)fieldForIndexPath:(NSIndexPath *)indexPath;
+
+- (void)addField:(SDFormField *)field atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 - (void)removeFieldAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation;
+
 - (void)reloadData;
 
 @property (nonatomic, strong) UITableView *tableView;

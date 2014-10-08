@@ -50,6 +50,8 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 @property (nonatomic, strong) NSString *segueIdentifier;
 @property (nonatomic, readonly) NSBundle *defaultBundle;
 
+@property (nonatomic) BOOL canBeDeleted;
+
 @property (nonatomic, weak) id<SDFormFieldDelegate> delegate;
 @property (nonatomic, weak) id<SDFormFieldCustomizationDelegate> formatDelegate;
 

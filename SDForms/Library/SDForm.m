@@ -60,6 +60,15 @@
     return formField;
 }
 
+- (void)addField:(SDFormField *)field atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation
+{
+    if (field != nil) {
+        SDFormSection *section = [self.sections objectAtIndex:indexPath.section];
+        [section.fields addObject:field];
+        [self updateFieldsIndexPaths];
+    }
+}
+
 - (void)removeFieldAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation
 {
     SDFormSection *section = [self.sections objectAtIndex:indexPath.section];
@@ -78,7 +87,9 @@
     }
     
     [fields removeObject:field];
+    [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:rowAnimation];
+    [self.tableView endUpdates];
     
     [self updateFieldsIndexPaths];
 }
@@ -266,6 +277,33 @@
             [self togglePickerForIndexPath:indexPath];
         }
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(form:canEditRowAtIndexPath:)]) {
+        return [self.delegate form:self canEditRowAtIndexPath:indexPath];
+    }
+    
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(form:commitEditingStyle:forRowAtIndexPath:)]) {
+        [self.delegate form:self commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
+    }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SDFormField *field = [self fieldForIndexPath:indexPath];
+    
+    if (field.canBeDeleted) {
+        return UITableViewCellEditingStyleDelete;
+    }
+    
+    return UITableViewCellEditingStyleNone;
 }
 
 #pragma mark - Moving screen during editing stuff
