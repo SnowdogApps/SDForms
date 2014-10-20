@@ -58,8 +58,10 @@
         
         if (self.backgroundColor) {
             cell.contentView.backgroundColor = self.backgroundColor;
+            cell.backgroundColor = self.backgroundColor;
         }  else {
             cell.contentView.backgroundColor = nil;
+            cell.backgroundColor = [UIColor whiteColor];
         }
         
         if (self.segueIdentifier.length > 0) {
