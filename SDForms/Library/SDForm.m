@@ -94,6 +94,22 @@
     [self updateFieldsIndexPaths];
 }
 
+- (void)removeSectionAtIndex:(NSInteger)index withRowAnimation:(UITableViewRowAnimation)rowAnimation
+{
+    [self.sections removeObjectAtIndex:index];
+    
+    if (self.pickerIndexPath && self.pickerIndexPath.section == index) {
+        self.pickerIndexPath = nil;
+        self.fieldShowingPicker = nil;
+    }
+    
+    [self.tableView beginUpdates];
+    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:rowAnimation];
+    [self.tableView endUpdates];
+    
+    [self updateFieldsIndexPaths];
+}
+
 - (void)reloadData
 {
     self.sections = nil;
