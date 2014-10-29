@@ -35,6 +35,8 @@ typedef enum {SDPickerFieldPickerTypeInRow, SDPickerFieldPickerTypeInView} SDPic
 @property (nonatomic, strong) NSArray *relatedObjects;
 @property (nonatomic, strong) NSArray *relatedPropertyKeys;
 @property (nonatomic, strong) NSArray *settableFormattedValueKeys;
+@property (nonatomic, copy) NSString *formattedValueSeparator;
+@property (nonatomic, strong) NSArray *minimumSelectedIndexes; ///< Array of NSNumbers for each component
 
 @property (nonatomic, weak) id<SDPickerFieldCustomizationDelegate> formatDelegate;
 @property (nonatomic, weak) id<SDPickerFieldProtocol> pickerFieldDelegate;

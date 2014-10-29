@@ -56,14 +56,22 @@
     if ([cell isKindOfClass:[SDLabelCell class]]) {
         SDLabelCell *labelCell = (SDLabelCell *)cell;
         labelCell.titleLabel.text = self.title;
-        labelCell.valueLabel.text = self.formattedValue.firstObject;
+        
+        if (self.formattedValueSeparator.length > 0) {
+            labelCell.valueLabel.text = [self.formattedValue componentsJoinedByString:self.formattedValueSeparator];
+        } else {
+            labelCell.valueLabel.text = self.formattedValue.firstObject;
+        }
     } else if ([cell isKindOfClass:[SDPickerCell class]]) {
         SDPickerCell *pickerCell = (SDPickerCell *)cell;
         pickerCell.picker.delegate = self;
         pickerCell.picker.dataSource = self;
         
         for (NSInteger i = 0; i < pickerCell.picker.numberOfComponents; i++) {
-            [pickerCell.picker selectRow:[self indexOfSelectedItemInComponent:i] inComponent:i animated:NO];
+            NSInteger idx = [self indexOfSelectedItemInComponent:i];
+            NSInteger minimumIdx = [[self.minimumSelectedIndexes objectAtIndex:i] integerValue];
+            idx = (idx < minimumIdx) ? minimumIdx : idx;
+            [pickerCell.picker selectRow:idx inComponent:i animated:NO];
         }
         
         self.pickerCell = pickerCell;
@@ -132,6 +140,14 @@
     [self fillSelectedValues];
 }
 
+- (void)setMinimumSelectedIndexes:(NSArray *)minimumSelectedIndexes
+{
+    _minimumSelectedIndexes = minimumSelectedIndexes;
+    if (self.items.count > 0) {
+        [self createSelectedIndexesArrayWithItems:self.items];
+        [self fillSelectedValues];
+    }
+}
 
 - (void)setValue:(NSArray *)value
 {
@@ -288,7 +304,13 @@
 {
     NSMutableArray *selected = [NSMutableArray array];
     for (int i = 0; i < items.count; i++) {
-        [selected addObject:@0];
+        NSNumber *minIdx = [self.minimumSelectedIndexes objectAtIndex:i];
+        
+        if (minIdx != nil) {
+            [selected addObject:minIdx];
+        } else {
+            [selected addObject:@0];
+        }
     }
     self.selectedIndexes = [selected mutableCopy];
 }
