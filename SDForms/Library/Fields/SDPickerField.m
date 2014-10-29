@@ -440,11 +440,16 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (component < self.selectedIndexes.count) {
-        [self.selectedIndexes replaceObjectAtIndex:component withObject:@(row)];
-        [self fillSelectedValues];
-        
-        if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerField:didSelectRow:inComponent:)]) {
-            [self.pickerFieldDelegate pickerField:self didSelectRow:row inComponent:component];
+        NSInteger minRow = [[self.minimumSelectedIndexes objectAtIndex:component] integerValue];
+        if (row < minRow) {
+            [pickerView selectRow:minRow inComponent:component animated:YES];
+        } else {
+            [self.selectedIndexes replaceObjectAtIndex:component withObject:@(row)];
+            [self fillSelectedValues];
+            
+            if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerField:didSelectRow:inComponent:)]) {
+                [self.pickerFieldDelegate pickerField:self didSelectRow:row inComponent:component];
+            }
         }
     }
     [self refreshFieldCell];
