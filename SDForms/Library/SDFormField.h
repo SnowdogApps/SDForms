@@ -59,6 +59,7 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 - (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey;
 - (void)registerCellsInTableView:(UITableView*)tableView;
 - (SDFormCell *)cellForTableView:(UITableView*)tableView atIndex:(NSUInteger)index;
+- (void)willDisplayCell:(SDFormCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)heightForCellInTableView:(UITableView *)tableView atIndex:(NSUInteger)index;
 - (void)setValue:(id)value withCellRefresh:(BOOL)refresh;
 - (void)refreshFieldCell;

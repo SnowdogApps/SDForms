@@ -73,6 +73,11 @@
     return nil;
 }
 
+- (void)willDisplayCell:(SDFormCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
 - (CGFloat)heightForCellInTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     if (index < self.cellHeights.count) {

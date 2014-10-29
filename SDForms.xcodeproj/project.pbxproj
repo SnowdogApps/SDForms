@@ -405,6 +405,7 @@
 		B5F876BF19AE201D00C4AF33 /* SDForms-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDForms-Prefix.pch"; sourceTree = "<group>"; };
 		B5F876C019AE201D00C4AF33 /* SDForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDForms.h; sourceTree = "<group>"; };
 		B5F876C119AE201D00C4AF33 /* SDForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDForms.m; sourceTree = "<group>"; };
+		BF01A32819F9598000601928 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -818,6 +819,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = B596CA60199B9533000AB3A5;
 			productRefGroup = B596CA6A199B9533000AB3A5 /* Products */;
@@ -999,6 +1001,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B5F8764519AE1BAB00C4AF33 /* Base */,
+				BF01A32819F9598000601928 /* pl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

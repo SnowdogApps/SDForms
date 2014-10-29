@@ -223,6 +223,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SDFormSection *formSection = [self.sections objectAtIndex:indexPath.section];
+    SDFormField *formField = [formSection.fields objectAtIndex:[indexPath fieldIndexWithPickerIndexPath:self.pickerIndexPath]];
+    [formField willDisplayCell:(SDFormCell *)cell atIndexPath:indexPath];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SDFormSection *formSection = [self.sections objectAtIndex:indexPath.section];

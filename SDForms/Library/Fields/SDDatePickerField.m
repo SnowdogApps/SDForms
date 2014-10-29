@@ -46,9 +46,8 @@ static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
         if (self.timeZone) {
             datePickerCell.datePicker.timeZone = self.timeZone;
         }
-        if (self.datePickerMode) {
-            datePickerCell.datePicker.datePickerMode = self.datePickerMode;
-        }
+        
+        datePickerCell.datePicker.datePickerMode = self.datePickerMode;
         
         if (self.value) {
             [datePickerCell.datePicker setDate:self.value animated:NO];
