@@ -443,6 +443,8 @@
         NSInteger minRow = [[self.minimumSelectedIndexes objectAtIndex:component] integerValue];
         if (row < minRow) {
             [pickerView selectRow:minRow inComponent:component animated:YES];
+            [self createSelectedIndexesArrayWithItems:self.items];
+            [self fillSelectedValues];
         } else {
             [self.selectedIndexes replaceObjectAtIndex:component withObject:@(row)];
             [self fillSelectedValues];
