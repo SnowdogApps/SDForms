@@ -140,7 +140,7 @@
         NSString *title = [self.formatDelegate formattedValueForField:self];
         return title;
     } else if (self.relatedObject && self.formattedValueKey) {
-        return [self.relatedObject valueForKey:self.formattedValueKey];
+        return [self.relatedObject valueForKeyPath:self.formattedValueKey];
     }
     
     if (self.value) {
