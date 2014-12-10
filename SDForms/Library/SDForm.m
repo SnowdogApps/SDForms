@@ -64,8 +64,17 @@
 {
     if (field != nil) {
         SDFormSection *section = [self.sections objectAtIndex:indexPath.section];
-        [section.fields addObject:field];
+        [section.fields insertObject:field atIndex:indexPath.row];
+        [field registerCellsInTableView:self.tableView];
         [self updateFieldsIndexPaths];
+        
+        NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+        NSIndexPath *cellIP = [field.indexPath fieldCellIndexPathWithPickerIndexPath:self.pickerIndexPath];
+        [indexPaths addObject:cellIP];
+        
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:rowAnimation];
+        [self.tableView endUpdates];
     }
 }
 
@@ -293,7 +302,9 @@
                 [field form:self didSelectFieldAtIndex:0];
             }
             
-            if (self.delegate && [self.delegate respondsToSelector:@selector(form:didSelectFieldAtIndexPath:)]) {
+            if (field.onTapBlock) {
+                field.onTapBlock();
+            } else if (self.delegate && [self.delegate respondsToSelector:@selector(form:didSelectFieldAtIndexPath:)]) {
                 [self.delegate form:self didSelectFieldAtIndexPath:field.indexPath];
             }
             

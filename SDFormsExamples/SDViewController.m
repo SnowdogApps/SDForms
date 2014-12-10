@@ -85,12 +85,7 @@
 
 - (NSString *)formattedValueForField:(SDFormField *)field
 {
-    if ([field.name isEqualToString:@"picker1"]) {
-        SDPickerField *pickerField = (SDPickerField *)field;
-        NSInteger index = [pickerField indexOfSelectedItemInComponent:0];
-        NSString *title = [pickerField itemAtIndex:index inComponent:0];
-        return [NSString stringWithFormat:@"%ld. %@", index + 1, title];
-    } else if ([field.name isEqualToString:@"selection1"]) {
+    if ([field.name isEqualToString:@"selection1"]) {
         NSInteger i = 0;
         SDItemSelectionField *selectionField = (SDItemSelectionField *)field;
         NSString *title;
@@ -112,9 +107,11 @@
     return nil;
 }
 
+
+
 - (void)saveButtonTapped:(id)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Person" message:[NSString stringWithFormat:@"%@", self.person] /*[NSString stringWithFormat:@"name:%@; surname:%@; salary:%@", self.person.name, self.person.surname, self.person.salary]*/ delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Person" message:[NSString stringWithFormat:@"%@", self.person] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
 
@@ -126,6 +123,10 @@
 - (void)form:(SDForm *)form didSelectFieldAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Did select field in section: %ld row: %ld", indexPath.section, indexPath.row);
+    SDFormField *field = [form fieldForIndexPath:indexPath];
+    if ([field.name isEqualToString:@"submit"]) {
+        [self saveButtonTapped:nil];
+    }
 }
 
 - (NSInteger)numberOfSectionsForForm:(SDForm *)form
@@ -274,9 +275,21 @@
     
     self.section1Fields = [@[name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
     
+    SDButtonField *addField = [[SDButtonField alloc] init];
+    addField.name = @"addField";
+    addField.title = @"Add field";
+    
+    __weak SDButtonField *wAddField = addField;
+    [addField setOnTapBlock:^{
+        SDButtonField *sAddField = wAddField;
+        SDLabelField *newField = [[SDLabelField alloc] init];
+        newField.title = @"New field";
+        newField.value = @"value";
+        [self.section2Fields insertObject:newField atIndex:(sAddField.indexPath.row + 1)];
+        [self.form addField:newField atIndexPath:[NSIndexPath indexPathForRow:(sAddField.indexPath.row + 1) inSection:sAddField.indexPath.section] withRowAnimation:UITableViewRowAnimationBottom];
+    }];
     
     SDPickerField *picker1 = [[SDPickerField alloc] init];
-    picker1.formatDelegate = self;
     picker1.name = @"picker1";
     picker1.title = @"Picker 1";
     [picker1 setItems:@[@[@"Option 1", @"Option 2", @"Option 3"]]];
@@ -298,17 +311,16 @@
     
     SDMultilineTextField *autoHeightText = [[SDMultilineTextField alloc] init];
     autoHeightText.editable = NO;
-    autoHeightText.backgroundColor = [UIColor redColor];
+    autoHeightText.backgroundColor = [UIColor lightGrayColor];
     autoHeightText.automaticHeight = YES;
     autoHeightText.value = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. \
-        \n\nNullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.\
-        \n\nNam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.\
-        \n\nDonec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut";
+        \n\nNullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.";
     
     SDButtonField *submit = [[SDButtonField alloc] init];
+    submit.name = @"submit";
     submit.title = @"Submit";
     
-    self.section2Fields = [@[picker1, selection, hired, autoHeightText, submit] mutableCopy];
+    self.section2Fields = [@[addField, picker1, selection, hired, autoHeightText, submit] mutableCopy];
 }
 
 - (void) cellWasSwiped:(UIGestureRecognizer *)recognizer

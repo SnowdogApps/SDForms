@@ -48,6 +48,7 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 @property (nonatomic, strong) NSString *settabeFormattedValueKey;
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) NSString *segueIdentifier;
+@property (nonatomic, strong) void (^onTapBlock)();
 @property (nonatomic, readonly) NSBundle *defaultBundle;
 
 @property (nonatomic) BOOL canBeDeleted;
