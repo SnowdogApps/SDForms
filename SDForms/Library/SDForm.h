@@ -43,6 +43,7 @@
 - (SDFormField *)fieldForIndexPath:(NSIndexPath *)indexPath;
 
 - (void)addField:(SDFormField *)field atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation;
+- (void)addSectionAtIndex:(NSInteger)index withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 - (void)removeFieldAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 - (void)removeSectionAtIndex:(NSInteger)index withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 

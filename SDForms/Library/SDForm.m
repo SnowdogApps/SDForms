@@ -60,6 +60,16 @@
     return formField;
 }
 
+- (void)addSectionAtIndex:(NSInteger)index withRowAnimation:(UITableViewRowAnimation)rowAnimation
+{
+    SDFormSection *section = [self createAndFillSectionAtIndex:index foundFieldShowingPicker_p:NULL];
+    [self.sections insertObject:section atIndex:index];
+    
+    [self.tableView beginUpdates];
+    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:rowAnimation];
+    [self.tableView endUpdates];
+}
+
 - (void)addField:(SDFormField *)field atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation
 {
     if (field != nil) {
@@ -119,6 +129,52 @@
     [self updateFieldsIndexPaths];
 }
 
+- (SDFormSection *)createAndFillSectionAtIndex:(NSInteger)i foundFieldShowingPicker_p:(BOOL *)foundFieldShowingPicker_p
+{
+    SDFormSection *section = [[SDFormSection alloc] init];
+    if ([self.dataSource respondsToSelector:@selector(form:titleForHeaderInSection:)]) {
+        section.headerTitle = [self.dataSource form:self titleForHeaderInSection:i];
+    }
+    if ([self.dataSource respondsToSelector:@selector(form:titleForFooterInSection:)]) {
+        section.footerTitle = [self.dataSource form:self titleForFooterInSection:i];
+    }
+    if ([self.dataSource respondsToSelector:@selector(form:heightForHeaderInSection:)]) {
+        section.headerHeight = [self.dataSource form:self heightForHeaderInSection:i];
+    }
+    if ([self.dataSource respondsToSelector:@selector(form:heightForFooterInSection:)]) {
+        section.footerHeight = [self.dataSource form:self heightForFooterInSection:i];
+    }
+    if ([self.dataSource respondsToSelector:@selector(form:viewForHeaderInSection:)]) {
+        section.headerView = [self.dataSource form:self viewForHeaderInSection:i];
+    }
+    if ([self.dataSource respondsToSelector:@selector(form:viewForFooterInSection:)]) {
+        section.footerView = [self.dataSource form:self viewForFooterInSection:i];
+    }
+    
+    if ([self.dataSource respondsToSelector:@selector(form:numberOfFieldsInSection:)]) {
+        NSInteger numberOfFields = [self.dataSource form:self numberOfFieldsInSection:i];
+        
+        if ([self.dataSource respondsToSelector:@selector(form:fieldForRow:inSection:)]) {
+            NSMutableArray *fields = [[NSMutableArray alloc] init];
+            
+            for (int j = 0; j < numberOfFields; ++j) {
+                SDFormField *field = [self.dataSource form:self fieldForRow:j inSection:i];
+                NSAssert(field != nil, @"SDForm dataSource must return a field from form:fieldForRow:inSection:");
+                
+                [field registerCellsInTableView:self.tableView];
+                field.delegate = self;
+                [fields addObject:field];
+                
+                if (self.fieldShowingPicker && self.fieldShowingPicker == field) {
+                    *foundFieldShowingPicker_p = YES;
+                }
+            }
+            section.fields = fields;
+        }
+    }
+    return section;
+}
+
 - (void)reloadData
 {
     self.sections = nil;
@@ -133,47 +189,7 @@
         NSMutableArray *sections = [[NSMutableArray alloc] init];
         
         for (NSInteger i = 0; i < numberOfSections; ++i) {
-            SDFormSection *section = [[SDFormSection alloc] init];
-            if ([self.dataSource respondsToSelector:@selector(form:titleForHeaderInSection:)]) {
-                section.headerTitle = [self.dataSource form:self titleForHeaderInSection:i];
-            }
-            if ([self.dataSource respondsToSelector:@selector(form:titleForFooterInSection:)]) {
-                section.footerTitle = [self.dataSource form:self titleForFooterInSection:i];
-            }
-            if ([self.dataSource respondsToSelector:@selector(form:heightForHeaderInSection:)]) {
-                section.headerHeight = [self.dataSource form:self heightForHeaderInSection:i];
-            }
-            if ([self.dataSource respondsToSelector:@selector(form:heightForFooterInSection:)]) {
-                section.footerHeight = [self.dataSource form:self heightForFooterInSection:i];
-            }
-            if ([self.dataSource respondsToSelector:@selector(form:viewForHeaderInSection:)]) {
-                section.headerView = [self.dataSource form:self viewForHeaderInSection:i];
-            }
-            if ([self.dataSource respondsToSelector:@selector(form:viewForFooterInSection:)]) {
-                section.footerView = [self.dataSource form:self viewForFooterInSection:i];
-            }
-            
-            if ([self.dataSource respondsToSelector:@selector(form:numberOfFieldsInSection:)]) {
-                NSInteger numberOfFields = [self.dataSource form:self numberOfFieldsInSection:i];
-                
-                if ([self.dataSource respondsToSelector:@selector(form:fieldForRow:inSection:)]) {
-                    NSMutableArray *fields = [[NSMutableArray alloc] init];
-                    
-                    for (int j = 0; j < numberOfFields; ++j) {
-                        SDFormField *field = [self.dataSource form:self fieldForRow:j inSection:i];
-                        NSAssert(field != nil, @"SDForm dataSource must return a field from form:fieldForRow:inSection:");
-                        
-                        [field registerCellsInTableView:self.tableView];
-                        field.delegate = self;
-                        [fields addObject:field];
-                        
-                        if (self.fieldShowingPicker && self.fieldShowingPicker == field) {
-                            foundFieldShowingPicker = YES;
-                        }
-                    }
-                    section.fields = fields;
-                }
-            }
+            SDFormSection *section = [self createAndFillSectionAtIndex:i foundFieldShowingPicker_p:&foundFieldShowingPicker];
             [sections addObject:section];
         }
         

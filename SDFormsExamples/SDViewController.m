@@ -47,6 +47,7 @@
 @property (nonatomic, strong) Person *person;
 @property (nonatomic, strong) NSMutableArray *section1Fields;
 @property (nonatomic, strong) NSMutableArray *section2Fields;
+@property (nonatomic, strong) NSMutableArray *sections;
 
 @end
 
@@ -136,20 +137,13 @@
 
 - (NSInteger)form:(SDForm *)form numberOfFieldsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return self.section1Fields.count;
-    } else {
-        return self.section2Fields.count;
-    }
+    NSMutableArray *fields = [self.sections objectAtIndex:section];
+    return fields.count;
 }
 
 - (NSString *)form:(SDForm *)form titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return @"Section 1";
-    } else {
-        return @"Section 2";
-    }
+    return [NSString stringWithFormat:@"Section %ld", (long)section];
 }
 
 - (NSString *)form:(SDForm *)form titleForFooterInSection:(NSInteger)section
@@ -163,11 +157,7 @@
 
 - (CGFloat)form:(SDForm *)form heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 30.0;
-    } else {
-        return 30.0;
-    }
+    return 30.0;
 }
 
 - (CGFloat)form:(SDForm *)form heightForFooterInSection:(NSInteger)section
@@ -191,13 +181,8 @@
 
 - (SDFormField *)form:(SDForm *)form fieldForRow:(NSInteger)row inSection:(NSInteger)section
 {
-    if (section == 0) {
-        SDFormField *field = [self.section1Fields objectAtIndex:row];
-        return field;
-    } else {
-        SDFormField *field = [self.section2Fields objectAtIndex:row];
-        return field;
-    }
+    NSMutableArray *fields = [self.sections objectAtIndex:section];
+    return [fields objectAtIndex:row];
 }
 
 - (void)initFields
@@ -215,6 +200,8 @@
     self.form = [[SDForm alloc] initWithTableView:self.tableView];
     self.form.delegate = self;
     self.form.dataSource = self;
+    
+    self.sections = [NSMutableArray array];
 	
     SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
     name.title = @"Name";
@@ -320,7 +307,22 @@
     submit.name = @"submit";
     submit.title = @"Submit";
     
-    self.section2Fields = [@[addField, picker1, selection, hired, autoHeightText, submit] mutableCopy];
+    SDButtonField *addSection = [[SDButtonField alloc] init];
+    addSection.name = @"addSection";
+    addSection.title = @"Add section";
+    [addSection setOnTapBlock:^{
+        SDLabelField *newField = [[SDLabelField alloc] init];
+        newField.title = @"New section field";
+        newField.value = @"value";
+        NSMutableArray *newSection = [@[newField] mutableCopy];
+        [self.sections addObject:newSection];
+        [self.form addSectionAtIndex:[self.sections indexOfObject:newSection] withRowAnimation:UITableViewRowAnimationLeft];
+    }];
+    
+    self.section2Fields = [@[addField, picker1, selection, hired, autoHeightText, submit, addSection] mutableCopy];
+        
+    [self.sections addObject:self.section1Fields];
+    [self.sections addObject:self.section2Fields];
 }
 
 - (void) cellWasSwiped:(UIGestureRecognizer *)recognizer
