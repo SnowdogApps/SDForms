@@ -216,6 +216,12 @@
     }
 }
 
+- (void)scrollToIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated
+{
+    NSIndexPath *cellIP = [indexPath fieldCellIndexPathWithPickerIndexPath:self.pickerIndexPath];
+    [self.tableView scrollToRowAtIndexPath:cellIP atScrollPosition:scrollPosition animated:animated];
+}
+
 #pragma mark - TableView stuff
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

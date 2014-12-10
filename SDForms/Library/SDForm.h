@@ -46,6 +46,7 @@
 - (void)addSectionAtIndex:(NSInteger)index withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 - (void)removeFieldAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 - (void)removeSectionAtIndex:(NSInteger)index withRowAnimation:(UITableViewRowAnimation)rowAnimation;
+- (void)scrollToIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
 
 - (void)reloadData;
 
