@@ -39,7 +39,11 @@
     self.reuseIdentifiers = @[kTextViewCell];
     
     if (self.automaticHeight && !self.editable) {
-        CGFloat height = [SDMultilineTextField heightForText:self.value font:self.textFont tableViewWidth:tableView.bounds.size.width];
+        CGFloat maxWidth = tableView.frame.size.width;
+        if (self.canBeDeleted) {
+            maxWidth -= 40.0;   //approximate left content view's inset when delete button is visible
+        }
+        CGFloat height = [SDMultilineTextField heightForText:self.value font:self.textFont tableViewWidth:maxWidth];
         self.cellHeights = @[@(height)];
     } else if (self.textViewHeight > 0.0) {
         self.cellHeights = @[@(self.textViewHeight)];
