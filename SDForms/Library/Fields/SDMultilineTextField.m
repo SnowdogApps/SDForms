@@ -29,6 +29,7 @@
         self.selectable = YES;
         self.automaticHeight = NO;
         self.placeholderVisible = YES;
+        self.dataDetectorTypes = UIDataDetectorTypeNone;
     }
     return self;
 }
@@ -71,7 +72,8 @@
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDTextViewCell *cell = (SDTextViewCell *)[super cellForTableView:tableView atIndex:index];
-    
+
+    cell.textView.dataDetectorTypes = self.dataDetectorTypes;
     cell.editable = self.editable;
     cell.selectable = self.selectable;
     cell.placeHolder = self.placeholder;

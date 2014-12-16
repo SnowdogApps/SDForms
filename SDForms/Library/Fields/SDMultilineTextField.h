@@ -18,5 +18,6 @@
 @property (nonatomic) BOOL automaticHeight;
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic) BOOL placeholderVisible;
+@property (nonatomic) UIDataDetectorTypes dataDetectorTypes;
 
 @end
