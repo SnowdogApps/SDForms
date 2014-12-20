@@ -154,24 +154,14 @@
     [self setValue:value withCellRefresh:YES];
 }
 
-- (void)setValue:(id)value withCellRefresh:(BOOL)refresh
-{
-    _value = value;
-    
-    [self setRelatedObjectsProperties];
-    
-    if (refresh) {
-        [self refreshFieldCell];
-    }
-}
-
 - (void)setRelatedObjectsProperties
 {
     int i = 0;
-    for (id val in _value) {
+    for (id val in self.value) {
         if (i < self.relatedObjects.count && i < self.relatedPropertyKeys.count) {
             id relatedObject = [self.relatedObjects objectAtIndex:i];
             NSString *relatedKey = [self.relatedPropertyKeys objectAtIndex:i];
+
             [relatedObject setValue:val forKey:relatedKey];
         }
         i++;
@@ -458,7 +448,7 @@
 }
 
 
-@synthesize value = _value;
+@dynamic value;
 
 
 @end
