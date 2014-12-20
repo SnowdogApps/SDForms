@@ -29,6 +29,8 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 
 @end
 
+typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *field);
+
 @interface SDFormField : NSObject
 
 @property (nonatomic, strong) NSString *name;
@@ -47,10 +49,13 @@ typedef enum {SDFormFieldValueTypeText, SDFormFieldValueTypeDouble, SDFormFieldV
 @property (nonatomic, strong) NSString *formattedValueKey;
 @property (nonatomic, strong) NSString *settabeFormattedValueKey;
 @property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *markedBackgroundColor;
 @property (nonatomic, strong) NSString *segueIdentifier;
 @property (nonatomic, strong) void (^onTapBlock)();
 @property (nonatomic, readonly) NSBundle *defaultBundle;
+@property (nonatomic, strong) NSString *valueChangesAtKeyPath;
 
+@property (nonatomic, strong) on_value_changed_t onValueChangedBlock;
 @property (nonatomic) BOOL canBeDeleted;
 
 @property (nonatomic, weak) id<SDFormFieldDelegate> delegate;

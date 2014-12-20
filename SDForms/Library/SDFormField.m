@@ -9,8 +9,11 @@
 #import "SDFormField.h"
 #import "SDFormCell.h"
 
-@implementation SDFormField
+@interface SDFormField ()
+@property (nonatomic, weak) id initialValue;
+@end
 
+@implementation SDFormField
 
 - (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key
 {
@@ -55,7 +58,7 @@
         SDFormCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.field = self;
-        
+
         if (self.backgroundColor) {
             cell.contentView.backgroundColor = self.backgroundColor;
             cell.backgroundColor = self.backgroundColor;
@@ -94,11 +97,20 @@
 
 - (void)setValue:(id)value withCellRefresh:(BOOL)refresh
 {
+    id newValue = nil;
+
     _value = value;
-    
     [self setRelatedObjectProperty];
-    
+
+    if (self.valueChangesAtKeyPath) {
+        newValue = [self.relatedObject valueForKeyPath:self.valueChangesAtKeyPath];
+    }
+
+
     if (refresh) {
+        if (self.onValueChangedBlock) {
+            self.onValueChangedBlock(self.initialValue, newValue, self);
+        }
         [self refreshFieldCell];
     }
 }
@@ -119,7 +131,19 @@
 {
     if (self.relatedObject) {
         if (self.relatedPropertyKey) {
-            [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
+            id propertyObject = [self.relatedObject valueForKeyPath:self.relatedPropertyKey];
+
+            if ([propertyObject isKindOfClass:[NSArray class]]) {
+                [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
+            } else {
+                if ([self.value isKindOfClass:[NSArray class]]) {
+                    id firstValue = ((NSArray *)self.value).firstObject;
+                    [self.relatedObject setValue:firstValue forKey:self.relatedPropertyKey];
+                } else {
+                    [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
+                }
+            }
+
         }
         if (self.settabeFormattedValueKey) {
             [self.relatedObject setValue:self.formattedValue forKey:self.settabeFormattedValueKey];
@@ -172,6 +196,21 @@
         if ([self.delegate respondsToSelector:@selector(formField:presentsViewController:animated:)]) {
             [self.delegate formField:self presentsViewController:[[UINavigationController alloc] initWithRootViewController:controller] animated:YES];
         }
+    }
+}
+
+- (UIColor *)markedBackgroundColor {
+    if (_markedBackgroundColor == nil) {
+        _markedBackgroundColor = [UIColor colorWithRed:169/255.0 green:188/255.0 blue:209/255.0 alpha:1.0];
+    }
+    return _markedBackgroundColor;
+}
+
+- (void)setValueChangesAtKeyPath:(NSString *)valueChangesAtKeyPath {
+    _valueChangesAtKeyPath = valueChangesAtKeyPath;
+
+    if (self.relatedObject) {
+        self.initialValue = [self.relatedObject valueForKeyPath:_valueChangesAtKeyPath];
     }
 }
 
