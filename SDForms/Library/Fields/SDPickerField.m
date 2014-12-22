@@ -101,7 +101,9 @@
         
         for (int i = 0; i < self.value.count; i++) {
             NSString *formattedValue = [self.formatDelegate formattedValueForField:self inComponent:i];
-            [formattedValues addObject:formattedValue];
+            if (formattedValue) {
+                [formattedValues addObject:formattedValue];
+            }
         }
 
     } else if (self.relatedObject && self.formattedValueKey) {
@@ -109,14 +111,19 @@
             id relatedObject = [self.relatedObjects objectAtIndex:i];
             NSString *key = [self.relatedPropertyKeys objectAtIndex:i];
             NSString *formattedValue = [relatedObject valueForKey:key];
-            [formattedValues addObject:formattedValue];
+            
+            if (formattedValue) {
+                [formattedValues addObject:formattedValue];
+            }
         }
     } else {
         for (int i = 0; i < self.items.count; i++) {
             NSUInteger index = [self indexOfSelectedItemInComponent:i];
             NSArray *array = [self.items objectAtIndex:i];
             NSString *formattedValue = [array objectAtIndex:index];
-            [formattedValues addObject:formattedValue];
+            if (formattedValue) {
+                [formattedValues addObject:formattedValue];
+            }
         }
     }
     
@@ -152,6 +159,10 @@
 - (void)setValue:(NSArray *)value
 {
     [self setValue:value withCellRefresh:YES];
+}
+
+- (void)setRelatedObjectProperty {
+    [self setRelatedObjectsProperties];
 }
 
 - (void)setRelatedObjectsProperties
