@@ -167,6 +167,10 @@
         i++;
     }
     
+    [self updateFormattedValuesInRelatedObject];
+}
+
+- (void)updateFormattedValuesInRelatedObject {
     int j = 0;
     for (id formattedValue in self.formattedValue) {
         if (j < self.relatedObjects.count && j < self.settableFormattedValueKeys.count) {
@@ -444,6 +448,8 @@
             }
         }
     }
+    
+    [self updateFormattedValuesInRelatedObject];
     [self refreshFieldCell];
 }
 
