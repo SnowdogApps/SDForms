@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SDPollNameDataCell" rowHeight="88" id="Meq-l3-hsU" userLabel="SDPollNameDataCell - SDPollNameDataCell" customClass="SDPollNameDataCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Meq-l3-hsU" id="UQe-pH-N1a">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7z-Js-72y" userLabel="Line View" customClass="SDSeparatorLineView">
+                        <rect key="frame" x="95" y="44" width="225" height="1"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wzv-QB-Man">
+                        <rect key="frame" x="20" y="15" width="57" height="57"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ssm-8I-4bl" userLabel="Name Text Field" customClass="SDTextField">
+                        <rect key="frame" x="95" y="9" width="205" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="NZx-ln-Swx"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b0p-F4-3Ix" userLabel="Last Text Field" customClass="SDTextField">
+                        <rect key="frame" x="95" y="49" width="205" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="pd5-pB-7fZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCf-ew-ARC">
+                        <rect key="frame" x="20" y="15" width="57" height="57"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="57" id="Fua-48-FiM"/>
+                            <constraint firstAttribute="height" constant="57" id="lS6-Zb-pAq"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="photoButtonTapped:" destination="Meq-l3-hsU" eventType="touchUpInside" id="KhA-Xa-cW4"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="QCf-ew-ARC" firstAttribute="leading" secondItem="UQe-pH-N1a" secondAttribute="leading" constant="20" id="FAp-qR-5Z4"/>
+                    <constraint firstItem="QCf-ew-ARC" firstAttribute="top" secondItem="UQe-pH-N1a" secondAttribute="top" constant="15" id="PHT-cu-tKj"/>
+                    <constraint firstItem="b0p-F4-3Ix" firstAttribute="leading" secondItem="QCf-ew-ARC" secondAttribute="trailing" constant="18" id="Wxj-cj-c8W"/>
+                    <constraint firstAttribute="trailing" secondItem="b0p-F4-3Ix" secondAttribute="trailing" constant="20" id="d92-fz-e7v"/>
+                    <constraint firstItem="ssm-8I-4bl" firstAttribute="top" secondItem="UQe-pH-N1a" secondAttribute="top" constant="9" id="eg6-ae-cBc"/>
+                    <constraint firstItem="ssm-8I-4bl" firstAttribute="leading" secondItem="QCf-ew-ARC" secondAttribute="trailing" constant="18" id="lPk-F2-KRM"/>
+                    <constraint firstAttribute="bottom" secondItem="b0p-F4-3Ix" secondAttribute="bottom" constant="8" id="q54-Iy-gZP"/>
+                    <constraint firstAttribute="trailing" secondItem="ssm-8I-4bl" secondAttribute="trailing" constant="20" id="uxp-36-emP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatar" destination="wzv-QB-Man" id="xOS-MH-aZA"/>
+                <outlet property="firstNameTextField" destination="ssm-8I-4bl" id="xlS-FX-zPi"/>
+                <outlet property="lastNameTextField" destination="b0p-F4-3Ix" id="PRB-37-z31"/>
+                <outlet property="lineView" destination="a7z-Js-72y" id="59e-mw-MJA"/>
+                <outlet property="photoButton" destination="QCf-ew-ARC" id="8OJ-85-c1X"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

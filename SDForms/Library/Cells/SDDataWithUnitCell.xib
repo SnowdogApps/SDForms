@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SDDataWithUnitCell" id="izg-rm-5Sp" userLabel="Data WIth Unit Cell - SDDataWithUnitCell" customClass="SDDataWithUnitCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="izg-rm-5Sp" id="yx7-oy-urm">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xQB-iA-Kkz">
+                        <rect key="frame" x="13" y="12" width="140" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="iUR-eL-ZwY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qq6-Vj-eyx" customClass="SDTextField">
+                        <rect key="frame" x="153" y="7" width="107" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="R9h-p4-8bE"/>
+                            <constraint firstAttribute="width" constant="107" id="fFp-ED-VpQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                    </textField>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxL-TV-jan">
+                        <rect key="frame" x="258" y="11" width="42" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="L2M-iM-z0t"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xQB-iA-Kkz" firstAttribute="leading" secondItem="yx7-oy-urm" secondAttribute="leading" constant="13" id="720-VX-Pv4"/>
+                    <constraint firstItem="qq6-Vj-eyx" firstAttribute="top" secondItem="yx7-oy-urm" secondAttribute="top" constant="7" id="AhI-jn-UQD"/>
+                    <constraint firstItem="PxL-TV-jan" firstAttribute="top" secondItem="yx7-oy-urm" secondAttribute="top" constant="11" id="JE6-5Y-pzl"/>
+                    <constraint firstItem="qq6-Vj-eyx" firstAttribute="leading" secondItem="xQB-iA-Kkz" secondAttribute="trailing" id="Jgm-nP-8hh"/>
+                    <constraint firstItem="PxL-TV-jan" firstAttribute="leading" secondItem="qq6-Vj-eyx" secondAttribute="trailing" id="Xey-44-JoN"/>
+                    <constraint firstItem="xQB-iA-Kkz" firstAttribute="top" secondItem="yx7-oy-urm" secondAttribute="top" constant="12" id="dMH-X7-OTE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField" destination="qq6-Vj-eyx" id="Rgf-Yu-FWB"/>
+                <outlet property="titleLabel" destination="xQB-iA-Kkz" id="h5N-nZ-nYY"/>
+                <outlet property="unitLabel" destination="PxL-TV-jan" id="Pea-XF-iSY"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
