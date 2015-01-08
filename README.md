@@ -9,7 +9,16 @@ SDForms
 5. In Link Binary With Libraries add libSDForms.a
 6. In Copy Bundle Resources add SDFormsResourcesBundle.bundle
 
-## Examples:
+## Example
+
+Initializing a form:
+
+`self.form = [[SDForm alloc] initWithTableView:self.tableView];
+self.form.delegate = self;
+self.form.dataSource = self;`
+
+## Screenshots:
 ![Screenshot1](images/1.png "")
+
 ![Screenshot2](images/2.png "")
 

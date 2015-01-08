@@ -62,6 +62,7 @@
         self.person.age = @25;
         self.person.bio = @"There was a boy";
         self.person.hp = @70;
+        self.person.isStudent = @YES;
     }
     return self;
 }
@@ -78,6 +79,10 @@
     swipeRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     
     [self initFields];
+    
+    self.form = [[SDForm alloc] initWithTableView:self.tableView];
+    self.form.delegate = self;
+    self.form.dataSource = self;
 }
 
 - (void)viewDidLayoutSubviews
@@ -211,12 +216,6 @@
 
 - (NSMutableArray *)createFirstSection
 {
-    self.person.isStudent = @YES;
-    
-    self.form = [[SDForm alloc] initWithTableView:self.tableView];
-    self.form.delegate = self;
-    self.form.dataSource = self;
-    
     self.sections = [NSMutableArray array];
     
     SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
