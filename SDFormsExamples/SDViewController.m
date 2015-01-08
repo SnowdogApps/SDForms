@@ -32,7 +32,7 @@
     return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent];
 }
 
-- (NSString *) formattedDOB
+- (NSString *)formattedDOB
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"dd MMM yyyy";
@@ -45,19 +45,30 @@
 
 @property (nonatomic, strong) SDForm *form;
 @property (nonatomic, strong) Person *person;
-@property (nonatomic, strong) NSMutableArray *section1Fields;
-@property (nonatomic, strong) NSMutableArray *section2Fields;
 @property (nonatomic, strong) NSMutableArray *sections;
 
 @end
 
 @implementation SDViewController
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.person = [[Person alloc] init];
+        self.person.name = @"John";
+        self.person.surname = @"Smith";
+        self.person.salary = @3000;
+        self.person.dateOfBirth = [[NSDate date] dateByAddingTimeInterval:(3600 * 24 * 365 * 25)];
+        self.person.age = @25;
+        self.person.bio = @"There was a boy";
+        self.person.hp = @70;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog (@"VC frame: %@", NSStringFromCGRect(self.view.frame));
-    NSLog (@"TableView frame: %@", NSStringFromCGRect(self.tableView.frame));
     
     UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(saveButtonTapped:)];
     self.navigationItem.rightBarButtonItem = save;
@@ -72,8 +83,6 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    NSLog (@"After layout VC frame: %@", NSStringFromCGRect(self.view.frame));
-    NSLog (@"After layout TableView frame: %@", NSStringFromCGRect(self.tableView.frame));
     [self.form reloadData];
 }
 
@@ -123,7 +132,6 @@
 
 - (void)form:(SDForm *)form didSelectFieldAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Did select field in section: %ld row: %ld", indexPath.section, indexPath.row);
     SDFormField *field = [form fieldForIndexPath:indexPath];
     if ([field.name isEqualToString:@"submit"]) {
         [self saveButtonTapped:nil];
@@ -132,7 +140,7 @@
 
 - (NSInteger)numberOfSectionsForForm:(SDForm *)form
 {
-    return 2;
+    return self.sections.count;
 }
 
 - (NSInteger)form:(SDForm *)form numberOfFieldsInSection:(NSInteger)section
@@ -143,7 +151,7 @@
 
 - (NSString *)form:(SDForm *)form titleForHeaderInSection:(NSInteger)section
 {
-    return [NSString stringWithFormat:@"Section %ld", (long)section];
+    return [NSString stringWithFormat:@"Section %ld", (long)section + 1];
 }
 
 - (NSString *)form:(SDForm *)form titleForFooterInSection:(NSInteger)section
@@ -185,16 +193,24 @@
     return [fields objectAtIndex:row];
 }
 
+
+
 - (void)initFields
 {
-    self.person = [[Person alloc] init];
-    self.person.name = @"John";
-    self.person.surname = @"Smith";
-    self.person.salary = @3000;
-    self.person.dateOfBirth = [[NSDate date] dateByAddingTimeInterval:(3600 * 24 * 365 * 25)];
-    self.person.age = @25;
-    self.person.bio = @"There was a boy";
-    self.person.hp = @70;
+    NSMutableArray *section1Fields = [self createFirstSection];
+    NSMutableArray *section2Fields = [self createSecondSection];
+    NSMutableArray *section3Fields = [self createThirdSection];
+    NSMutableArray *section4Fields = [self createFourthSection];
+    
+    
+    [self.sections addObject:section1Fields];
+    [self.sections addObject:section2Fields];
+    [self.sections addObject:section3Fields];
+    [self.sections addObject:section4Fields];
+}
+
+- (NSMutableArray *)createFirstSection
+{
     self.person.isStudent = @YES;
     
     self.form = [[SDForm alloc] initWithTableView:self.tableView];
@@ -202,7 +218,7 @@
     self.form.dataSource = self;
     
     self.sections = [NSMutableArray array];
-	
+    
     SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
     name.title = @"Name";
     name.placeholder = @"Name";
@@ -260,22 +276,12 @@
     SDSwitchField *isStudent = [[SDSwitchField alloc] initWithObject:self.person relatedPropertyKey:@"isStudent"];
     isStudent.title = @"Is student";
     
-    self.section1Fields = [@[name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
-    
-    SDButtonField *addField = [[SDButtonField alloc] init];
-    addField.name = @"addField";
-    addField.title = @"Add field";
-    
-    __weak SDButtonField *wAddField = addField;
-    [addField setOnTapBlock:^{
-        SDButtonField *sAddField = wAddField;
-        SDLabelField *newField = [[SDLabelField alloc] init];
-        newField.title = @"New field";
-        newField.value = @"value";
-        [self.section2Fields insertObject:newField atIndex:(sAddField.indexPath.row + 1)];
-        [self.form addField:newField atIndexPath:[NSIndexPath indexPathForRow:(sAddField.indexPath.row + 1) inSection:sAddField.indexPath.section] withRowAnimation:UITableViewRowAnimationBottom];
-    }];
-    
+    NSArray *section1Fields = [@[name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
+    return [section1Fields mutableCopy];
+}
+
+- (NSMutableArray *)createSecondSection
+{
     SDPickerField *picker1 = [[SDPickerField alloc] init];
     picker1.name = @"picker1";
     picker1.title = @"Picker 1";
@@ -291,22 +297,43 @@
     [selection setItems:@[@"Option 1", @"Option 2", @"Option 3", @"Option 4"]];
     [selection setSelectedIndexes:[@[@0] mutableCopy]];
     
-    SDDatePickerField *hired = [[SDDatePickerField alloc] init];
-    hired.title = @"Hired";
-    hired.value = [NSDate date];
-    hired.datePickerMode = UIDatePickerModeDateAndTime;
-    
     SDMultilineTextField *autoHeightText = [[SDMultilineTextField alloc] init];
     autoHeightText.editable = NO;
     autoHeightText.backgroundColor = [UIColor lightGrayColor];
     autoHeightText.automaticHeight = YES;
     autoHeightText.value = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. \
-        \n\nNullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.";
+    \n\nNullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.";
     
     SDButtonField *submit = [[SDButtonField alloc] init];
     submit.name = @"submit";
     submit.title = @"Submit";
     
+    NSArray *section2Fields = @[picker1, selection, autoHeightText, submit];
+    return [section2Fields mutableCopy];
+}
+
+- (NSMutableArray *)createThirdSection
+{
+    NSMutableArray *section3Fields = [NSMutableArray array];
+    SDButtonField *addField = [[SDButtonField alloc] init];
+    addField.name = @"addField";
+    addField.title = @"Add field";
+    __weak SDButtonField *wAddField = addField;
+    [addField setOnTapBlock:^{
+        SDButtonField *sAddField = wAddField;
+        SDLabelField *newField = [[SDLabelField alloc] init];
+        newField.title = @"New field";
+        newField.value = @"value";
+        [section3Fields insertObject:newField atIndex:(sAddField.indexPath.row + 1)];
+        [self.form addField:newField atIndexPath:[NSIndexPath indexPathForRow:(sAddField.indexPath.row + 1) inSection:sAddField.indexPath.section] withRowAnimation:UITableViewRowAnimationBottom];
+    }];
+    
+    [section3Fields addObject:addField];
+    return section3Fields;
+}
+
+- (NSMutableArray *)createFourthSection
+{
     SDButtonField *addSection = [[SDButtonField alloc] init];
     addSection.name = @"addSection";
     addSection.title = @"Add section";
@@ -319,10 +346,8 @@
         [self.form addSectionAtIndex:[self.sections indexOfObject:newSection] withRowAnimation:UITableViewRowAnimationLeft];
     }];
     
-    self.section2Fields = [@[addField, picker1, selection, hired, autoHeightText, submit, addSection] mutableCopy];
-        
-    [self.sections addObject:self.section1Fields];
-    [self.sections addObject:self.section2Fields];
+    NSArray *section4Fields = @[addSection];
+    return [section4Fields mutableCopy];
 }
 
 - (void) cellWasSwiped:(UIGestureRecognizer *)recognizer
@@ -332,12 +357,8 @@
     if(swipedIndexPath)
     {
         SDFormField *field = [self.form fieldForIndexPath:swipedIndexPath];
-        if (swipedIndexPath.section == 0) {
-            [self.section1Fields removeObject:field];
-        } else {
-            [self.section2Fields removeObject:field];
-        }
-
+        NSMutableArray *section = [self.sections objectAtIndex:field.indexPath.section];
+        [section removeObject:field];
         [self.form removeFieldAtIndexPath:field.indexPath withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
