@@ -13,9 +13,42 @@ SDForms
 
 Initializing a form:
 
-`self.form = [[SDForm alloc] initWithTableView:self.tableView];
+```objective-c
+self.form = [[SDForm alloc] initWithTableView:self.tableView];
 self.form.delegate = self;
-self.form.dataSource = self;`
+self.form.dataSource = self;
+`
+---
+
+Creating a field
+
+```objective-c
+SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
+name.title = @"Name";
+name.placeholder = @"Name";
+name.cellType = SDTextFormFieldCellTypeTextAndLabel;
+```
+
+Implementing data source methods
+
+```objective-c
+- (NSInteger)numberOfSectionsForForm:(SDForm *)form
+{
+return self.sections.count;
+}
+
+- (NSInteger)form:(SDForm *)form numberOfFieldsInSection:(NSInteger)section
+{
+NSMutableArray *fields = [self.sections objectAtIndex:section];
+return fields.count;
+}
+
+- (SDFormField *)form:(SDForm *)form fieldForRow:(NSInteger)row inSection:(NSInteger)section
+{
+NSArray *fields = [self.sections objectAtIndex:section];
+return [fields objectAtIndex:row];
+}
+```
 
 ## Screenshots:
 ![Screenshot1](images/1.png "")
