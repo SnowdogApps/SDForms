@@ -2,7 +2,7 @@ SDForms
 =======
 
 
-SDForms is an open source iOS forms library that allows to create UITableView dynamic UITableView-based forms. It offers different types of fields like text fields, picker fields, date picker fields, switch fields, slider fields etc. It also enables to automatically map fields' values to object properties.
+SDForms is an open source iOS forms library that allows to create dynamic UITableView-based forms. It offers different types of fields like text fields, picker fields, date picker fields, switch fields, slider fields etc. It also enables to automatically map fields' values to object properties.
 
 ## Installation:
 1. Drag and drop SDForms.xcodeproj to your project/workspace
