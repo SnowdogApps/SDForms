@@ -9,18 +9,19 @@ SDForms
 5. In Link Binary With Libraries add libSDForms.a
 6. In Copy Bundle Resources add SDFormsResourcesBundle.bundle
 
-## Example
+## Usage
 
-Initializing a form:
+This is only simple example. For more advanced usage please check the sample project.
+
+#### Initializing a form:
 
 ```objective-c
 self.form = [[SDForm alloc] initWithTableView:self.tableView];
 self.form.delegate = self;
 self.form.dataSource = self;
-`
----
+```
 
-Creating a field
+#### Creating a field:
 
 ```objective-c
 SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
@@ -29,7 +30,7 @@ name.placeholder = @"Name";
 name.cellType = SDTextFormFieldCellTypeTextAndLabel;
 ```
 
-Implementing data source methods
+#### Implementing data source methods;
 
 ```objective-c
 - (NSInteger)numberOfSectionsForForm:(SDForm *)form
@@ -51,7 +52,7 @@ return [fields objectAtIndex:row];
 ```
 
 ## Screenshots:
-![Screenshot1](images/1.png "")
+![Screenshot1](images/1.png =320x)
 
-![Screenshot2](images/2.png "")
+![Screenshot2](images/2.png =320x)
 
