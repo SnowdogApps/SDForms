@@ -49,11 +49,11 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 @property (nonatomic, strong) NSString *formattedValueKey;
 @property (nonatomic, strong) NSString *settabeFormattedValueKey;
 @property (nonatomic, strong) UIColor *backgroundColor;
-@property (nonatomic, strong) UIColor *markedBackgroundColor;
+@property (nonatomic, strong) UIColor *editedBackgroundColor;
+@property (nonatomic) BOOL markWhenEdited;
 @property (nonatomic, strong) NSString *segueIdentifier;
 @property (nonatomic, strong) void (^onTapBlock)();
 @property (nonatomic, readonly) NSBundle *defaultBundle;
-@property (nonatomic, strong) NSString *valueChangesAtKeyPath;
 
 @property (nonatomic, strong) on_value_changed_t onValueChangedBlock;
 @property (nonatomic) BOOL canBeDeleted;
@@ -62,7 +62,7 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 @property (nonatomic, weak) id<SDFormFieldCustomizationDelegate> formatDelegate;
 
 - (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key;
-- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey;
+- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey settableFormattedValueKey:(NSString *)settableFormattedKey;
 - (void)registerCellsInTableView:(UITableView*)tableView;
 - (SDFormCell *)cellForTableView:(UITableView*)tableView atIndex:(NSUInteger)index;
 - (void)willDisplayCell:(SDFormCell *)cell atIndexPath:(NSIndexPath *)indexPath;

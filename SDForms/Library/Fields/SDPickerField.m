@@ -31,6 +31,26 @@
 }
 
 
+- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys {
+    self = [self init];
+    if (self) {
+        self.relatedObjects = objects;
+        self.relatedPropertyKeys = keys;
+        
+        [self setValueBasedOnRelatedObjectProperty];
+    }
+    return self;
+}
+
+- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys formattedValueKeys:(NSArray *)formattedKeys settableFormattedValueKeys:(NSArray *)settableFormattedKeys {
+    self = [self initWithObjects:objects relatedPropertyKeys:keys];
+    if (self) {
+        self.formattedValueKeys = formattedKeys;
+        self.settableFormattedValueKeys = settableFormattedKeys;
+    }
+    return self;
+}
+
 #pragma mar - Field management methods
 
 
@@ -109,7 +129,7 @@
     } else if (self.relatedObject && self.formattedValueKey) {
         for (int i = 0; i < self.relatedObjects.count; i++) {
             id relatedObject = [self.relatedObjects objectAtIndex:i];
-            NSString *key = [self.relatedPropertyKeys objectAtIndex:i];
+            NSString *key = [self.formattedValueKeys objectAtIndex:i];
             NSString *formattedValue = [relatedObject valueForKey:key];
             
             if (formattedValue) {
@@ -239,6 +259,18 @@
     } else {
         self.relatedPropertyKeys = nil;
     }
+}
+
+- (void)setFormattedValueKey:(NSString *)formattedValueKey {
+    if (formattedValueKey) {
+        self.formattedValueKeys = @[formattedValueKey];
+    } else {
+        self.formattedValueKeys = nil;
+    }
+}
+
+- (void)setFormattedValueKeys:(NSArray *)formattedValueKeys {
+    _formattedValueKeys = formattedValueKeys;
 }
 
 - (void)setSettabeFormattedValueKey:(NSString *)settabeFormattedValueKey

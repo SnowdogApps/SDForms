@@ -80,6 +80,7 @@
 		B55F0F9519AF418300685BCA /* SDSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB20199B95DC000AB3A5 /* SDSwitchCell.xib */; };
 		B55F0F9619AF418300685BCA /* SDTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB23199B95DC000AB3A5 /* SDTextFieldCell.xib */; };
 		B55F0F9719AF418300685BCA /* SDTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB26199B95DC000AB3A5 /* SDTextViewCell.xib */; };
+		B59132111A6038500028FBE7 /* NSObject+Differences.m in Sources */ = {isa = PBXBuildFile; fileRef = B59132101A6038500028FBE7 /* NSObject+Differences.m */; };
 		B596CA6D199B9533000AB3A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596CA6C199B9533000AB3A5 /* Foundation.framework */; };
 		B596CA6F199B9533000AB3A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596CA6E199B9533000AB3A5 /* CoreGraphics.framework */; };
 		B596CA71199B9533000AB3A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596CA70199B9533000AB3A5 /* UIKit.framework */; };
@@ -294,6 +295,8 @@
 		B57ABC8819A777950062BDBB /* SDTextFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTextFormField.m; sourceTree = "<group>"; };
 		B57ABC8B19A777BE0062BDBB /* SDPickerField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPickerField.h; sourceTree = "<group>"; };
 		B57ABC8C19A777BE0062BDBB /* SDPickerField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPickerField.m; sourceTree = "<group>"; };
+		B591320F1A6038500028FBE7 /* NSObject+Differences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Differences.h"; sourceTree = "<group>"; };
+		B59132101A6038500028FBE7 /* NSObject+Differences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Differences.m"; sourceTree = "<group>"; };
 		B596CA69199B9533000AB3A5 /* SDFormsExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDFormsExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B596CA6C199B9533000AB3A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B596CA6E199B9533000AB3A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -679,6 +682,8 @@
 		B596CBAD199B98A4000AB3A5 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				B591320F1A6038500028FBE7 /* NSObject+Differences.h */,
+				B59132101A6038500028FBE7 /* NSObject+Differences.m */,
 				B596CBAE199B98B0000AB3A5 /* UIColor+HexColor.h */,
 				B596CBAF199B98B0000AB3A5 /* UIColor+HexColor.m */,
 				B596CBB0199B98B0000AB3A5 /* UIImage+Colorize.h */,
@@ -916,6 +921,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59132111A6038500028FBE7 /* NSObject+Differences.m in Sources */,
 				B5F876A319AE1E5B00C4AF33 /* SDForm.m in Sources */,
 				B5F876A419AE1E5B00C4AF33 /* SDFormSection.m in Sources */,
 				B5F876A519AE1E5B00C4AF33 /* SDFormField.m in Sources */,

@@ -261,7 +261,7 @@
     bio.relatedPropertyKey = @"bio";
     bio.title = @"Biography";
     
-    SDDatePickerField *dob = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth" formattedValueKey:@"formattedDOB"];
+    SDDatePickerField *dob = [[SDDatePickerField alloc] initWithObject:self.person relatedPropertyKey:@"dateOfBirth" formattedValueKey:@"formattedDOB" settableFormattedValueKey:nil];
     dob.title = @"Date of birth";
     dob.value = [NSDate date];
     dob.datePickerMode = UIDatePickerModeDateAndTime;

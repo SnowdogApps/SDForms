@@ -8,15 +8,19 @@
 
 #import "SDFormField.h"
 #import "SDFormCell.h"
+#import "NSObject+Differences.h"
 
 @interface SDFormField ()
-@property (nonatomic, weak) id initialValue;
+
+@property (nonatomic, strong) id initialVal;
+@property (nonatomic) BOOL edited;
+
 @end
+
 
 @implementation SDFormField
 
-- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key
-{
+- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key {
     self = [self init];
     if (self) {
         self.relatedObject = object;
@@ -27,8 +31,7 @@
     return self;
 }
 
-- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey
-{
+- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey settableFormattedValueKey:(NSString *)settableFormattedKey {
     self = [self initWithObject:object relatedPropertyKey:key];
     if (self) {
         self.formattedValueKey = formattedKey;
@@ -36,30 +39,31 @@
     return self;
 }
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
-        _hasPicker = NO;
-        _enabled = YES;
+        self.hasPicker = NO;
+        self.enabled = YES;
+        self.edited = NO;
     }
     return self;
 }
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
+- (void)registerCellsInTableView:(UITableView *)tableView {
     
 }
 
-- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
-{
+- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index {
     if (index < self.reuseIdentifiers.count) {
         NSString *reuseIdentifier = [self.reuseIdentifiers objectAtIndex:index];
         SDFormCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.field = self;
 
-        if (self.backgroundColor) {
+        if (self.markWhenEdited && [self.value isDifferent:self.initialVal]) {
+            cell.contentView.backgroundColor = self.editedBackgroundColor;
+            cell.backgroundColor = self.editedBackgroundColor;
+        } else if (self.backgroundColor) {
             cell.contentView.backgroundColor = self.backgroundColor;
             cell.backgroundColor = self.backgroundColor;
         }  else {
@@ -76,13 +80,11 @@
     return nil;
 }
 
-- (void)willDisplayCell:(SDFormCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
+- (void)willDisplayCell:(SDFormCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
 }
 
-- (CGFloat)heightForCellInTableView:(UITableView *)tableView atIndex:(NSUInteger)index
-{
+- (CGFloat)heightForCellInTableView:(UITableView *)tableView atIndex:(NSUInteger)index {
     if (index < self.cellHeights.count) {
         NSNumber *height = [self.cellHeights objectAtIndex:index];
         return height.floatValue;
@@ -90,45 +92,40 @@
     return 44.0;
 }
 
-- (void)setValue:(id)value
-{
+- (void)setValue:(id)value {
     [self setValue:value withCellRefresh:YES];
 }
 
-- (void)setValue:(id)value withCellRefresh:(BOOL)refresh
-{
-    id newValue = nil;
-
-    _value = value;
-    [self setRelatedObjectProperty];
-
-    if (self.valueChangesAtKeyPath) {
-        newValue = [self.relatedObject valueForKeyPath:self.valueChangesAtKeyPath];
+- (void)setValue:(id)value withCellRefresh:(BOOL)refresh {
+    
+    if (!self.edited) {
+        self.initialVal = value;
+        self.edited = YES;
     }
-
+    
+    _value = value;
+    
+    [self setRelatedObjectProperty];
 
     if (refresh) {
         if (self.onValueChangedBlock) {
-            self.onValueChangedBlock(self.initialValue, newValue, self);
+            self.onValueChangedBlock(self.initialVal, value, self);
         }
         [self refreshFieldCell];
     }
 }
 
-- (void)setRelatedObject:(id)relatedObject
-{
+- (void)setRelatedObject:(id)relatedObject {
     _relatedObject = relatedObject;
     [self setValueBasedOnRelatedObjectProperty];
 }
 
-- (void) setRelatedPropertyKey:(NSString *)relatedPropertyKey
-{
+- (void) setRelatedPropertyKey:(NSString *)relatedPropertyKey {
     _relatedPropertyKey = relatedPropertyKey;
     [self setValueBasedOnRelatedObjectProperty];
 }
 
-- (void)setRelatedObjectProperty
-{
+- (void)setRelatedObjectProperty {
     if (self.relatedObject) {
         if (self.relatedPropertyKey) {
             id propertyObject = [self.relatedObject valueForKeyPath:self.relatedPropertyKey];
@@ -151,15 +148,13 @@
     }
 }
 
-- (void)setValueBasedOnRelatedObjectProperty
-{
+- (void)setValueBasedOnRelatedObjectProperty {
     if (self.relatedObject && self.relatedPropertyKey) {
         self.value = [self.relatedObject valueForKey:self.relatedPropertyKey];
     }
 }
 
-- (NSString *)formattedValue
-{
+- (NSString *)formattedValue {
     if (self.formatDelegate && [self.formatDelegate respondsToSelector:@selector(formattedValueForField:)]) {
         NSString *title = [self.formatDelegate formattedValueForField:self];
         return title;
@@ -174,20 +169,17 @@
     }
 }
 
-- (void)refreshFieldCell
-{
+- (void)refreshFieldCell {
     if (self.delegate && [self.delegate respondsToSelector:@selector(formFieldDidUpdateValue:)]) {
         [self.delegate formFieldDidUpdateValue:self];
     }
 }
 
-- (void)form:(SDForm *)form didSelectFieldAtIndex:(NSInteger)index
-{
+- (void)form:(SDForm *)form didSelectFieldAtIndex:(NSInteger)index {
     
 }
 
-- (void)presentViewController:(UIViewController *)controller animated:(BOOL)animated
-{
+- (void)presentViewController:(UIViewController *)controller animated:(BOOL)animated {
     if (self.presentingMode == SDFormFieldPresentingModePush && self.delegate) {
         if ([self.delegate respondsToSelector:@selector(formField:pushesViewController:animated:)]) {
             [self.delegate formField:self pushesViewController:controller animated:animated];
@@ -199,23 +191,14 @@
     }
 }
 
-- (UIColor *)markedBackgroundColor {
-    if (_markedBackgroundColor == nil) {
-        _markedBackgroundColor = [UIColor colorWithRed:169/255.0 green:188/255.0 blue:209/255.0 alpha:1.0];
+- (UIColor *)editedBackgroundColor {
+    if (_editedBackgroundColor == nil) {
+        _editedBackgroundColor = [UIColor colorWithRed:169/255.0 green:188/255.0 blue:209/255.0 alpha:1.0];
     }
-    return _markedBackgroundColor;
+    return _editedBackgroundColor;
 }
 
-- (void)setValueChangesAtKeyPath:(NSString *)valueChangesAtKeyPath {
-    _valueChangesAtKeyPath = valueChangesAtKeyPath;
-
-    if (self.relatedObject) {
-        self.initialValue = [self.relatedObject valueForKeyPath:_valueChangesAtKeyPath];
-    }
-}
-
-- (NSBundle *)defaultBundle
-{
+- (NSBundle *)defaultBundle {
     NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
     return bundle;
 }
