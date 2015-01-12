@@ -49,7 +49,9 @@
 }
 
 - (void)registerCellsInTableView:(UITableView *)tableView {
-    
+    for (NSString *cellId in self.reuseIdentifiers) {
+        [tableView registerNib:[UINib nibWithNibName:cellId bundle:self.defaultBundle] forCellReuseIdentifier:cellId];
+    }
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index {

@@ -25,8 +25,7 @@
     return self;
 }
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
+- (NSArray *)reuseIdentifiers {
     NSString *cellId;
     if (self.cellType == SDTextFormFieldCellTypeTextOnly) {
         cellId = kTextFieldCell;
@@ -35,9 +34,8 @@
     } else {
         cellId = kTextFieldCell;
     }
-
-    [tableView registerNib:[UINib nibWithNibName:cellId bundle:self.defaultBundle] forCellReuseIdentifier:cellId];
-    self.reuseIdentifiers = @[cellId];
+    
+   return @[cellId];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index

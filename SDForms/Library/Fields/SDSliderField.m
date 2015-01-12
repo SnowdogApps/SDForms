@@ -26,11 +26,12 @@
     return self;
 }
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kSliderCell bundle:self.defaultBundle] forCellReuseIdentifier:kSliderCell];
-    self.reuseIdentifiers = @[kSliderCell];
-    self.cellHeights = @[@88.0];
+- (NSArray *)reuseIdentifiers {
+    return @[kSliderCell];
+}
+
+- (NSArray *)cellHeights {
+    return @[@88.0];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index

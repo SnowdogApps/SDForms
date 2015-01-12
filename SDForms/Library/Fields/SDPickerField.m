@@ -66,20 +66,21 @@
 #pragma mar - Field management methods
 
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
+- (NSArray *)reuseIdentifiers {
     if (self.pickerType == SDPickerFieldPickerTypeInRow) {
-        [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-        [tableView registerNib:[UINib nibWithNibName:kPickerCell bundle:self.defaultBundle] forCellReuseIdentifier:kPickerCell];
-        self.reuseIdentifiers = @[kLabelCell, kPickerCell];
-        self.cellHeights = @[@44.0, @162.0];
+        return @[kLabelCell, kPickerCell];
     } else {
-        [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-        self.reuseIdentifiers = @[kLabelCell];
-        self.cellHeights = @[@44.0];
+        return @[kLabelCell];
     }
 }
 
+- (NSArray *)cellHeights {
+    if (self.pickerType == SDPickerFieldPickerTypeInRow) {
+        return @[@44.0, @162.0];
+    } else {
+        return @[@44.0];
+    }
+}
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {

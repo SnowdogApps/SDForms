@@ -36,8 +36,7 @@
 
 - (void)registerCellsInTableView:(UITableView *)tableView
 {
-    [tableView registerNib:[UINib nibWithNibName:kTextViewCell bundle:self.defaultBundle] forCellReuseIdentifier:kTextViewCell];
-    self.reuseIdentifiers = @[kTextViewCell];
+    [super registerCellsInTableView:tableView];
     
     if (self.automaticHeight && !self.editable) {
         CGFloat maxWidth = tableView.frame.size.width;
@@ -51,6 +50,10 @@
     } else {
         self.cellHeights = @[@88.0];
     }
+}
+
+- (NSArray *)reuseIdentifiers {
+    return @[kTextViewCell];
 }
 
 + (CGFloat)heightForText:(NSString *)text font:(UIFont *)font tableViewWidth:(CGFloat)maxWidth;

@@ -28,11 +28,12 @@
 }
 
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-    self.reuseIdentifiers = @[kLabelCell];
-    self.cellHeights = @[@44.0];
+- (NSArray *)reuseIdentifiers {
+    return @[kLabelCell];
+}
+
+- (NSArray *)cellHeights {
+    return @[@44.0];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index

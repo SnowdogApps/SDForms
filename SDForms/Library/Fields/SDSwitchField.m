@@ -11,10 +11,8 @@
 
 @implementation SDSwitchField
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kSwitchCell bundle:self.defaultBundle] forCellReuseIdentifier:kSwitchCell];
-    self.reuseIdentifiers = @[kSwitchCell];
+- (NSArray *)reuseIdentifiers {
+    return @[kSwitchCell];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index

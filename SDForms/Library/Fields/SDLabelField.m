@@ -11,10 +11,8 @@
 
 @implementation SDLabelField
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-    self.reuseIdentifiers = @[kLabelCell];
+- (NSArray *)reuseIdentifiers {
+    return @[kLabelCell];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
