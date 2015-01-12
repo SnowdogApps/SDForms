@@ -13,7 +13,6 @@
 @interface SDFormField ()
 
 @property (nonatomic, strong) id initialVal;
-@property (nonatomic) BOOL edited;
 
 @end
 

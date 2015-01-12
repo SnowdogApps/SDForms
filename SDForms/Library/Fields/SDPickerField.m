@@ -30,23 +30,35 @@
     return self;
 }
 
+- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key items:(NSArray *)items values:(NSArray *)values {
+    self = [self initWithObjects:@[object] relatedPropertyKeys:@[key] items:@[items] values:@[values]];
+    if (self) {
+    }
+    return self;
+}
 
-- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys {
+- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys items:(NSArray *)items values:(NSArray *)values {
     self = [self init];
     if (self) {
+        self.items = items;
+        self.values = values;
         self.relatedObjects = objects;
         self.relatedPropertyKeys = keys;
-        
         [self setValueBasedOnRelatedObjectProperty];
     }
     return self;
 }
 
-- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys formattedValueKeys:(NSArray *)formattedKeys settableFormattedValueKeys:(NSArray *)settableFormattedKeys {
-    self = [self initWithObjects:objects relatedPropertyKeys:keys];
+- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys formattedValueKeys:(NSArray *)formattedKeys settableFormattedValueKeys:(NSArray *)settableFormattedKeys items:(NSArray *)items values:(NSArray *)values {
+    self = [self init];
     if (self) {
+        self.items = items;
+        self.values = values;
+        self.relatedObjects = objects;
+        self.relatedPropertyKeys = keys;
         self.formattedValueKeys = formattedKeys;
         self.settableFormattedValueKeys = settableFormattedKeys;
+        [self setValueBasedOnRelatedObjectProperty];
     }
     return self;
 }
@@ -383,6 +395,8 @@
             [self.selectedIndexes replaceObjectAtIndex:i withObject:@(valueIndex)];
             
         }
+        
+        self.edited = NO;
         [self fillSelectedValues];
     }
 }

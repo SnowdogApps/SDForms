@@ -51,6 +51,7 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) UIColor *editedBackgroundColor;
 @property (nonatomic) BOOL markWhenEdited;
+@property (nonatomic) BOOL edited;
 @property (nonatomic, strong) NSString *segueIdentifier;
 @property (nonatomic, strong) void (^onTapBlock)();
 @property (nonatomic, readonly) NSBundle *defaultBundle;
