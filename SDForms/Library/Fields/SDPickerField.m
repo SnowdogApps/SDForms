@@ -396,7 +396,7 @@
             
         }
         
-        self.edited = NO;
+        self.isInitialValueSet = NO;
         [self fillSelectedValues];
     }
 }

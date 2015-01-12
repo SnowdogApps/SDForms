@@ -43,7 +43,7 @@
     if (self) {
         self.hasPicker = NO;
         self.enabled = YES;
-        self.edited = NO;
+        self.isInitialValueSet = NO;
     }
     return self;
 }
@@ -97,9 +97,9 @@
 
 - (void)setValue:(id)value withCellRefresh:(BOOL)refresh {
     
-    if (!self.edited) {
+    if (!self.isInitialValueSet) {
         self.initialVal = value;
-        self.edited = YES;
+        self.isInitialValueSet = YES;
     }
     
     _value = value;
@@ -127,19 +127,7 @@
 - (void)setRelatedObjectProperty {
     if (self.relatedObject) {
         if (self.relatedPropertyKey) {
-            id propertyObject = [self.relatedObject valueForKeyPath:self.relatedPropertyKey];
-
-            if ([propertyObject isKindOfClass:[NSArray class]]) {
-                [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
-            } else {
-                if ([self.value isKindOfClass:[NSArray class]]) {
-                    id firstValue = ((NSArray *)self.value).firstObject;
-                    [self.relatedObject setValue:firstValue forKey:self.relatedPropertyKey];
-                } else {
-                    [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
-                }
-            }
-
+            [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
         }
         if (self.settabeFormattedValueKey) {
             [self.relatedObject setValue:self.formattedValue forKey:self.settabeFormattedValueKey];

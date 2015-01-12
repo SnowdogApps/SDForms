@@ -33,34 +33,34 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 
 @interface SDFormField : NSObject
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) id value;
-@property (nonatomic) SDFormFieldValueType valueType;
-@property (nonatomic, strong) id formattedValue;
-@property (nonatomic) BOOL hasPicker;
-@property (nonatomic) BOOL enabled;
-@property (nonatomic, strong) NSArray *reuseIdentifiers;
-@property (nonatomic, strong) NSArray *cellHeights;
-@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSString *name;                   ///<Name of the field, used for identifying field
+@property (nonatomic, strong) NSString *title;                  ///<Title of the field that will be displayed in cell
+@property (nonatomic, strong) id value;                         ///<Value of the field
+@property (nonatomic) SDFormFieldValueType valueType;           ///<Type of the value
+@property (nonatomic, strong) id formattedValue;                ///<Formatted value of the field that will be displayed in cell
+@property (nonatomic) BOOL hasPicker;                           ///<Indicates if the field shows picker
+@property (nonatomic) BOOL enabled;                             ///<If set to YES, field will react to user interactions
+@property (nonatomic, strong) NSArray *reuseIdentifiers;        ///<Reuse identifiers of cells used by field, should be set in subclasses
+@property (nonatomic, strong) NSArray *cellHeights;             ///<Heights of cells displayed by field
+@property (nonatomic, strong) NSIndexPath *indexPath;           //<Field's index path
 @property (nonatomic) SDFormFieldPresentingMode presentingMode; ///<Tells the field how it should present its view controllers. By default it's set to SDFormFieldPresentingModePush
-@property (nonatomic, strong) id relatedObject;
-@property (nonatomic, strong) NSString *relatedPropertyKey;
-@property (nonatomic, strong) NSString *formattedValueKey;
-@property (nonatomic, strong) NSString *settabeFormattedValueKey;
-@property (nonatomic, strong) UIColor *backgroundColor;
-@property (nonatomic, strong) UIColor *editedBackgroundColor;
-@property (nonatomic) BOOL markWhenEdited;
-@property (nonatomic) BOOL edited;
-@property (nonatomic, strong) NSString *segueIdentifier;
-@property (nonatomic, strong) void (^onTapBlock)();
-@property (nonatomic, readonly) NSBundle *defaultBundle;
+@property (nonatomic, strong) id relatedObject;                 ///<Object related to the field
+@property (nonatomic, strong) NSString *relatedPropertyKey;     ///<Key path to property related to field
+@property (nonatomic, strong) NSString *formattedValueKey;      ///<Key path to property that will be dispayed as field's formatted value
+@property (nonatomic, strong) NSString *settabeFormattedValueKey;   ///<Key path to property that will be set by the field with its formattedValue property value
+@property (nonatomic, strong) UIColor *backgroundColor;             ///<Background color of the field
+@property (nonatomic, strong) UIColor *editedBackgroundColor;       ///<Background color of the field if it has been edited and its markWhenEdited property is set to YES
+@property (nonatomic) BOOL markWhenEdited;              ///<If set to YES, the fields background color will change to editedBackgroundColor property value after the field has been edited
+@property (nonatomic) BOOL isInitialValueSet;           ///<Indicates, if the field initial value of the field is set. If you set to this property to NO, the next object assigned to value property will be treaded as the field's initial value
+@property (nonatomic, strong) NSString *segueIdentifier;    ///<Identifier of the segue that should be performed when the field is tapped
+@property (nonatomic, strong) void (^onTapBlock)();         ///<Block executed when the field is tapped
+@property (nonatomic, readonly) NSBundle *defaultBundle;    ///<Bundle containing resources associated with SDForms library
 
-@property (nonatomic, strong) on_value_changed_t onValueChangedBlock;
-@property (nonatomic) BOOL canBeDeleted;
+@property (nonatomic, strong) on_value_changed_t onValueChangedBlock;   ///<Block executed when value of the field has changed
+@property (nonatomic) BOOL canBeDeleted;    ///<If YES, delete button will be visible on field's cells
 
-@property (nonatomic, weak) id<SDFormFieldDelegate> delegate;
-@property (nonatomic, weak) id<SDFormFieldCustomizationDelegate> formatDelegate;
+@property (nonatomic, weak) id<SDFormFieldDelegate> delegate;                       ///<Field's delegate
+@property (nonatomic, weak) id<SDFormFieldCustomizationDelegate> formatDelegate;    ///<Field's format delegate
 
 - (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key;
 - (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey settableFormattedValueKey:(NSString *)settableFormattedKey;
