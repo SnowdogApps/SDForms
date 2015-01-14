@@ -27,13 +27,16 @@
 
 - (NSInteger)numberOfSectionsForForm:(SDForm *)form;
 - (NSInteger)form:(SDForm *)form numberOfFieldsInSection:(NSInteger)section;
+- (SDFormField *)form:(SDForm *)form fieldForRow:(NSInteger)row inSection:(NSInteger)section;
+
+@optional
 - (NSString *)form:(SDForm *)form titleForHeaderInSection:(NSInteger)section;
 - (NSString *)form:(SDForm *)form titleForFooterInSection:(NSInteger)section;
 - (CGFloat)form:(SDForm *)form heightForHeaderInSection:(NSInteger)section;
 - (CGFloat)form:(SDForm *)form heightForFooterInSection:(NSInteger)section;
 - (UIView *)form:(SDForm *)form viewForHeaderInSection:(NSInteger)section;
 - (UIView *)form:(SDForm *)form viewForFooterInSection:(NSInteger)section;
-- (SDFormField *)form:(SDForm *)form fieldForRow:(NSInteger)row inSection:(NSInteger)section;
+
 
 @end
 

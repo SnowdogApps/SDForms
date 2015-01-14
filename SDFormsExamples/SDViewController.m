@@ -72,7 +72,7 @@
     [super viewDidLoad];
     
     UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(saveButtonTapped:)];
-    self.navigationItem.rightBarButtonItem = save;
+//    self.navigationItem.rightBarButtonItem = save;
     
     UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cellWasSwiped:)];
     [self.tableView addGestureRecognizer:swipeRecognizer];
@@ -154,33 +154,33 @@
     return fields.count;
 }
 
-- (NSString *)form:(SDForm *)form titleForHeaderInSection:(NSInteger)section
-{
-    return [NSString stringWithFormat:@"Section %ld", (long)section + 1];
-}
+//- (NSString *)form:(SDForm *)form titleForHeaderInSection:(NSInteger)section
+//{
+//    return [NSString stringWithFormat:@"Section %ld", (long)section + 1];
+//}
 
-- (NSString *)form:(SDForm *)form titleForFooterInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return @"End of section 1";
-    } else {
-        return nil;
-    }
-}
+//- (NSString *)form:(SDForm *)form titleForFooterInSection:(NSInteger)section
+//{
+//    if (section == 0) {
+//        return @"End of section 1";
+//    } else {
+//        return nil;
+//    }
+//}
 
-- (CGFloat)form:(SDForm *)form heightForHeaderInSection:(NSInteger)section
-{
-    return 30.0;
-}
+//- (CGFloat)form:(SDForm *)form heightForHeaderInSection:(NSInteger)section
+//{
+//    return 30.0;
+//}
 
-- (CGFloat)form:(SDForm *)form heightForFooterInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return 30.0;
-    } else {
-        return 0.0;
-    }
-}
+//- (CGFloat)form:(SDForm *)form heightForFooterInSection:(NSInteger)section
+//{
+//    if (section == 0) {
+//        return 30.0;
+//    } else {
+//        return 0.0;
+//    }
+//}
 
 - (UIView *)form:(SDForm *)form viewForHeaderInSection:(NSInteger)section
 {
@@ -207,17 +207,36 @@
     NSMutableArray *section3Fields = [self createThirdSection];
     NSMutableArray *section4Fields = [self createFourthSection];
     
-    
+    self.sections = [NSMutableArray array];
+    [self.sections addObject:[self demoSection]];
     [self.sections addObject:section1Fields];
     [self.sections addObject:section2Fields];
     [self.sections addObject:section3Fields];
     [self.sections addObject:section4Fields];
 }
 
+- (NSMutableArray *)demoSection
+{
+    SDTextFormField *name = [[SDTextFormField alloc] init];
+    name.title = @"Name";
+    name.placeholder = @"Name";
+    name.cellType = SDTextFormFieldCellTypeTextAndLabel;
+    
+    SDTextFormField *surname = [[SDTextFormField alloc] init];
+    surname.title = @"Surname";
+    surname.placeholder = @"Surname";
+    surname.cellType = SDTextFormFieldCellTypeTextAndLabel;
+    
+    SDDatePickerField *dob = [[SDDatePickerField alloc] init];
+    dob.title = @"Date of birth";
+    dob.value = [NSDate date];
+    dob.datePickerMode = UIDatePickerModeDate;
+    
+    return [@[name, surname, dob] mutableCopy];
+}
+
 - (NSMutableArray *)createFirstSection
 {
-    self.sections = [NSMutableArray array];
-    
     SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
     name.title = @"Name";
     name.placeholder = @"Name";
@@ -298,10 +317,9 @@
     
     SDMultilineTextField *autoHeightText = [[SDMultilineTextField alloc] init];
     autoHeightText.editable = NO;
-    autoHeightText.backgroundColor = [UIColor lightGrayColor];
+//    autoHeightText.backgroundColor = [UIColor lightGrayColor];
     autoHeightText.automaticHeight = YES;
-    autoHeightText.value = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. \
-    \n\nNullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.";
+    autoHeightText.value = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.";
     
     SDButtonField *submit = [[SDButtonField alloc] init];
     submit.name = @"submit";
