@@ -8,7 +8,7 @@
 
 #import "SDItemSelectionField.h"
 #import "SDItemsPickerViewController.h"
-#import "SDLabelCell.h"
+#import "SDLabelFormCell.h"
 #import "NSMutableArray+IndexSelection.h"
 
 
@@ -40,8 +40,8 @@
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
-    if ([cell isKindOfClass:[SDLabelCell class]]) {
-        SDLabelCell *labelCell = (SDLabelCell *)cell;
+    if ([cell isKindOfClass:[SDLabelFormCell class]]) {
+        SDLabelFormCell *labelCell = (SDLabelFormCell *)cell;
         labelCell.titleLabel.text = self.title;
         labelCell.valueLabel.text = self.formattedValue;
     }

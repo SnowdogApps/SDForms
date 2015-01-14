@@ -32,23 +32,16 @@
 		B52BE2AD19AF657E0071BA57 /* SDTextField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBA3199B9836000AB3A5 /* SDTextField.h */; };
 		B52BE2AE19AF657E0071BA57 /* SDTextView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBA5199B9836000AB3A5 /* SDTextView.h */; };
 		B52BE2AF19AF657E0071BA57 /* SDNavigationToolbar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB98199B97FB000AB3A5 /* SDNavigationToolbar.h */; };
-		B52BE2B019AF657E0071BA57 /* SDBigMutableStarRatingCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAAC199B95DB000AB3A5 /* SDBigMutableStarRatingCell.h */; };
-		B52BE2B119AF657E0071BA57 /* SDButtonCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAAF199B95DB000AB3A5 /* SDButtonCell.h */; };
-		B52BE2B219AF657E0071BA57 /* SDDataWithUnitCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC1199B95DB000AB3A5 /* SDDataWithUnitCell.h */; };
-		B52BE2B319AF657E0071BA57 /* SDDatePickerCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC4199B95DB000AB3A5 /* SDDatePickerCell.h */; };
-		B52BE2B419AF657E0071BA57 /* SDDatePickerWithLabelCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC7199B95DB000AB3A5 /* SDDatePickerWithLabelCell.h */; };
-		B52BE2B519AF657E0071BA57 /* SDDescriptionCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CACA199B95DB000AB3A5 /* SDDescriptionCell.h */; };
-		B52BE2B619AF657E0071BA57 /* SDMutableStarRatingCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAEE199B95DB000AB3A5 /* SDMutableStarRatingCell.h */; };
-		B52BE2B719AF657E0071BA57 /* SDPickerCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAF7199B95DB000AB3A5 /* SDPickerCell.h */; };
-		B52BE2B819AF657E0071BA57 /* SDLabelCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB00199B95DB000AB3A5 /* SDLabelCell.h */; };
-		B52BE2B919AF657E0071BA57 /* SDPollNameDataCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB03199B95DB000AB3A5 /* SDPollNameDataCell.h */; };
-		B52BE2BA19AF657E0071BA57 /* SDTextFieldWithLabelCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB06199B95DB000AB3A5 /* SDTextFieldWithLabelCell.h */; };
-		B52BE2BB19AF657E0071BA57 /* SDResizableTextCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB12199B95DB000AB3A5 /* SDResizableTextCell.h */; };
-		B52BE2BC19AF657E0071BA57 /* SDSliderCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB15199B95DB000AB3A5 /* SDSliderCell.h */; };
-		B52BE2BD19AF657E0071BA57 /* SDStarRatingCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB1B199B95DB000AB3A5 /* SDStarRatingCell.h */; };
-		B52BE2BE19AF657E0071BA57 /* SDSwitchCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB1E199B95DC000AB3A5 /* SDSwitchCell.h */; };
-		B52BE2BF19AF657E0071BA57 /* SDTextFieldCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB21199B95DC000AB3A5 /* SDTextFieldCell.h */; };
-		B52BE2C019AF657E0071BA57 /* SDTextViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB24199B95DC000AB3A5 /* SDTextViewCell.h */; };
+		B52BE2B119AF657E0071BA57 /* SDButtonFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAAF199B95DB000AB3A5 /* SDButtonFormCell.h */; };
+		B52BE2B319AF657E0071BA57 /* SDDatePickerFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC4199B95DB000AB3A5 /* SDDatePickerFormCell.h */; };
+		B52BE2B419AF657E0071BA57 /* SDDatePickerWithLabelFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC7199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.h */; };
+		B52BE2B719AF657E0071BA57 /* SDPickerFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAF7199B95DB000AB3A5 /* SDPickerFormCell.h */; };
+		B52BE2B819AF657E0071BA57 /* SDLabelFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB00199B95DB000AB3A5 /* SDLabelFormCell.h */; };
+		B52BE2BA19AF657E0071BA57 /* SDTextFieldWithLabelFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB06199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.h */; };
+		B52BE2BC19AF657E0071BA57 /* SDSliderFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB15199B95DB000AB3A5 /* SDSliderFormCell.h */; };
+		B52BE2BE19AF657E0071BA57 /* SDSwitchFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB1E199B95DC000AB3A5 /* SDSwitchFormCell.h */; };
+		B52BE2BF19AF657E0071BA57 /* SDTextFieldFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB21199B95DC000AB3A5 /* SDTextFieldFormCell.h */; };
+		B52BE2C019AF657E0071BA57 /* SDTextViewFormCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB24199B95DC000AB3A5 /* SDTextViewFormCell.h */; };
 		B52BE2C119AF657E0071BA57 /* SDForm.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBC2199BB236000AB3A5 /* SDForm.h */; };
 		B52BE2C219AF657E0071BA57 /* SDFormSection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBC5199BB244000AB3A5 /* SDFormSection.h */; };
 		B52BE2C319AF657E0071BA57 /* SDFormField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBC8199BB250000AB3A5 /* SDFormField.h */; };
@@ -63,23 +56,16 @@
 		B55F0F8419AF418300685BCA /* SDBigStarRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB9F199B9836000AB3A5 /* SDBigStarRatingView.xib */; };
 		B55F0F8519AF418300685BCA /* SDStarRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CBA2199B9836000AB3A5 /* SDStarRatingView.xib */; };
 		B55F0F8619AF418300685BCA /* SDNavigationToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB9A199B97FB000AB3A5 /* SDNavigationToolbar.xib */; };
-		B55F0F8719AF418300685BCA /* SDBigMutableStarRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAAE199B95DB000AB3A5 /* SDBigMutableStarRatingCell.xib */; };
-		B55F0F8819AF418300685BCA /* SDButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAB1199B95DB000AB3A5 /* SDButtonCell.xib */; };
-		B55F0F8919AF418300685BCA /* SDDataWithUnitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAC3199B95DB000AB3A5 /* SDDataWithUnitCell.xib */; };
-		B55F0F8A19AF418300685BCA /* SDDatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAC6199B95DB000AB3A5 /* SDDatePickerCell.xib */; };
-		B55F0F8B19AF418300685BCA /* SDDatePickerWithLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelCell.xib */; };
-		B55F0F8C19AF418300685BCA /* SDDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CACC199B95DB000AB3A5 /* SDDescriptionCell.xib */; };
-		B55F0F8D19AF418300685BCA /* SDMutableStarRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAF0199B95DB000AB3A5 /* SDMutableStarRatingCell.xib */; };
-		B55F0F8E19AF418300685BCA /* SDPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAF9199B95DB000AB3A5 /* SDPickerCell.xib */; };
-		B55F0F8F19AF418300685BCA /* SDLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB02199B95DB000AB3A5 /* SDLabelCell.xib */; };
-		B55F0F9019AF418300685BCA /* SDPollNameDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB05199B95DB000AB3A5 /* SDPollNameDataCell.xib */; };
-		B55F0F9119AF418300685BCA /* SDTextFieldWithLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelCell.xib */; };
-		B55F0F9219AF418300685BCA /* SDResizableTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB14199B95DB000AB3A5 /* SDResizableTextCell.xib */; };
-		B55F0F9319AF418300685BCA /* SDSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB17199B95DB000AB3A5 /* SDSliderCell.xib */; };
-		B55F0F9419AF418300685BCA /* SDStarRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB1D199B95DB000AB3A5 /* SDStarRatingCell.xib */; };
-		B55F0F9519AF418300685BCA /* SDSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB20199B95DC000AB3A5 /* SDSwitchCell.xib */; };
-		B55F0F9619AF418300685BCA /* SDTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB23199B95DC000AB3A5 /* SDTextFieldCell.xib */; };
-		B55F0F9719AF418300685BCA /* SDTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB26199B95DC000AB3A5 /* SDTextViewCell.xib */; };
+		B55F0F8819AF418300685BCA /* SDButtonFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAB1199B95DB000AB3A5 /* SDButtonFormCell.xib */; };
+		B55F0F8A19AF418300685BCA /* SDDatePickerFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAC6199B95DB000AB3A5 /* SDDatePickerFormCell.xib */; };
+		B55F0F8B19AF418300685BCA /* SDDatePickerWithLabelFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.xib */; };
+		B55F0F8E19AF418300685BCA /* SDPickerFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CAF9199B95DB000AB3A5 /* SDPickerFormCell.xib */; };
+		B55F0F8F19AF418300685BCA /* SDLabelFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB02199B95DB000AB3A5 /* SDLabelFormCell.xib */; };
+		B55F0F9119AF418300685BCA /* SDTextFieldWithLabelFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.xib */; };
+		B55F0F9319AF418300685BCA /* SDSliderFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB17199B95DB000AB3A5 /* SDSliderFormCell.xib */; };
+		B55F0F9519AF418300685BCA /* SDSwitchFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB20199B95DC000AB3A5 /* SDSwitchFormCell.xib */; };
+		B55F0F9619AF418300685BCA /* SDTextFieldFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB23199B95DC000AB3A5 /* SDTextFieldFormCell.xib */; };
+		B55F0F9719AF418300685BCA /* SDTextViewFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B596CB26199B95DC000AB3A5 /* SDTextViewFormCell.xib */; };
 		B59132111A6038500028FBE7 /* NSObject+Differences.m in Sources */ = {isa = PBXBuildFile; fileRef = B59132101A6038500028FBE7 /* NSObject+Differences.m */; };
 		B596CA6D199B9533000AB3A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596CA6C199B9533000AB3A5 /* Foundation.framework */; };
 		B596CA6F199B9533000AB3A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596CA6E199B9533000AB3A5 /* CoreGraphics.framework */; };
@@ -114,23 +100,16 @@
 		B5F8768F19AE1E4D00C4AF33 /* SDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CBA4199B9836000AB3A5 /* SDTextField.m */; };
 		B5F8769019AE1E4D00C4AF33 /* SDTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CBA6199B9836000AB3A5 /* SDTextView.m */; };
 		B5F8769119AE1E4D00C4AF33 /* SDNavigationToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB99199B97FB000AB3A5 /* SDNavigationToolbar.m */; };
-		B5F8769219AE1E4D00C4AF33 /* SDBigMutableStarRatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAAD199B95DB000AB3A5 /* SDBigMutableStarRatingCell.m */; };
-		B5F8769319AE1E4D00C4AF33 /* SDButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAB0199B95DB000AB3A5 /* SDButtonCell.m */; };
-		B5F8769419AE1E4D00C4AF33 /* SDDataWithUnitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAC2199B95DB000AB3A5 /* SDDataWithUnitCell.m */; };
-		B5F8769519AE1E4D00C4AF33 /* SDDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAC5199B95DB000AB3A5 /* SDDatePickerCell.m */; };
-		B5F8769619AE1E4D00C4AF33 /* SDDatePickerWithLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAC8199B95DB000AB3A5 /* SDDatePickerWithLabelCell.m */; };
-		B5F8769719AE1E4D00C4AF33 /* SDDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CACB199B95DB000AB3A5 /* SDDescriptionCell.m */; };
-		B5F8769819AE1E4D00C4AF33 /* SDMutableStarRatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAEF199B95DB000AB3A5 /* SDMutableStarRatingCell.m */; };
-		B5F8769919AE1E4D00C4AF33 /* SDPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAF8199B95DB000AB3A5 /* SDPickerCell.m */; };
-		B5F8769A19AE1E4D00C4AF33 /* SDLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB01199B95DB000AB3A5 /* SDLabelCell.m */; };
-		B5F8769B19AE1E4D00C4AF33 /* SDPollNameDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB04199B95DB000AB3A5 /* SDPollNameDataCell.m */; };
-		B5F8769C19AE1E4D00C4AF33 /* SDTextFieldWithLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB07199B95DB000AB3A5 /* SDTextFieldWithLabelCell.m */; };
-		B5F8769D19AE1E4D00C4AF33 /* SDResizableTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB13199B95DB000AB3A5 /* SDResizableTextCell.m */; };
-		B5F8769E19AE1E4D00C4AF33 /* SDSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB16199B95DB000AB3A5 /* SDSliderCell.m */; };
-		B5F8769F19AE1E4D00C4AF33 /* SDStarRatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB1C199B95DB000AB3A5 /* SDStarRatingCell.m */; };
-		B5F876A019AE1E4D00C4AF33 /* SDSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB1F199B95DC000AB3A5 /* SDSwitchCell.m */; };
-		B5F876A119AE1E4D00C4AF33 /* SDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB22199B95DC000AB3A5 /* SDTextFieldCell.m */; };
-		B5F876A219AE1E4D00C4AF33 /* SDTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB25199B95DC000AB3A5 /* SDTextViewCell.m */; };
+		B5F8769319AE1E4D00C4AF33 /* SDButtonFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAB0199B95DB000AB3A5 /* SDButtonFormCell.m */; };
+		B5F8769519AE1E4D00C4AF33 /* SDDatePickerFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAC5199B95DB000AB3A5 /* SDDatePickerFormCell.m */; };
+		B5F8769619AE1E4D00C4AF33 /* SDDatePickerWithLabelFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAC8199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.m */; };
+		B5F8769919AE1E4D00C4AF33 /* SDPickerFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CAF8199B95DB000AB3A5 /* SDPickerFormCell.m */; };
+		B5F8769A19AE1E4D00C4AF33 /* SDLabelFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB01199B95DB000AB3A5 /* SDLabelFormCell.m */; };
+		B5F8769C19AE1E4D00C4AF33 /* SDTextFieldWithLabelFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB07199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.m */; };
+		B5F8769E19AE1E4D00C4AF33 /* SDSliderFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB16199B95DB000AB3A5 /* SDSliderFormCell.m */; };
+		B5F876A019AE1E4D00C4AF33 /* SDSwitchFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB1F199B95DC000AB3A5 /* SDSwitchFormCell.m */; };
+		B5F876A119AE1E4D00C4AF33 /* SDTextFieldFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB22199B95DC000AB3A5 /* SDTextFieldFormCell.m */; };
+		B5F876A219AE1E4D00C4AF33 /* SDTextViewFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CB25199B95DC000AB3A5 /* SDTextViewFormCell.m */; };
 		B5F876A319AE1E5B00C4AF33 /* SDForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CBC3199BB236000AB3A5 /* SDForm.m */; };
 		B5F876A419AE1E5B00C4AF33 /* SDFormSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CBC6199BB244000AB3A5 /* SDFormSection.m */; };
 		B5F876A519AE1E5B00C4AF33 /* SDFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CBC9199BB250000AB3A5 /* SDFormField.m */; };
@@ -142,23 +121,16 @@
 		B5F876AB19AE1F0A00C4AF33 /* SDBigStarRatingView.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB9F199B9836000AB3A5 /* SDBigStarRatingView.xib */; };
 		B5F876AC19AE1F0A00C4AF33 /* SDStarRatingView.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CBA2199B9836000AB3A5 /* SDStarRatingView.xib */; };
 		B5F876AD19AE1F0A00C4AF33 /* SDNavigationToolbar.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB9A199B97FB000AB3A5 /* SDNavigationToolbar.xib */; };
-		B5F876AE19AE1F0A00C4AF33 /* SDBigMutableStarRatingCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAAE199B95DB000AB3A5 /* SDBigMutableStarRatingCell.xib */; };
-		B5F876AF19AE1F0A00C4AF33 /* SDButtonCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAB1199B95DB000AB3A5 /* SDButtonCell.xib */; };
-		B5F876B019AE1F0A00C4AF33 /* SDDataWithUnitCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC3199B95DB000AB3A5 /* SDDataWithUnitCell.xib */; };
-		B5F876B119AE1F0A00C4AF33 /* SDDatePickerCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC6199B95DB000AB3A5 /* SDDatePickerCell.xib */; };
-		B5F876B219AE1F0A00C4AF33 /* SDDatePickerWithLabelCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelCell.xib */; };
-		B5F876B319AE1F0A00C4AF33 /* SDDescriptionCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CACC199B95DB000AB3A5 /* SDDescriptionCell.xib */; };
-		B5F876B419AE1F0A00C4AF33 /* SDMutableStarRatingCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAF0199B95DB000AB3A5 /* SDMutableStarRatingCell.xib */; };
-		B5F876B519AE1F0A00C4AF33 /* SDPickerCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAF9199B95DB000AB3A5 /* SDPickerCell.xib */; };
-		B5F876B619AE1F0A00C4AF33 /* SDLabelCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB02199B95DB000AB3A5 /* SDLabelCell.xib */; };
-		B5F876B719AE1F0A00C4AF33 /* SDPollNameDataCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB05199B95DB000AB3A5 /* SDPollNameDataCell.xib */; };
-		B5F876B819AE1F0A00C4AF33 /* SDTextFieldWithLabelCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelCell.xib */; };
-		B5F876B919AE1F0A00C4AF33 /* SDResizableTextCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB14199B95DB000AB3A5 /* SDResizableTextCell.xib */; };
-		B5F876BA19AE1F0A00C4AF33 /* SDSliderCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB17199B95DB000AB3A5 /* SDSliderCell.xib */; };
-		B5F876BB19AE1F0A00C4AF33 /* SDStarRatingCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB1D199B95DB000AB3A5 /* SDStarRatingCell.xib */; };
-		B5F876BC19AE1F0A00C4AF33 /* SDSwitchCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB20199B95DC000AB3A5 /* SDSwitchCell.xib */; };
-		B5F876BD19AE1F0A00C4AF33 /* SDTextFieldCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB23199B95DC000AB3A5 /* SDTextFieldCell.xib */; };
-		B5F876BE19AE1F0A00C4AF33 /* SDTextViewCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB26199B95DC000AB3A5 /* SDTextViewCell.xib */; };
+		B5F876AF19AE1F0A00C4AF33 /* SDButtonFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAB1199B95DB000AB3A5 /* SDButtonFormCell.xib */; };
+		B5F876B119AE1F0A00C4AF33 /* SDDatePickerFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC6199B95DB000AB3A5 /* SDDatePickerFormCell.xib */; };
+		B5F876B219AE1F0A00C4AF33 /* SDDatePickerWithLabelFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.xib */; };
+		B5F876B519AE1F0A00C4AF33 /* SDPickerFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CAF9199B95DB000AB3A5 /* SDPickerFormCell.xib */; };
+		B5F876B619AE1F0A00C4AF33 /* SDLabelFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB02199B95DB000AB3A5 /* SDLabelFormCell.xib */; };
+		B5F876B819AE1F0A00C4AF33 /* SDTextFieldWithLabelFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.xib */; };
+		B5F876BA19AE1F0A00C4AF33 /* SDSliderFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB17199B95DB000AB3A5 /* SDSliderFormCell.xib */; };
+		B5F876BC19AE1F0A00C4AF33 /* SDSwitchFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB20199B95DC000AB3A5 /* SDSwitchFormCell.xib */; };
+		B5F876BD19AE1F0A00C4AF33 /* SDTextFieldFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB23199B95DC000AB3A5 /* SDTextFieldFormCell.xib */; };
+		B5F876BE19AE1F0A00C4AF33 /* SDTextViewFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB26199B95DC000AB3A5 /* SDTextViewFormCell.xib */; };
 		B5F876C219AE201D00C4AF33 /* SDForms.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F876C119AE201D00C4AF33 /* SDForms.m */; };
 /* End PBXBuildFile section */
 
@@ -222,23 +194,16 @@
 				B52BE2AD19AF657E0071BA57 /* SDTextField.h in CopyFiles */,
 				B52BE2AE19AF657E0071BA57 /* SDTextView.h in CopyFiles */,
 				B52BE2AF19AF657E0071BA57 /* SDNavigationToolbar.h in CopyFiles */,
-				B52BE2B019AF657E0071BA57 /* SDBigMutableStarRatingCell.h in CopyFiles */,
-				B52BE2B119AF657E0071BA57 /* SDButtonCell.h in CopyFiles */,
-				B52BE2B219AF657E0071BA57 /* SDDataWithUnitCell.h in CopyFiles */,
-				B52BE2B319AF657E0071BA57 /* SDDatePickerCell.h in CopyFiles */,
-				B52BE2B419AF657E0071BA57 /* SDDatePickerWithLabelCell.h in CopyFiles */,
-				B52BE2B519AF657E0071BA57 /* SDDescriptionCell.h in CopyFiles */,
-				B52BE2B619AF657E0071BA57 /* SDMutableStarRatingCell.h in CopyFiles */,
-				B52BE2B719AF657E0071BA57 /* SDPickerCell.h in CopyFiles */,
-				B52BE2B819AF657E0071BA57 /* SDLabelCell.h in CopyFiles */,
-				B52BE2B919AF657E0071BA57 /* SDPollNameDataCell.h in CopyFiles */,
-				B52BE2BA19AF657E0071BA57 /* SDTextFieldWithLabelCell.h in CopyFiles */,
-				B52BE2BB19AF657E0071BA57 /* SDResizableTextCell.h in CopyFiles */,
-				B52BE2BC19AF657E0071BA57 /* SDSliderCell.h in CopyFiles */,
-				B52BE2BD19AF657E0071BA57 /* SDStarRatingCell.h in CopyFiles */,
-				B52BE2BE19AF657E0071BA57 /* SDSwitchCell.h in CopyFiles */,
-				B52BE2BF19AF657E0071BA57 /* SDTextFieldCell.h in CopyFiles */,
-				B52BE2C019AF657E0071BA57 /* SDTextViewCell.h in CopyFiles */,
+				B52BE2B119AF657E0071BA57 /* SDButtonFormCell.h in CopyFiles */,
+				B52BE2B319AF657E0071BA57 /* SDDatePickerFormCell.h in CopyFiles */,
+				B52BE2B419AF657E0071BA57 /* SDDatePickerWithLabelFormCell.h in CopyFiles */,
+				B52BE2B719AF657E0071BA57 /* SDPickerFormCell.h in CopyFiles */,
+				B52BE2B819AF657E0071BA57 /* SDLabelFormCell.h in CopyFiles */,
+				B52BE2BA19AF657E0071BA57 /* SDTextFieldWithLabelFormCell.h in CopyFiles */,
+				B52BE2BC19AF657E0071BA57 /* SDSliderFormCell.h in CopyFiles */,
+				B52BE2BE19AF657E0071BA57 /* SDSwitchFormCell.h in CopyFiles */,
+				B52BE2BF19AF657E0071BA57 /* SDTextFieldFormCell.h in CopyFiles */,
+				B52BE2C019AF657E0071BA57 /* SDTextViewFormCell.h in CopyFiles */,
 				B52BE2C119AF657E0071BA57 /* SDForm.h in CopyFiles */,
 				B52BE2C219AF657E0071BA57 /* SDFormSection.h in CopyFiles */,
 				B52BE2C319AF657E0071BA57 /* SDFormField.h in CopyFiles */,
@@ -247,23 +212,16 @@
 				B5F876AB19AE1F0A00C4AF33 /* SDBigStarRatingView.xib in CopyFiles */,
 				B5F876AC19AE1F0A00C4AF33 /* SDStarRatingView.xib in CopyFiles */,
 				B5F876AD19AE1F0A00C4AF33 /* SDNavigationToolbar.xib in CopyFiles */,
-				B5F876AE19AE1F0A00C4AF33 /* SDBigMutableStarRatingCell.xib in CopyFiles */,
-				B5F876AF19AE1F0A00C4AF33 /* SDButtonCell.xib in CopyFiles */,
-				B5F876B019AE1F0A00C4AF33 /* SDDataWithUnitCell.xib in CopyFiles */,
-				B5F876B119AE1F0A00C4AF33 /* SDDatePickerCell.xib in CopyFiles */,
-				B5F876B219AE1F0A00C4AF33 /* SDDatePickerWithLabelCell.xib in CopyFiles */,
-				B5F876B319AE1F0A00C4AF33 /* SDDescriptionCell.xib in CopyFiles */,
-				B5F876B419AE1F0A00C4AF33 /* SDMutableStarRatingCell.xib in CopyFiles */,
-				B5F876B519AE1F0A00C4AF33 /* SDPickerCell.xib in CopyFiles */,
-				B5F876B619AE1F0A00C4AF33 /* SDLabelCell.xib in CopyFiles */,
-				B5F876B719AE1F0A00C4AF33 /* SDPollNameDataCell.xib in CopyFiles */,
-				B5F876B819AE1F0A00C4AF33 /* SDTextFieldWithLabelCell.xib in CopyFiles */,
-				B5F876B919AE1F0A00C4AF33 /* SDResizableTextCell.xib in CopyFiles */,
-				B5F876BA19AE1F0A00C4AF33 /* SDSliderCell.xib in CopyFiles */,
-				B5F876BB19AE1F0A00C4AF33 /* SDStarRatingCell.xib in CopyFiles */,
-				B5F876BC19AE1F0A00C4AF33 /* SDSwitchCell.xib in CopyFiles */,
-				B5F876BD19AE1F0A00C4AF33 /* SDTextFieldCell.xib in CopyFiles */,
-				B5F876BE19AE1F0A00C4AF33 /* SDTextViewCell.xib in CopyFiles */,
+				B5F876AF19AE1F0A00C4AF33 /* SDButtonFormCell.xib in CopyFiles */,
+				B5F876B119AE1F0A00C4AF33 /* SDDatePickerFormCell.xib in CopyFiles */,
+				B5F876B219AE1F0A00C4AF33 /* SDDatePickerWithLabelFormCell.xib in CopyFiles */,
+				B5F876B519AE1F0A00C4AF33 /* SDPickerFormCell.xib in CopyFiles */,
+				B5F876B619AE1F0A00C4AF33 /* SDLabelFormCell.xib in CopyFiles */,
+				B5F876B819AE1F0A00C4AF33 /* SDTextFieldWithLabelFormCell.xib in CopyFiles */,
+				B5F876BA19AE1F0A00C4AF33 /* SDSliderFormCell.xib in CopyFiles */,
+				B5F876BC19AE1F0A00C4AF33 /* SDSwitchFormCell.xib in CopyFiles */,
+				B5F876BD19AE1F0A00C4AF33 /* SDTextFieldFormCell.xib in CopyFiles */,
+				B5F876BE19AE1F0A00C4AF33 /* SDTextViewFormCell.xib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,57 +263,36 @@
 		B596CA8B199B9533000AB3A5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B596CA93199B9533000AB3A5 /* SDFormsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SDFormsTests-Info.plist"; sourceTree = "<group>"; };
 		B596CA97199B9533000AB3A5 /* SDFormsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDFormsTests.m; sourceTree = "<group>"; };
-		B596CAAC199B95DB000AB3A5 /* SDBigMutableStarRatingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDBigMutableStarRatingCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B596CAAD199B95DB000AB3A5 /* SDBigMutableStarRatingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDBigMutableStarRatingCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B596CAAE199B95DB000AB3A5 /* SDBigMutableStarRatingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDBigMutableStarRatingCell.xib; sourceTree = "<group>"; };
-		B596CAAF199B95DB000AB3A5 /* SDButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDButtonCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B596CAB0199B95DB000AB3A5 /* SDButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDButtonCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B596CAB1199B95DB000AB3A5 /* SDButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDButtonCell.xib; sourceTree = "<group>"; };
-		B596CAC1199B95DB000AB3A5 /* SDDataWithUnitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDDataWithUnitCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B596CAC2199B95DB000AB3A5 /* SDDataWithUnitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDDataWithUnitCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B596CAC3199B95DB000AB3A5 /* SDDataWithUnitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDDataWithUnitCell.xib; sourceTree = "<group>"; };
-		B596CAC4199B95DB000AB3A5 /* SDDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDDatePickerCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B596CAC5199B95DB000AB3A5 /* SDDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDDatePickerCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B596CAC6199B95DB000AB3A5 /* SDDatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDDatePickerCell.xib; sourceTree = "<group>"; };
-		B596CAC7199B95DB000AB3A5 /* SDDatePickerWithLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDDatePickerWithLabelCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B596CAC8199B95DB000AB3A5 /* SDDatePickerWithLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDDatePickerWithLabelCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDDatePickerWithLabelCell.xib; sourceTree = "<group>"; };
-		B596CACA199B95DB000AB3A5 /* SDDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDDescriptionCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B596CACB199B95DB000AB3A5 /* SDDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDDescriptionCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B596CACC199B95DB000AB3A5 /* SDDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDDescriptionCell.xib; sourceTree = "<group>"; };
-		B596CAEE199B95DB000AB3A5 /* SDMutableStarRatingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDMutableStarRatingCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B596CAEF199B95DB000AB3A5 /* SDMutableStarRatingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDMutableStarRatingCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B596CAF0199B95DB000AB3A5 /* SDMutableStarRatingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMutableStarRatingCell.xib; sourceTree = "<group>"; };
-		B596CAF7199B95DB000AB3A5 /* SDPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPickerCell.h; sourceTree = "<group>"; };
-		B596CAF8199B95DB000AB3A5 /* SDPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPickerCell.m; sourceTree = "<group>"; };
-		B596CAF9199B95DB000AB3A5 /* SDPickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDPickerCell.xib; sourceTree = "<group>"; };
-		B596CB00199B95DB000AB3A5 /* SDLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDLabelCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B596CB01199B95DB000AB3A5 /* SDLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDLabelCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B596CB02199B95DB000AB3A5 /* SDLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDLabelCell.xib; sourceTree = "<group>"; };
-		B596CB03199B95DB000AB3A5 /* SDPollNameDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPollNameDataCell.h; sourceTree = "<group>"; };
-		B596CB04199B95DB000AB3A5 /* SDPollNameDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPollNameDataCell.m; sourceTree = "<group>"; };
-		B596CB05199B95DB000AB3A5 /* SDPollNameDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDPollNameDataCell.xib; sourceTree = "<group>"; };
-		B596CB06199B95DB000AB3A5 /* SDTextFieldWithLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTextFieldWithLabelCell.h; sourceTree = "<group>"; };
-		B596CB07199B95DB000AB3A5 /* SDTextFieldWithLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTextFieldWithLabelCell.m; sourceTree = "<group>"; };
-		B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDTextFieldWithLabelCell.xib; sourceTree = "<group>"; };
-		B596CB12199B95DB000AB3A5 /* SDResizableTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDResizableTextCell.h; sourceTree = "<group>"; };
-		B596CB13199B95DB000AB3A5 /* SDResizableTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDResizableTextCell.m; sourceTree = "<group>"; };
-		B596CB14199B95DB000AB3A5 /* SDResizableTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDResizableTextCell.xib; sourceTree = "<group>"; };
-		B596CB15199B95DB000AB3A5 /* SDSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSliderCell.h; sourceTree = "<group>"; };
-		B596CB16199B95DB000AB3A5 /* SDSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSliderCell.m; sourceTree = "<group>"; };
-		B596CB17199B95DB000AB3A5 /* SDSliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDSliderCell.xib; sourceTree = "<group>"; };
-		B596CB1B199B95DB000AB3A5 /* SDStarRatingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStarRatingCell.h; sourceTree = "<group>"; };
-		B596CB1C199B95DB000AB3A5 /* SDStarRatingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDStarRatingCell.m; sourceTree = "<group>"; };
-		B596CB1D199B95DB000AB3A5 /* SDStarRatingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDStarRatingCell.xib; sourceTree = "<group>"; };
-		B596CB1E199B95DC000AB3A5 /* SDSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSwitchCell.h; sourceTree = "<group>"; };
-		B596CB1F199B95DC000AB3A5 /* SDSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSwitchCell.m; sourceTree = "<group>"; };
-		B596CB20199B95DC000AB3A5 /* SDSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDSwitchCell.xib; sourceTree = "<group>"; };
-		B596CB21199B95DC000AB3A5 /* SDTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTextFieldCell.h; sourceTree = "<group>"; };
-		B596CB22199B95DC000AB3A5 /* SDTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTextFieldCell.m; sourceTree = "<group>"; };
-		B596CB23199B95DC000AB3A5 /* SDTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDTextFieldCell.xib; sourceTree = "<group>"; };
-		B596CB24199B95DC000AB3A5 /* SDTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTextViewCell.h; sourceTree = "<group>"; };
-		B596CB25199B95DC000AB3A5 /* SDTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTextViewCell.m; sourceTree = "<group>"; };
-		B596CB26199B95DC000AB3A5 /* SDTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDTextViewCell.xib; sourceTree = "<group>"; };
+		B596CAAF199B95DB000AB3A5 /* SDButtonFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDButtonFormCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B596CAB0199B95DB000AB3A5 /* SDButtonFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDButtonFormCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B596CAB1199B95DB000AB3A5 /* SDButtonFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDButtonFormCell.xib; sourceTree = "<group>"; };
+		B596CAC4199B95DB000AB3A5 /* SDDatePickerFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDDatePickerFormCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B596CAC5199B95DB000AB3A5 /* SDDatePickerFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDDatePickerFormCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B596CAC6199B95DB000AB3A5 /* SDDatePickerFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDDatePickerFormCell.xib; sourceTree = "<group>"; };
+		B596CAC7199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDDatePickerWithLabelFormCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B596CAC8199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDDatePickerWithLabelFormCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDDatePickerWithLabelFormCell.xib; sourceTree = "<group>"; };
+		B596CAF7199B95DB000AB3A5 /* SDPickerFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPickerFormCell.h; sourceTree = "<group>"; };
+		B596CAF8199B95DB000AB3A5 /* SDPickerFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPickerFormCell.m; sourceTree = "<group>"; };
+		B596CAF9199B95DB000AB3A5 /* SDPickerFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDPickerFormCell.xib; sourceTree = "<group>"; };
+		B596CB00199B95DB000AB3A5 /* SDLabelFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDLabelFormCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B596CB01199B95DB000AB3A5 /* SDLabelFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDLabelFormCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B596CB02199B95DB000AB3A5 /* SDLabelFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDLabelFormCell.xib; sourceTree = "<group>"; };
+		B596CB06199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTextFieldWithLabelFormCell.h; sourceTree = "<group>"; };
+		B596CB07199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTextFieldWithLabelFormCell.m; sourceTree = "<group>"; };
+		B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDTextFieldWithLabelFormCell.xib; sourceTree = "<group>"; };
+		B596CB15199B95DB000AB3A5 /* SDSliderFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSliderFormCell.h; sourceTree = "<group>"; };
+		B596CB16199B95DB000AB3A5 /* SDSliderFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSliderFormCell.m; sourceTree = "<group>"; };
+		B596CB17199B95DB000AB3A5 /* SDSliderFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDSliderFormCell.xib; sourceTree = "<group>"; };
+		B596CB1E199B95DC000AB3A5 /* SDSwitchFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSwitchFormCell.h; sourceTree = "<group>"; };
+		B596CB1F199B95DC000AB3A5 /* SDSwitchFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSwitchFormCell.m; sourceTree = "<group>"; };
+		B596CB20199B95DC000AB3A5 /* SDSwitchFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDSwitchFormCell.xib; sourceTree = "<group>"; };
+		B596CB21199B95DC000AB3A5 /* SDTextFieldFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTextFieldFormCell.h; sourceTree = "<group>"; };
+		B596CB22199B95DC000AB3A5 /* SDTextFieldFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTextFieldFormCell.m; sourceTree = "<group>"; };
+		B596CB23199B95DC000AB3A5 /* SDTextFieldFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDTextFieldFormCell.xib; sourceTree = "<group>"; };
+		B596CB24199B95DC000AB3A5 /* SDTextViewFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTextViewFormCell.h; sourceTree = "<group>"; };
+		B596CB25199B95DC000AB3A5 /* SDTextViewFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTextViewFormCell.m; sourceTree = "<group>"; };
+		B596CB26199B95DC000AB3A5 /* SDTextViewFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDTextViewFormCell.xib; sourceTree = "<group>"; };
 		B596CB98199B97FB000AB3A5 /* SDNavigationToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDNavigationToolbar.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B596CB99199B97FB000AB3A5 /* SDNavigationToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SDNavigationToolbar.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B596CB9A199B97FB000AB3A5 /* SDNavigationToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDNavigationToolbar.xib; sourceTree = "<group>"; };
@@ -604,57 +541,36 @@
 		B596CAA2199B95DB000AB3A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B596CAAC199B95DB000AB3A5 /* SDBigMutableStarRatingCell.h */,
-				B596CAAD199B95DB000AB3A5 /* SDBigMutableStarRatingCell.m */,
-				B596CAAE199B95DB000AB3A5 /* SDBigMutableStarRatingCell.xib */,
-				B596CAAF199B95DB000AB3A5 /* SDButtonCell.h */,
-				B596CAB0199B95DB000AB3A5 /* SDButtonCell.m */,
-				B596CAB1199B95DB000AB3A5 /* SDButtonCell.xib */,
-				B596CAC1199B95DB000AB3A5 /* SDDataWithUnitCell.h */,
-				B596CAC2199B95DB000AB3A5 /* SDDataWithUnitCell.m */,
-				B596CAC3199B95DB000AB3A5 /* SDDataWithUnitCell.xib */,
-				B596CAC4199B95DB000AB3A5 /* SDDatePickerCell.h */,
-				B596CAC5199B95DB000AB3A5 /* SDDatePickerCell.m */,
-				B596CAC6199B95DB000AB3A5 /* SDDatePickerCell.xib */,
-				B596CAC7199B95DB000AB3A5 /* SDDatePickerWithLabelCell.h */,
-				B596CAC8199B95DB000AB3A5 /* SDDatePickerWithLabelCell.m */,
-				B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelCell.xib */,
-				B596CACA199B95DB000AB3A5 /* SDDescriptionCell.h */,
-				B596CACB199B95DB000AB3A5 /* SDDescriptionCell.m */,
-				B596CACC199B95DB000AB3A5 /* SDDescriptionCell.xib */,
-				B596CAEE199B95DB000AB3A5 /* SDMutableStarRatingCell.h */,
-				B596CAEF199B95DB000AB3A5 /* SDMutableStarRatingCell.m */,
-				B596CAF0199B95DB000AB3A5 /* SDMutableStarRatingCell.xib */,
-				B596CAF7199B95DB000AB3A5 /* SDPickerCell.h */,
-				B596CAF8199B95DB000AB3A5 /* SDPickerCell.m */,
-				B596CAF9199B95DB000AB3A5 /* SDPickerCell.xib */,
-				B596CB00199B95DB000AB3A5 /* SDLabelCell.h */,
-				B596CB01199B95DB000AB3A5 /* SDLabelCell.m */,
-				B596CB02199B95DB000AB3A5 /* SDLabelCell.xib */,
-				B596CB03199B95DB000AB3A5 /* SDPollNameDataCell.h */,
-				B596CB04199B95DB000AB3A5 /* SDPollNameDataCell.m */,
-				B596CB05199B95DB000AB3A5 /* SDPollNameDataCell.xib */,
-				B596CB06199B95DB000AB3A5 /* SDTextFieldWithLabelCell.h */,
-				B596CB07199B95DB000AB3A5 /* SDTextFieldWithLabelCell.m */,
-				B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelCell.xib */,
-				B596CB12199B95DB000AB3A5 /* SDResizableTextCell.h */,
-				B596CB13199B95DB000AB3A5 /* SDResizableTextCell.m */,
-				B596CB14199B95DB000AB3A5 /* SDResizableTextCell.xib */,
-				B596CB15199B95DB000AB3A5 /* SDSliderCell.h */,
-				B596CB16199B95DB000AB3A5 /* SDSliderCell.m */,
-				B596CB17199B95DB000AB3A5 /* SDSliderCell.xib */,
-				B596CB1B199B95DB000AB3A5 /* SDStarRatingCell.h */,
-				B596CB1C199B95DB000AB3A5 /* SDStarRatingCell.m */,
-				B596CB1D199B95DB000AB3A5 /* SDStarRatingCell.xib */,
-				B596CB1E199B95DC000AB3A5 /* SDSwitchCell.h */,
-				B596CB1F199B95DC000AB3A5 /* SDSwitchCell.m */,
-				B596CB20199B95DC000AB3A5 /* SDSwitchCell.xib */,
-				B596CB21199B95DC000AB3A5 /* SDTextFieldCell.h */,
-				B596CB22199B95DC000AB3A5 /* SDTextFieldCell.m */,
-				B596CB23199B95DC000AB3A5 /* SDTextFieldCell.xib */,
-				B596CB24199B95DC000AB3A5 /* SDTextViewCell.h */,
-				B596CB25199B95DC000AB3A5 /* SDTextViewCell.m */,
-				B596CB26199B95DC000AB3A5 /* SDTextViewCell.xib */,
+				B596CAAF199B95DB000AB3A5 /* SDButtonFormCell.h */,
+				B596CAB0199B95DB000AB3A5 /* SDButtonFormCell.m */,
+				B596CAB1199B95DB000AB3A5 /* SDButtonFormCell.xib */,
+				B596CAC4199B95DB000AB3A5 /* SDDatePickerFormCell.h */,
+				B596CAC5199B95DB000AB3A5 /* SDDatePickerFormCell.m */,
+				B596CAC6199B95DB000AB3A5 /* SDDatePickerFormCell.xib */,
+				B596CAC7199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.h */,
+				B596CAC8199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.m */,
+				B596CAC9199B95DB000AB3A5 /* SDDatePickerWithLabelFormCell.xib */,
+				B596CAF7199B95DB000AB3A5 /* SDPickerFormCell.h */,
+				B596CAF8199B95DB000AB3A5 /* SDPickerFormCell.m */,
+				B596CAF9199B95DB000AB3A5 /* SDPickerFormCell.xib */,
+				B596CB00199B95DB000AB3A5 /* SDLabelFormCell.h */,
+				B596CB01199B95DB000AB3A5 /* SDLabelFormCell.m */,
+				B596CB02199B95DB000AB3A5 /* SDLabelFormCell.xib */,
+				B596CB06199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.h */,
+				B596CB07199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.m */,
+				B596CB08199B95DB000AB3A5 /* SDTextFieldWithLabelFormCell.xib */,
+				B596CB15199B95DB000AB3A5 /* SDSliderFormCell.h */,
+				B596CB16199B95DB000AB3A5 /* SDSliderFormCell.m */,
+				B596CB17199B95DB000AB3A5 /* SDSliderFormCell.xib */,
+				B596CB1E199B95DC000AB3A5 /* SDSwitchFormCell.h */,
+				B596CB1F199B95DC000AB3A5 /* SDSwitchFormCell.m */,
+				B596CB20199B95DC000AB3A5 /* SDSwitchFormCell.xib */,
+				B596CB21199B95DC000AB3A5 /* SDTextFieldFormCell.h */,
+				B596CB22199B95DC000AB3A5 /* SDTextFieldFormCell.m */,
+				B596CB23199B95DC000AB3A5 /* SDTextFieldFormCell.xib */,
+				B596CB24199B95DC000AB3A5 /* SDTextViewFormCell.h */,
+				B596CB25199B95DC000AB3A5 /* SDTextViewFormCell.m */,
+				B596CB26199B95DC000AB3A5 /* SDTextViewFormCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -848,23 +764,16 @@
 				B55F0F8419AF418300685BCA /* SDBigStarRatingView.xib in Resources */,
 				B55F0F8519AF418300685BCA /* SDStarRatingView.xib in Resources */,
 				B55F0F8619AF418300685BCA /* SDNavigationToolbar.xib in Resources */,
-				B55F0F8719AF418300685BCA /* SDBigMutableStarRatingCell.xib in Resources */,
-				B55F0F8819AF418300685BCA /* SDButtonCell.xib in Resources */,
-				B55F0F8919AF418300685BCA /* SDDataWithUnitCell.xib in Resources */,
-				B55F0F8A19AF418300685BCA /* SDDatePickerCell.xib in Resources */,
-				B55F0F8B19AF418300685BCA /* SDDatePickerWithLabelCell.xib in Resources */,
-				B55F0F8C19AF418300685BCA /* SDDescriptionCell.xib in Resources */,
-				B55F0F8D19AF418300685BCA /* SDMutableStarRatingCell.xib in Resources */,
-				B55F0F8E19AF418300685BCA /* SDPickerCell.xib in Resources */,
-				B55F0F8F19AF418300685BCA /* SDLabelCell.xib in Resources */,
-				B55F0F9019AF418300685BCA /* SDPollNameDataCell.xib in Resources */,
-				B55F0F9119AF418300685BCA /* SDTextFieldWithLabelCell.xib in Resources */,
-				B55F0F9219AF418300685BCA /* SDResizableTextCell.xib in Resources */,
-				B55F0F9319AF418300685BCA /* SDSliderCell.xib in Resources */,
-				B55F0F9419AF418300685BCA /* SDStarRatingCell.xib in Resources */,
-				B55F0F9519AF418300685BCA /* SDSwitchCell.xib in Resources */,
-				B55F0F9619AF418300685BCA /* SDTextFieldCell.xib in Resources */,
-				B55F0F9719AF418300685BCA /* SDTextViewCell.xib in Resources */,
+				B55F0F8819AF418300685BCA /* SDButtonFormCell.xib in Resources */,
+				B55F0F8A19AF418300685BCA /* SDDatePickerFormCell.xib in Resources */,
+				B55F0F8B19AF418300685BCA /* SDDatePickerWithLabelFormCell.xib in Resources */,
+				B55F0F8E19AF418300685BCA /* SDPickerFormCell.xib in Resources */,
+				B55F0F8F19AF418300685BCA /* SDLabelFormCell.xib in Resources */,
+				B55F0F9119AF418300685BCA /* SDTextFieldWithLabelFormCell.xib in Resources */,
+				B55F0F9319AF418300685BCA /* SDSliderFormCell.xib in Resources */,
+				B55F0F9519AF418300685BCA /* SDSwitchFormCell.xib in Resources */,
+				B55F0F9619AF418300685BCA /* SDTextFieldFormCell.xib in Resources */,
+				B55F0F9719AF418300685BCA /* SDTextViewFormCell.xib in Resources */,
 				B55F0F7F19AF416F00685BCA /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -932,24 +841,17 @@
 				B5F8769019AE1E4D00C4AF33 /* SDTextView.m in Sources */,
 				B5F876C219AE201D00C4AF33 /* SDForms.m in Sources */,
 				B5F8769119AE1E4D00C4AF33 /* SDNavigationToolbar.m in Sources */,
-				B5F8769219AE1E4D00C4AF33 /* SDBigMutableStarRatingCell.m in Sources */,
-				B5F8769319AE1E4D00C4AF33 /* SDButtonCell.m in Sources */,
-				B5F8769419AE1E4D00C4AF33 /* SDDataWithUnitCell.m in Sources */,
-				B5F8769519AE1E4D00C4AF33 /* SDDatePickerCell.m in Sources */,
-				B5F8769619AE1E4D00C4AF33 /* SDDatePickerWithLabelCell.m in Sources */,
-				B5F8769719AE1E4D00C4AF33 /* SDDescriptionCell.m in Sources */,
-				B5F8769819AE1E4D00C4AF33 /* SDMutableStarRatingCell.m in Sources */,
-				B5F8769919AE1E4D00C4AF33 /* SDPickerCell.m in Sources */,
-				B5F8769A19AE1E4D00C4AF33 /* SDLabelCell.m in Sources */,
-				B5F8769B19AE1E4D00C4AF33 /* SDPollNameDataCell.m in Sources */,
-				B5F8769C19AE1E4D00C4AF33 /* SDTextFieldWithLabelCell.m in Sources */,
-				B5F8769D19AE1E4D00C4AF33 /* SDResizableTextCell.m in Sources */,
-				B5F8769E19AE1E4D00C4AF33 /* SDSliderCell.m in Sources */,
-				B5F8769F19AE1E4D00C4AF33 /* SDStarRatingCell.m in Sources */,
+				B5F8769319AE1E4D00C4AF33 /* SDButtonFormCell.m in Sources */,
+				B5F8769519AE1E4D00C4AF33 /* SDDatePickerFormCell.m in Sources */,
+				B5F8769619AE1E4D00C4AF33 /* SDDatePickerWithLabelFormCell.m in Sources */,
+				B5F8769919AE1E4D00C4AF33 /* SDPickerFormCell.m in Sources */,
+				B5F8769A19AE1E4D00C4AF33 /* SDLabelFormCell.m in Sources */,
+				B5F8769C19AE1E4D00C4AF33 /* SDTextFieldWithLabelFormCell.m in Sources */,
+				B5F8769E19AE1E4D00C4AF33 /* SDSliderFormCell.m in Sources */,
 				B55F0F1F19AF2F0B00685BCA /* SDSwitchField.m in Sources */,
-				B5F876A019AE1E4D00C4AF33 /* SDSwitchCell.m in Sources */,
-				B5F876A119AE1E4D00C4AF33 /* SDTextFieldCell.m in Sources */,
-				B5F876A219AE1E4D00C4AF33 /* SDTextViewCell.m in Sources */,
+				B5F876A019AE1E4D00C4AF33 /* SDSwitchFormCell.m in Sources */,
+				B5F876A119AE1E4D00C4AF33 /* SDTextFieldFormCell.m in Sources */,
+				B5F876A219AE1E4D00C4AF33 /* SDTextViewFormCell.m in Sources */,
 				B55F0F1819AF0F9C00685BCA /* SDButtonField.m in Sources */,
 				B5F8768A19AE1E2B00C4AF33 /* UIColor+HexColor.m in Sources */,
 				B5F8768B19AE1E2B00C4AF33 /* UIImage+Colorize.m in Sources */,

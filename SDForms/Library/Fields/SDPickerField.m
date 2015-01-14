@@ -7,13 +7,13 @@
 //
 
 #import "SDPickerField.h"
-#import "SDLabelCell.h"
-#import "SDPickerCell.h"
+#import "SDLabelFormCell.h"
+#import "SDPickerFormCell.h"
 
 @interface SDPickerField ()
 
 @property (nonatomic, strong) NSMutableArray *selectedIndexes;
-@property (nonatomic, strong) SDPickerCell *pickerCell;
+@property (nonatomic, strong) SDPickerFormCell *pickerCell;
 
 @end
 
@@ -86,8 +86,8 @@
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
-    if ([cell isKindOfClass:[SDLabelCell class]]) {
-        SDLabelCell *labelCell = (SDLabelCell *)cell;
+    if ([cell isKindOfClass:[SDLabelFormCell class]]) {
+        SDLabelFormCell *labelCell = (SDLabelFormCell *)cell;
         labelCell.titleLabel.text = self.title;
         
         if (self.formattedValueSeparator.length > 0) {
@@ -95,8 +95,8 @@
         } else {
             labelCell.valueLabel.text = self.formattedValue.firstObject;
         }
-    } else if ([cell isKindOfClass:[SDPickerCell class]]) {
-        SDPickerCell *pickerCell = (SDPickerCell *)cell;
+    } else if ([cell isKindOfClass:[SDPickerFormCell class]]) {
+        SDPickerFormCell *pickerCell = (SDPickerFormCell *)cell;
         pickerCell.picker.delegate = self;
         pickerCell.picker.dataSource = self;
         

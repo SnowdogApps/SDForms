@@ -7,8 +7,8 @@
 //
 
 #import "SDDatePickerField.h"
-#import "SDLabelCell.h"
-#import "SDDatePickerCell.h"
+#import "SDLabelFormCell.h"
+#import "SDDatePickerFormCell.h"
 
 static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
 
@@ -37,12 +37,12 @@ static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
-    if ([cell isKindOfClass:[SDLabelCell class]]) {
-        SDLabelCell *labelCell = (SDLabelCell *)cell;
+    if ([cell isKindOfClass:[SDLabelFormCell class]]) {
+        SDLabelFormCell *labelCell = (SDLabelFormCell *)cell;
         labelCell.titleLabel.text = self.title;
         labelCell.valueLabel.text = self.formattedValue;
-    } else if ([cell isKindOfClass:[SDDatePickerCell class]]) {
-        SDDatePickerCell *datePickerCell = (SDDatePickerCell *)cell;
+    } else if ([cell isKindOfClass:[SDDatePickerFormCell class]]) {
+        SDDatePickerFormCell *datePickerCell = (SDDatePickerFormCell *)cell;
         if (self.timeZone) {
             datePickerCell.datePicker.timeZone = self.timeZone;
         }

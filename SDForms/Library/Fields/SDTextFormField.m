@@ -7,8 +7,8 @@
 //
 
 #import "SDTextFormField.h"
-#import "SDTextFieldCell.h"
-#import "SDTextFieldWithLabelCell.h"
+#import "SDTextFieldFormCell.h"
+#import "SDTextFieldWithLabelFormCell.h"
 
 @implementation SDTextFormField
 
@@ -42,8 +42,8 @@
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
-    if ([cell isKindOfClass:[SDTextFieldCell class]]) {
-        SDTextFieldCell *textFieldCell = (SDTextFieldCell *)cell;
+    if ([cell isKindOfClass:[SDTextFieldFormCell class]]) {
+        SDTextFieldFormCell *textFieldCell = (SDTextFieldFormCell *)cell;
         
         if (self.valueType == SDFormFieldValueTypeText) {
             textFieldCell.textField.keyboardType = UIKeyboardTypeDefault;
@@ -62,8 +62,8 @@
             textFieldCell.textField.text = [formatter stringFromNumber:self.value];
         }
         
-        if ([cell isKindOfClass:[SDTextFieldWithLabelCell class]]) {
-            SDTextFieldWithLabelCell *tfWithLabelCell = (SDTextFieldWithLabelCell *)cell;
+        if ([cell isKindOfClass:[SDTextFieldWithLabelFormCell class]]) {
+            SDTextFieldWithLabelFormCell *tfWithLabelCell = (SDTextFieldWithLabelFormCell *)cell;
             tfWithLabelCell.titleLabel.text = self.title;
         }
         

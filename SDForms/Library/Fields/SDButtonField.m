@@ -7,14 +7,14 @@
 //
 
 #import "SDButtonField.h"
-#import "SDButtonCell.h"
+#import "SDButtonFormCell.h"
 
 @implementation SDButtonField
 
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
-    SDButtonCell *cell = (SDButtonCell *)[super cellForTableView:tableView atIndex:index];
+    SDButtonFormCell *cell = (SDButtonFormCell *)[super cellForTableView:tableView atIndex:index];
     cell.titleLabel.text = self.title;
     return cell;
 }

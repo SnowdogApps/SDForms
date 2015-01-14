@@ -7,7 +7,7 @@
 //
 
 #import "SDLabelField.h"
-#import "SDLabelCell.h"
+#import "SDLabelFormCell.h"
 
 @implementation SDLabelField
 
@@ -17,7 +17,7 @@
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
-    SDLabelCell *cell = (SDLabelCell *)[super cellForTableView:tableView atIndex:index];
+    SDLabelFormCell *cell = (SDLabelFormCell *)[super cellForTableView:tableView atIndex:index];
     cell.titleLabel.text = self.title;
     cell.valueLabel.text = self.formattedValue;
     return cell;

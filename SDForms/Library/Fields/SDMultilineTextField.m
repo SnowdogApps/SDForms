@@ -7,7 +7,7 @@
 //
 
 #import "SDMultilineTextField.h"
-#import "SDTextViewCell.h"
+#import "SDTextViewFormCell.h"
 #import "NSMutableDictionary+SDExtensions.h"
 
 #define SIDE_MARGIN    8.0
@@ -74,7 +74,7 @@
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
-    SDTextViewCell *cell = (SDTextViewCell *)[super cellForTableView:tableView atIndex:index];
+    SDTextViewFormCell *cell = (SDTextViewFormCell *)[super cellForTableView:tableView atIndex:index];
 
     cell.textView.dataDetectorTypes = self.dataDetectorTypes;
     cell.editable = self.editable;

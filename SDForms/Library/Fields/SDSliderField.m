@@ -7,7 +7,7 @@
 //
 
 #import "SDSliderField.h"
-#import "SDSliderCell.h"
+#import "SDSliderFormCell.h"
 
 @interface SDSliderField ()
 
@@ -38,8 +38,8 @@
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
-    if ([cell isKindOfClass:[SDSliderCell class]]) {
-        SDSliderCell *sliderCell = (SDSliderCell *)cell;
+    if ([cell isKindOfClass:[SDSliderFormCell class]]) {
+        SDSliderFormCell *sliderCell = (SDSliderFormCell *)cell;
         sliderCell.slider.minimumValue = self.min;
         sliderCell.slider.maximumValue = self.max;
         sliderCell.titleLabel.text = self.title;
