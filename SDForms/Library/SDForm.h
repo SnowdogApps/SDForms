@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SDFormSection.h"
-#import "SDNavigationToolbar.h"
+#import "SDFormKeyboardToolbar.h"
 #import "SDFormCell.h"
 
 @class SDForm;
@@ -40,7 +40,7 @@
 
 @end
 
-@interface SDForm : NSObject <SDFormFieldDelegate, SDFormCellDelegate, SDNavigationToolbarDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SDForm : NSObject <SDFormFieldDelegate, SDFormCellDelegate, SDFormKeyboardToolbarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 - (id)initWithTableView:(UITableView*)tableView;
 - (SDFormField *)fieldForIndexPath:(NSIndexPath *)indexPath;

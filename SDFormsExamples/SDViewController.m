@@ -72,7 +72,7 @@
     [super viewDidLoad];
     
     UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(saveButtonTapped:)];
-//    self.navigationItem.rightBarButtonItem = save;
+    self.navigationItem.rightBarButtonItem = save;
     
     UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cellWasSwiped:)];
     [self.tableView addGestureRecognizer:swipeRecognizer];
@@ -154,33 +154,33 @@
     return fields.count;
 }
 
-//- (NSString *)form:(SDForm *)form titleForHeaderInSection:(NSInteger)section
-//{
-//    return [NSString stringWithFormat:@"Section %ld", (long)section + 1];
-//}
+- (NSString *)form:(SDForm *)form titleForHeaderInSection:(NSInteger)section
+{
+    return [NSString stringWithFormat:@"Section %ld", (long)section + 1];
+}
 
-//- (NSString *)form:(SDForm *)form titleForFooterInSection:(NSInteger)section
-//{
-//    if (section == 0) {
-//        return @"End of section 1";
-//    } else {
-//        return nil;
-//    }
-//}
+- (NSString *)form:(SDForm *)form titleForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"End of section 1";
+    } else {
+        return nil;
+    }
+}
 
-//- (CGFloat)form:(SDForm *)form heightForHeaderInSection:(NSInteger)section
-//{
-//    return 30.0;
-//}
+- (CGFloat)form:(SDForm *)form heightForHeaderInSection:(NSInteger)section
+{
+    return 30.0;
+}
 
-//- (CGFloat)form:(SDForm *)form heightForFooterInSection:(NSInteger)section
-//{
-//    if (section == 0) {
-//        return 30.0;
-//    } else {
-//        return 0.0;
-//    }
-//}
+- (CGFloat)form:(SDForm *)form heightForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 30.0;
+    } else {
+        return 0.0;
+    }
+}
 
 - (UIView *)form:(SDForm *)form viewForHeaderInSection:(NSInteger)section
 {
@@ -317,7 +317,6 @@
     
     SDMultilineTextField *autoHeightText = [[SDMultilineTextField alloc] init];
     autoHeightText.editable = NO;
-//    autoHeightText.backgroundColor = [UIColor lightGrayColor];
     autoHeightText.automaticHeight = YES;
     autoHeightText.value = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.";
     

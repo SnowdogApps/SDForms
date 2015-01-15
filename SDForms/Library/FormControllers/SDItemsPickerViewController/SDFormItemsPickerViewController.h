@@ -8,20 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class SDItemsPickerViewController;
+@class SDFormItemsPickerViewController;
 
 
 @protocol  SDItemsPickerViewControllerDelegate <NSObject>
 @optional
-- (void)itemsPickerViewController:(SDItemsPickerViewController*)controller didSelectElementAtIndex:(NSInteger)index;
-- (void)itemsPickerViewController:(SDItemsPickerViewController*)controller didDeselectElementAtIndex:(NSInteger)index;
+- (void)itemsPickerViewController:(SDFormItemsPickerViewController*)controller didSelectElementAtIndex:(NSInteger)index;
+- (void)itemsPickerViewController:(SDFormItemsPickerViewController*)controller didDeselectElementAtIndex:(NSInteger)index;
 
 @end
 
 /**
  @description Picker of items. By default it treats items as NSString objects. To use different class of objects, subclass this class and override method tableView:cellForRowAtIndexPath:
  */
-@interface SDItemsPickerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface SDFormItemsPickerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) BOOL multiChoice;

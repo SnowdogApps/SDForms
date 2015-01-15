@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Snowdog sp. z o.o. All rights reserved.
 //
 
-#import "SDNavigationToolbar.h"
+#import "SDFormKeyboardToolbar.h"
 #import "UIColor+HexColor.h"
 
-@implementation SDNavigationToolbar
+@implementation SDFormKeyboardToolbar
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

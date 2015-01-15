@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Snowdog sp. z o.o. All rights reserved.
 //
 
-#import "SDItemsPickerViewController.h"
+#import "SDFormItemsPickerViewController.h"
 #import "NSMutableArray+IndexSelection.h"
 
 static NSString *kStandardCell = @"StandardCell";
 
-@interface SDItemsPickerViewController ()
+@interface SDFormItemsPickerViewController ()
 
 @end
 
-@implementation SDItemsPickerViewController
+@implementation SDFormItemsPickerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +29,7 @@ static NSString *kStandardCell = @"StandardCell";
 - (id) init
 {
     NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
-    self = [self initWithNibName:@"SDItemsPickerViewController" bundle:bundle];
+    self = [self initWithNibName:@"SDFormItemsPickerViewController" bundle:bundle];
     if(self) {
         
     }

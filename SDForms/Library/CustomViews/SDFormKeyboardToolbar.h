@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class SDNavigationToolbar;
-@protocol SDNavigationToolbarDelegate <NSObject>
+@class SDFormKeyboardToolbar;
+@protocol SDFormKeyboardToolbarDelegate <NSObject>
 - (void)moveToPrevious;
 - (void)moveToNext;
 - (void)hideKeyboard;
 @end
 
-static NSString * const kSDNavigationToolbar = @"SDNavigationToolbar";
+static NSString * const kSDNavigationToolbar = @"SDFormKeyboardToolbar";
 
-@interface SDNavigationToolbar : UIToolbar
-@property (weak, nonatomic) id<SDNavigationToolbarDelegate> toolbarDelegate;
+@interface SDFormKeyboardToolbar : UIToolbar
+@property (weak, nonatomic) id<SDFormKeyboardToolbarDelegate> toolbarDelegate;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *previousButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;

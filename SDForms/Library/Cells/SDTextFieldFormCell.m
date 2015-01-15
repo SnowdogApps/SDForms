@@ -61,7 +61,7 @@
     }
 }
 
-- (void)textFieldDidChange:(SDTextField *)textField
+- (void)textFieldDidChange:(SDTextFieldView *)textField
 {
     [self setFieldValueFromTextField:textField withCellRefresh:NO];
 }

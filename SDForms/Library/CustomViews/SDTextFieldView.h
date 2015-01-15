@@ -29,16 +29,16 @@ static NSString * const kDegreeSign = @"\u00B0";
 typedef void(^CompletionBlock)(BOOL finished);
 
 @class SDTrainingInputTextField;
-@class SDTextField;
+@class SDTextFieldView;
 
 @protocol SDTextFieldDelegate <UITextFieldDelegate>
 
 @optional
-- (void)textDidChangeInTextField:(SDTextField *)textField;
+- (void)textDidChangeInTextField:(SDTextFieldView *)textField;
 
 @end
 
-@interface SDTextField : UITextField
+@interface SDTextFieldView : UITextField
 
 /*! Defines SDTextFieldType of the SDTrainingInputTextField.
  */
@@ -51,7 +51,6 @@ typedef void(^CompletionBlock)(BOOL finished);
 @property (nonatomic, strong) NSNumber *minNumberValue;
 @property (nonatomic, strong) NSNumber *maxNumberValue;
 
-- (NSNumber *)numberOfSeconds;
 - (void)performBasicShake;
 - (void)markWrongValue;
 - (void)markCorrectValue;

@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SDFormCell.h"
-#import "SDTextField.h"
+#import "SDTextFieldView.h"
 
 static NSString * const kTextFieldCell = @"SDTextFieldFormCell";
 
 @interface SDTextFieldFormCell : SDFormCell <SDTextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet SDTextField *textField;
+@property (weak, nonatomic) IBOutlet SDTextFieldView *textField;
 @property (nonatomic) BOOL enabled;
 
 @end

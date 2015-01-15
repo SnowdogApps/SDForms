@@ -7,7 +7,7 @@
 //
 
 #import "SDItemSelectionField.h"
-#import "SDItemsPickerViewController.h"
+#import "SDFormItemsPickerViewController.h"
 #import "SDLabelFormCell.h"
 #import "NSMutableArray+IndexSelection.h"
 
@@ -101,7 +101,7 @@
 - (void)form:(SDForm *)form didSelectFieldAtIndex:(NSInteger)index
 {
     if (index == 0) {
-        SDItemsPickerViewController *controller = [[SDItemsPickerViewController alloc] init];
+        SDFormItemsPickerViewController *controller = [[SDFormItemsPickerViewController alloc] init];
         controller.delegate = self;
         controller.items = self.items;
         controller.selectedIndexes = self.selectedIndexes;
@@ -110,13 +110,13 @@
     }
 }
 
-- (void)itemsPickerViewController:(SDItemsPickerViewController *)controller didDeselectElementAtIndex:(NSInteger)index
+- (void)itemsPickerViewController:(SDFormItemsPickerViewController *)controller didDeselectElementAtIndex:(NSInteger)index
 {
     [self.selectedIndexes deselectIndex:index];
     [self refreshFieldCell];
 }
 
-- (void)itemsPickerViewController:(SDItemsPickerViewController *)controller didSelectElementAtIndex:(NSInteger)index
+- (void)itemsPickerViewController:(SDFormItemsPickerViewController *)controller didSelectElementAtIndex:(NSInteger)index
 {
     [self.selectedIndexes selectIndex:index];
     [self refreshFieldCell];

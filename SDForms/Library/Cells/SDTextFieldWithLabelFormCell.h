@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SDTextField.h"
+#import "SDTextFieldView.h"
 #import "SDTextFieldFormCell.h"
 
 static NSString * const kTextFieldWithLabelCell = @"SDTextFieldWithLabelFormCell";
@@ -15,6 +15,6 @@ static NSString * const kTextFieldWithLabelCell = @"SDTextFieldWithLabelFormCell
 @interface SDTextFieldWithLabelFormCell : SDTextFieldFormCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet SDTextField *textField;
+@property (weak, nonatomic) IBOutlet SDTextFieldView *textField;
 
 @end

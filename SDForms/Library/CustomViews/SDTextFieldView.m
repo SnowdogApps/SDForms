@@ -6,15 +6,14 @@
 //  Copyright (c) 2014 Snowdog sp. z o.o. All rights reserved.
 //
 
-#import "SDTextField.h"
-#import "SDTimeIntervalComponents.h"
+#import "SDTextFieldView.h"
 
 static CGFloat const kAnimationDuration = 0.04;
 static NSString * const kSeparatorForTimeType = @":";
 static NSString * const kDefaultTextForTimeType = @"00:00:00";
 static NSString * const kDefaultTextForShortTimeType = @"00:00";
 
-@interface SDTextField()
+@interface SDTextFieldView()
 {
     dispatch_once_t onceToken;
     
@@ -25,7 +24,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
 @property (readonly, nonatomic) CGRect initialFrame;
 @end
 
-@implementation SDTextField
+@implementation SDTextFieldView
 
 @dynamic delegate;
 
@@ -83,7 +82,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
 
 /*! Action method that should appropriately change text in UITextField according to text field type.
  */
-- (void)textFieldDidChange:(SDTextField *)sender
+- (void)textFieldDidChange:(SDTextFieldView *)sender
 {
     switch (self.type) {
         case SDTextFieldTypeTime:
@@ -107,7 +106,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
 
 /*! Action method that responds to UIControlEventEditingDidBegin according to text field type.
  */
-- (void)textFieldDidBeginEditing:(SDTextField *)sender
+- (void)textFieldDidBeginEditing:(SDTextFieldView *)sender
 {
     if (self.text.length == 0 || [self.text isEqualToString:@"0.00"] || [self.text isEqualToString:@"0"]) {
         switch (self.type) {
@@ -129,7 +128,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
 
 /*! Responds to UIControlEventEditingDidEnd. This method doesn't let to set up zero time.
  */
-- (void)textFieldDidEndEditing:(SDTextField *)sender
+- (void)textFieldDidEndEditing:(SDTextFieldView *)sender
 {
     [self validateNumberSender:sender];
     
@@ -149,7 +148,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
 /*! Changes text in text field of type SDTextFieldTypeDecimal.
  */
 
-- (void)validateTimeSender:(SDTextField *)sender
+- (void)validateTimeSender:(SDTextFieldView *)sender
 {
     if (self.text.length < maxNumberOfCharacters && self.text.length > 0) {
         [self clearLastCharacter];
@@ -160,7 +159,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
     }
 }
 
-- (void)validateTemperatureSender:(SDTextField *)sender
+- (void)validateTemperatureSender:(SDTextFieldView *)sender
 {
     NSString *text = [self.text stringByReplacingOccurrencesOfString:self.temperaturePostfix withString:@""];
     NSRange range = [text rangeOfString:kDegreeSign];
@@ -176,7 +175,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
     [self setText:text];
 }
 
-- (void)validateDecimalSender:(SDTextField *)sender
+- (void)validateDecimalSender:(SDTextFieldView *)sender
 { 
     NSInteger length = [sender.text length];
     if (length < maxNumberOfCharacters && length > 0) {
@@ -184,7 +183,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
     }
 }
 
-- (void)validateNumberSender:(SDTextField *)sender
+- (void)validateNumberSender:(SDTextFieldView *)sender
 {
     if (sender.type == SDTextFieldTypeNumber || sender.type == SDTextFieldTypeDecimal) {
         BOOL shouldPerformShake = NO;
@@ -216,7 +215,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
     }
 }
 
-- (void)validateSender:(SDTextField *)sender
+- (void)validateSender:(SDTextFieldView *)sender
 {
     NSInteger length = [sender.text length];
     if (length < maxNumberOfCharacters && length > 0) {
@@ -225,7 +224,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
     }
 }
 
-- (void)checkForZeroAsFirstCharInTextField:(SDTextField *)sender
+- (void)checkForZeroAsFirstCharInTextField:(SDTextFieldView *)sender
 {
     NSString *firstChar = [sender.text substringToIndex:1];
     if ([firstChar isEqualToString:@"0"]) {
@@ -233,7 +232,7 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
     }
 }
 
-- (void)checkForCorrectNumberOfDotsInTextField:(SDTextField *)sender
+- (void)checkForCorrectNumberOfDotsInTextField:(SDTextFieldView *)sender
 {
     NSInteger numberOfDots = [[sender.text componentsSeparatedByString:@"."] count] - 1;
     if (numberOfDots > maxNumberOfDots) {
@@ -307,33 +306,6 @@ static NSString * const kDefaultTextForShortTimeType = @"00:00";
         
         self.text = [NSString stringWithFormat:@"%@:%@", minutes, seconds];
     }
-}
-
-
-- (NSNumber *)numberOfSeconds
-{
-    NSNumber *seconds = nil;
-    
-    if ([self.text length] > 0) {
-        if (self.type == SDTextFieldTypeTime) {
-            NSArray *stringComponents = [self.text componentsSeparatedByString:kSeparatorForTimeType];
-            
-            SDTimeIntervalComponents *components = [[SDTimeIntervalComponents alloc] initWithHours:[[stringComponents objectAtIndex:0] integerValue]
-                                                                                           minutes:[[stringComponents objectAtIndex:1] integerValue]
-                                                                                           seconds:[[stringComponents objectAtIndex:2] integerValue]];
-            seconds = [NSNumber numberWithDouble:[components timeInterval]];
-        } else if (self.type == SDTextFieldTypeShortTime) {
-            NSArray *stringComponents = [self.text componentsSeparatedByString:kSeparatorForTimeType];
-            
-            SDTimeIntervalComponents *components = [[SDTimeIntervalComponents alloc] initWithHours:0
-                                                                                           minutes:[[stringComponents objectAtIndex:0] integerValue]
-                                                                                           seconds:[[stringComponents objectAtIndex:1] integerValue]];
-            
-            seconds = [NSNumber numberWithDouble:[components timeInterval]];
-        }
-    }
-    
-    return seconds;
 }
 
 #pragma mark - Getters

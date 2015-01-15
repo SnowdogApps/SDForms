@@ -15,7 +15,7 @@
 
 @interface SDForm ()
 
-@property (strong, nonatomic) SDNavigationToolbar *toolbar;
+@property (strong, nonatomic) SDFormKeyboardToolbar *toolbar;
 @property (nonatomic) CGFloat prevOffset;
 @property (nonatomic) CGRect prevFrame;
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
@@ -39,7 +39,7 @@
         self.tableView.dataSource = self;
         
         NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
-        self.toolbar = (SDNavigationToolbar *)[[bundle loadNibNamed:kSDNavigationToolbar owner:[[SDNavigationToolbar alloc] init] options:nil] lastObject];
+        self.toolbar = (SDFormKeyboardToolbar *)[[bundle loadNibNamed:kSDNavigationToolbar owner:[[SDFormKeyboardToolbar alloc] init] options:nil] lastObject];
         [self.toolbar setToolbarDelegate:self];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
