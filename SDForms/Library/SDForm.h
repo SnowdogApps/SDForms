@@ -19,8 +19,12 @@
 
 @optional
 - (void)form:(SDForm *)form didSelectFieldAtIndexPath:(NSIndexPath *)indexPath;
-- (BOOL)form:(SDForm *)form canEditRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)form:(SDForm *)form commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)form:(SDForm *)form canEditFieldAtIndexPath:(NSIndexPath *)indexPath;
+- (void)form:(SDForm *)form commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forFieldAtIndexPath:(NSIndexPath *)indexPath;
+
+- (BOOL)form:(SDForm *)form canEditRowAtIndexPath:(NSIndexPath *)indexPath __deprecated;
+- (void)form:(SDForm *)form commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath __deprecated;
+
 @end
 
 @protocol SDFormDataSource <NSObject>

@@ -337,16 +337,22 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(form:canEditRowAtIndexPath:)]) {
+    
+    if ([self.delegate respondsToSelector:@selector(form:canEditFieldAtIndexPath:)]) {
+        SDFormField *field = [self fieldForIndexPath:indexPath];
+        return [self.delegate form:self canEditFieldAtIndexPath:field.indexPath];
+    } else if([self.delegate respondsToSelector:@selector(form:canEditRowAtIndexPath:)]) {
         return [self.delegate form:self canEditRowAtIndexPath:indexPath];
     }
-    
     return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(form:commitEditingStyle:forRowAtIndexPath:)]) {
+    if ([self.delegate respondsToSelector:@selector(form:commitEditingStyle:forFieldAtIndexPath:)]) {
+        SDFormField *field = [self fieldForIndexPath:indexPath];
+        [self.delegate form:self commitEditingStyle:editingStyle forFieldAtIndexPath:field.indexPath];
+    } else if ([self.delegate respondsToSelector:@selector(form:commitEditingStyle:forRowAtIndexPath:)]) {
         [self.delegate form:self commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
     }
 }
