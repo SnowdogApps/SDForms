@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SDFormCell.h"
-#import "SDTextView.h"
+#import "SDFormTextView.h"
 #import "SDMultilineTextField.h"
 
 static NSString * const kTextViewCell = @"SDTextViewFormCell";
@@ -16,7 +16,7 @@ static NSString * const kTextViewCell = @"SDTextViewFormCell";
 @interface SDTextViewFormCell : SDFormCell <UITextViewDelegate>
 
 @property (nonatomic, weak) SDMultilineTextField *field;
-@property (weak, nonatomic) IBOutlet SDTextView *textView;
+@property (weak, nonatomic) IBOutlet SDFormTextView *textView;
 @property (strong, nonatomic) NSString *placeHolder;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIFont *textFont;

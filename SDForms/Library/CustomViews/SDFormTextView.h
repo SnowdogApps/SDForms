@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class SDTextView;
+@class SDFormTextView;
 
-@interface SDTextView : UITextView
+@interface SDFormTextView : UITextView
 
 @end

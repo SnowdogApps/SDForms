@@ -48,7 +48,7 @@
     return YES;
 }
 
-- (void)textViewDidBeginEditing:(SDTextView *)textView
+- (void)textViewDidBeginEditing:(SDFormTextView *)textView
 {
     if (self.placeholderVisible) {
         self.placeholderVisible = NO;
@@ -59,7 +59,7 @@
     }
 }
 
-- (void)textViewDidEndEditing:(SDTextView *)textView
+- (void)textViewDidEndEditing:(SDFormTextView *)textView
 {
     if (textView.attributedText.length == 0) {
         self.placeholderVisible = YES;

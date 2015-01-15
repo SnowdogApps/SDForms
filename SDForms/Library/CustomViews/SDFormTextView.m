@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Snowdog sp. z o.o. All rights reserved.
 //
 
-#import "SDTextView.h"
+#import "SDFormTextView.h"
 
-@implementation SDTextView
+@implementation SDFormTextView
 
 - (id)initWithFrame:(CGRect)frame
 {
