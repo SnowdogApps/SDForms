@@ -107,11 +107,12 @@
     _value = value;
     
     [self setRelatedObjectProperty];
+    
+    if (self.onValueChangedBlock) {
+        self.onValueChangedBlock(self.initialVal, value, self);
+    }
 
     if (refresh) {
-        if (self.onValueChangedBlock) {
-            self.onValueChangedBlock(self.initialVal, value, self);
-        }
         [self refreshFieldCell];
     }
 }
