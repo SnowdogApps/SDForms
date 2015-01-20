@@ -24,6 +24,8 @@
 
 - (BOOL)form:(SDForm *)form canEditRowAtIndexPath:(NSIndexPath *)indexPath __deprecated;
 - (void)form:(SDForm *)form commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath __deprecated;
+- (void)form:(SDForm *)form willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section;
+- (void)form:(SDForm *)form willDisplayFooterView:(UIView *)view forSection:(NSInteger)section;
 
 @end
 

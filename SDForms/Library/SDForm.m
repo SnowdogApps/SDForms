@@ -222,6 +222,18 @@
     [self.tableView scrollToRowAtIndexPath:cellIP atScrollPosition:scrollPosition animated:animated];
 }
 
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    if (aSelector == @selector(tableView:heightForHeaderInSection:)) {
+        return [self.delegate respondsToSelector:@selector(form:heightForHeaderInSection:)];
+    }
+    
+    if (aSelector == @selector(tableView:heightForFooterInSection:)) {
+        return [self.delegate respondsToSelector:@selector(form:heightForFooterInSection:)];
+    }
+    
+    return [[self class] instancesRespondToSelector:aSelector];
+}
+
 #pragma mark - TableView stuff
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -309,6 +321,18 @@
 {
     SDFormSection *formSection = [self.sections objectAtIndex:section];
     return formSection.footerView;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(form:willDisplayHeaderView:forSection:)]) {
+        [self.delegate form:self willDisplayHeaderView:view forSection:section];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(form:willDisplayFooterView:forSection:)]) {
+        [self.delegate form:self willDisplayFooterView:view forSection:section];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
