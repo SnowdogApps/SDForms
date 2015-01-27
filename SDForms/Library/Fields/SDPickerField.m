@@ -7,13 +7,13 @@
 //
 
 #import "SDPickerField.h"
-#import "SDLabelCell.h"
-#import "SDPickerCell.h"
+#import "SDLabelFormCell.h"
+#import "SDPickerFormCell.h"
 
 @interface SDPickerField ()
 
 @property (nonatomic, strong) NSMutableArray *selectedIndexes;
-@property (nonatomic, strong) SDPickerCell *pickerCell;
+@property (nonatomic, strong) SDPickerFormCell *pickerCell;
 
 @end
 
@@ -30,31 +30,64 @@
     return self;
 }
 
+- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key items:(NSArray *)items values:(NSArray *)values {
+    self = [self initWithObjects:@[object] relatedPropertyKeys:@[key] items:@[items] values:@[values]];
+    if (self) {
+    }
+    return self;
+}
+
+- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys items:(NSArray *)items values:(NSArray *)values {
+    self = [self init];
+    if (self) {
+        self.items = items;
+        self.values = values;
+        self.relatedObjects = objects;
+        self.relatedPropertyKeys = keys;
+        [self setValueBasedOnRelatedObjectProperty];
+    }
+    return self;
+}
+
+- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys formattedValueKeys:(NSArray *)formattedKeys settableFormattedValueKeys:(NSArray *)settableFormattedKeys items:(NSArray *)items values:(NSArray *)values {
+    self = [self init];
+    if (self) {
+        self.items = items;
+        self.values = values;
+        self.relatedObjects = objects;
+        self.relatedPropertyKeys = keys;
+        self.formattedValueKeys = formattedKeys;
+        self.settableFormattedValueKeys = settableFormattedKeys;
+        [self setValueBasedOnRelatedObjectProperty];
+    }
+    return self;
+}
 
 #pragma mar - Field management methods
 
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
+- (NSArray *)reuseIdentifiers {
     if (self.pickerType == SDPickerFieldPickerTypeInRow) {
-        [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-        [tableView registerNib:[UINib nibWithNibName:kPickerCell bundle:self.defaultBundle] forCellReuseIdentifier:kPickerCell];
-        self.reuseIdentifiers = @[kLabelCell, kPickerCell];
-        self.cellHeights = @[@44.0, @162.0];
+        return @[kLabelCell, kPickerCell];
     } else {
-        [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-        self.reuseIdentifiers = @[kLabelCell];
-        self.cellHeights = @[@44.0];
+        return @[kLabelCell];
     }
 }
 
+- (NSArray *)cellHeights {
+    if (self.pickerType == SDPickerFieldPickerTypeInRow) {
+        return @[@44.0, @162.0];
+    } else {
+        return @[@44.0];
+    }
+}
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
-    if ([cell isKindOfClass:[SDLabelCell class]]) {
-        SDLabelCell *labelCell = (SDLabelCell *)cell;
+    if ([cell isKindOfClass:[SDLabelFormCell class]]) {
+        SDLabelFormCell *labelCell = (SDLabelFormCell *)cell;
         labelCell.titleLabel.text = self.title;
         
         if (self.formattedValueSeparator.length > 0) {
@@ -62,8 +95,8 @@
         } else {
             labelCell.valueLabel.text = self.formattedValue.firstObject;
         }
-    } else if ([cell isKindOfClass:[SDPickerCell class]]) {
-        SDPickerCell *pickerCell = (SDPickerCell *)cell;
+    } else if ([cell isKindOfClass:[SDPickerFormCell class]]) {
+        SDPickerFormCell *pickerCell = (SDPickerFormCell *)cell;
         pickerCell.picker.delegate = self;
         pickerCell.picker.dataSource = self;
         
@@ -109,7 +142,7 @@
     } else if (self.relatedObject && self.formattedValueKey) {
         for (int i = 0; i < self.relatedObjects.count; i++) {
             id relatedObject = [self.relatedObjects objectAtIndex:i];
-            NSString *key = [self.relatedPropertyKeys objectAtIndex:i];
+            NSString *key = [self.formattedValueKeys objectAtIndex:i];
             NSString *formattedValue = [relatedObject valueForKey:key];
             
             if (formattedValue) {
@@ -241,6 +274,18 @@
     }
 }
 
+- (void)setFormattedValueKey:(NSString *)formattedValueKey {
+    if (formattedValueKey) {
+        self.formattedValueKeys = @[formattedValueKey];
+    } else {
+        self.formattedValueKeys = nil;
+    }
+}
+
+- (void)setFormattedValueKeys:(NSArray *)formattedValueKeys {
+    _formattedValueKeys = formattedValueKeys;
+}
+
 - (void)setSettabeFormattedValueKey:(NSString *)settabeFormattedValueKey
 {
     if (settabeFormattedValueKey) {
@@ -351,6 +396,8 @@
             [self.selectedIndexes replaceObjectAtIndex:i withObject:@(valueIndex)];
             
         }
+        
+        self.isInitialValueSet = NO;
         [self fillSelectedValues];
     }
 }

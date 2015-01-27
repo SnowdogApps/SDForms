@@ -7,8 +7,8 @@
 //
 
 #import "SDDatePickerField.h"
-#import "SDLabelCell.h"
-#import "SDDatePickerCell.h"
+#import "SDLabelFormCell.h"
+#import "SDDatePickerFormCell.h"
 
 static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
 
@@ -26,23 +26,23 @@ static NSString * const kDefaultDateFormat = @"yyyy-MM-dd HH:mm:ss";
     return self;
 }
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-    [tableView registerNib:[UINib nibWithNibName:kDatePickerCell bundle:self.defaultBundle] forCellReuseIdentifier:kDatePickerCell];
-    self.reuseIdentifiers = @[kLabelCell, kDatePickerCell];
-    self.cellHeights = @[@44.0, @162.0];
+- (NSArray *)reuseIdentifiers {
+    return @[kLabelCell, kDatePickerCell];
+}
+
+- (NSArray *)cellHeights {
+    return @[@44.0, @162.0];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
-    if ([cell isKindOfClass:[SDLabelCell class]]) {
-        SDLabelCell *labelCell = (SDLabelCell *)cell;
+    if ([cell isKindOfClass:[SDLabelFormCell class]]) {
+        SDLabelFormCell *labelCell = (SDLabelFormCell *)cell;
         labelCell.titleLabel.text = self.title;
         labelCell.valueLabel.text = self.formattedValue;
-    } else if ([cell isKindOfClass:[SDDatePickerCell class]]) {
-        SDDatePickerCell *datePickerCell = (SDDatePickerCell *)cell;
+    } else if ([cell isKindOfClass:[SDDatePickerFormCell class]]) {
+        SDDatePickerFormCell *datePickerCell = (SDDatePickerFormCell *)cell;
         if (self.timeZone) {
             datePickerCell.datePicker.timeZone = self.timeZone;
         }

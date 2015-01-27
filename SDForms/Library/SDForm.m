@@ -15,7 +15,7 @@
 
 @interface SDForm ()
 
-@property (strong, nonatomic) SDNavigationToolbar *toolbar;
+@property (strong, nonatomic) SDFormKeyboardToolbar *toolbar;
 @property (nonatomic) CGFloat prevOffset;
 @property (nonatomic) CGRect prevFrame;
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
@@ -39,7 +39,7 @@
         self.tableView.dataSource = self;
         
         NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
-        self.toolbar = (SDNavigationToolbar *)[[bundle loadNibNamed:kSDNavigationToolbar owner:[[SDNavigationToolbar alloc] init] options:nil] lastObject];
+        self.toolbar = (SDFormKeyboardToolbar *)[[bundle loadNibNamed:kSDNavigationToolbar owner:[[SDFormKeyboardToolbar alloc] init] options:nil] lastObject];
         [self.toolbar setToolbarDelegate:self];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -222,6 +222,18 @@
     [self.tableView scrollToRowAtIndexPath:cellIP atScrollPosition:scrollPosition animated:animated];
 }
 
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    if (aSelector == @selector(tableView:heightForHeaderInSection:)) {
+        return [self.delegate respondsToSelector:@selector(form:heightForHeaderInSection:)];
+    }
+    
+    if (aSelector == @selector(tableView:heightForFooterInSection:)) {
+        return [self.delegate respondsToSelector:@selector(form:heightForFooterInSection:)];
+    }
+    
+    return [[self class] instancesRespondToSelector:aSelector];
+}
+
 #pragma mark - TableView stuff
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -311,6 +323,18 @@
     return formSection.footerView;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(form:willDisplayHeaderView:forSection:)]) {
+        [self.delegate form:self willDisplayHeaderView:view forSection:section];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(form:willDisplayFooterView:forSection:)]) {
+        [self.delegate form:self willDisplayFooterView:view forSection:section];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -337,16 +361,22 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(form:canEditRowAtIndexPath:)]) {
+    
+    if ([self.delegate respondsToSelector:@selector(form:canEditFieldAtIndexPath:)]) {
+        SDFormField *field = [self fieldForIndexPath:indexPath];
+        return [self.delegate form:self canEditFieldAtIndexPath:field.indexPath];
+    } else if([self.delegate respondsToSelector:@selector(form:canEditRowAtIndexPath:)]) {
         return [self.delegate form:self canEditRowAtIndexPath:indexPath];
     }
-    
     return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(form:commitEditingStyle:forRowAtIndexPath:)]) {
+    if ([self.delegate respondsToSelector:@selector(form:commitEditingStyle:forFieldAtIndexPath:)]) {
+        SDFormField *field = [self fieldForIndexPath:indexPath];
+        [self.delegate form:self commitEditingStyle:editingStyle forFieldAtIndexPath:field.indexPath];
+    } else if ([self.delegate respondsToSelector:@selector(form:commitEditingStyle:forRowAtIndexPath:)]) {
         [self.delegate form:self commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
     }
 }

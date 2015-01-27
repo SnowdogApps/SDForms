@@ -7,21 +7,20 @@
 //
 
 #import "SDButtonField.h"
-#import "SDButtonCell.h"
+#import "SDButtonFormCell.h"
 
 @implementation SDButtonField
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kButtonCell bundle:self.defaultBundle] forCellReuseIdentifier:kButtonCell];
-    self.reuseIdentifiers = @[kButtonCell];
-}
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
-    SDButtonCell *cell = (SDButtonCell *)[super cellForTableView:tableView atIndex:index];
+    SDButtonFormCell *cell = (SDButtonFormCell *)[super cellForTableView:tableView atIndex:index];
     cell.titleLabel.text = self.title;
     return cell;
+}
+
+- (NSArray *)reuseIdentifiers {
+    return @[kButtonCell];
 }
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import "SDItemSelectionField.h"
-#import "SDItemsPickerViewController.h"
-#import "SDLabelCell.h"
+#import "SDFormItemsPickerViewController.h"
+#import "SDLabelFormCell.h"
 #import "NSMutableArray+IndexSelection.h"
 
 
@@ -28,19 +28,20 @@
 }
 
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-    self.reuseIdentifiers = @[kLabelCell];
-    self.cellHeights = @[@44.0];
+- (NSArray *)reuseIdentifiers {
+    return @[kLabelCell];
+}
+
+- (NSArray *)cellHeights {
+    return @[@44.0];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
-    if ([cell isKindOfClass:[SDLabelCell class]]) {
-        SDLabelCell *labelCell = (SDLabelCell *)cell;
+    if ([cell isKindOfClass:[SDLabelFormCell class]]) {
+        SDLabelFormCell *labelCell = (SDLabelFormCell *)cell;
         labelCell.titleLabel.text = self.title;
         labelCell.valueLabel.text = self.formattedValue;
     }
@@ -100,7 +101,7 @@
 - (void)form:(SDForm *)form didSelectFieldAtIndex:(NSInteger)index
 {
     if (index == 0) {
-        SDItemsPickerViewController *controller = [[SDItemsPickerViewController alloc] init];
+        SDFormItemsPickerViewController *controller = [[SDFormItemsPickerViewController alloc] init];
         controller.delegate = self;
         controller.items = self.items;
         controller.selectedIndexes = self.selectedIndexes;
@@ -109,13 +110,13 @@
     }
 }
 
-- (void)itemsPickerViewController:(SDItemsPickerViewController *)controller didDeselectElementAtIndex:(NSInteger)index
+- (void)itemsPickerViewController:(SDFormItemsPickerViewController *)controller didDeselectElementAtIndex:(NSInteger)index
 {
     [self.selectedIndexes deselectIndex:index];
     [self refreshFieldCell];
 }
 
-- (void)itemsPickerViewController:(SDItemsPickerViewController *)controller didSelectElementAtIndex:(NSInteger)index
+- (void)itemsPickerViewController:(SDFormItemsPickerViewController *)controller didSelectElementAtIndex:(NSInteger)index
 {
     [self.selectedIndexes selectIndex:index];
     [self refreshFieldCell];

@@ -7,19 +7,17 @@
 //
 
 #import "SDLabelField.h"
-#import "SDLabelCell.h"
+#import "SDLabelFormCell.h"
 
 @implementation SDLabelField
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kLabelCell bundle:self.defaultBundle] forCellReuseIdentifier:kLabelCell];
-    self.reuseIdentifiers = @[kLabelCell];
+- (NSArray *)reuseIdentifiers {
+    return @[kLabelCell];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
-    SDLabelCell *cell = (SDLabelCell *)[super cellForTableView:tableView atIndex:index];
+    SDLabelFormCell *cell = (SDLabelFormCell *)[super cellForTableView:tableView atIndex:index];
     cell.titleLabel.text = self.title;
     cell.valueLabel.text = self.formattedValue;
     return cell;

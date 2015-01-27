@@ -7,8 +7,8 @@
 //
 
 #import "SDTextFormField.h"
-#import "SDTextFieldCell.h"
-#import "SDTextFieldWithLabelCell.h"
+#import "SDTextFieldFormCell.h"
+#import "SDTextFieldWithLabelFormCell.h"
 
 @implementation SDTextFormField
 
@@ -25,8 +25,7 @@
     return self;
 }
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
+- (NSArray *)reuseIdentifiers {
     NSString *cellId;
     if (self.cellType == SDTextFormFieldCellTypeTextOnly) {
         cellId = kTextFieldCell;
@@ -35,17 +34,16 @@
     } else {
         cellId = kTextFieldCell;
     }
-
-    [tableView registerNib:[UINib nibWithNibName:cellId bundle:self.defaultBundle] forCellReuseIdentifier:cellId];
-    self.reuseIdentifiers = @[cellId];
+    
+   return @[cellId];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
     SDFormCell *cell = [super cellForTableView:tableView atIndex:index];
     
-    if ([cell isKindOfClass:[SDTextFieldCell class]]) {
-        SDTextFieldCell *textFieldCell = (SDTextFieldCell *)cell;
+    if ([cell isKindOfClass:[SDTextFieldFormCell class]]) {
+        SDTextFieldFormCell *textFieldCell = (SDTextFieldFormCell *)cell;
         
         if (self.valueType == SDFormFieldValueTypeText) {
             textFieldCell.textField.keyboardType = UIKeyboardTypeDefault;
@@ -64,8 +62,8 @@
             textFieldCell.textField.text = [formatter stringFromNumber:self.value];
         }
         
-        if ([cell isKindOfClass:[SDTextFieldWithLabelCell class]]) {
-            SDTextFieldWithLabelCell *tfWithLabelCell = (SDTextFieldWithLabelCell *)cell;
+        if ([cell isKindOfClass:[SDTextFieldWithLabelFormCell class]]) {
+            SDTextFieldWithLabelFormCell *tfWithLabelCell = (SDTextFieldWithLabelFormCell *)cell;
             tfWithLabelCell.titleLabel.text = self.title;
         }
         

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SDFormSection.h"
-#import "SDNavigationToolbar.h"
+#import "SDFormKeyboardToolbar.h"
 #import "SDFormCell.h"
 
 @class SDForm;
@@ -19,25 +19,34 @@
 
 @optional
 - (void)form:(SDForm *)form didSelectFieldAtIndexPath:(NSIndexPath *)indexPath;
-- (BOOL)form:(SDForm *)form canEditRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)form:(SDForm *)form commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)form:(SDForm *)form canEditFieldAtIndexPath:(NSIndexPath *)indexPath;
+- (void)form:(SDForm *)form commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forFieldAtIndexPath:(NSIndexPath *)indexPath;
+
+- (BOOL)form:(SDForm *)form canEditRowAtIndexPath:(NSIndexPath *)indexPath __deprecated;
+- (void)form:(SDForm *)form commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath __deprecated;
+- (void)form:(SDForm *)form willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section;
+- (void)form:(SDForm *)form willDisplayFooterView:(UIView *)view forSection:(NSInteger)section;
+
 @end
 
 @protocol SDFormDataSource <NSObject>
 
 - (NSInteger)numberOfSectionsForForm:(SDForm *)form;
 - (NSInteger)form:(SDForm *)form numberOfFieldsInSection:(NSInteger)section;
+- (SDFormField *)form:(SDForm *)form fieldForRow:(NSInteger)row inSection:(NSInteger)section;
+
+@optional
 - (NSString *)form:(SDForm *)form titleForHeaderInSection:(NSInteger)section;
 - (NSString *)form:(SDForm *)form titleForFooterInSection:(NSInteger)section;
 - (CGFloat)form:(SDForm *)form heightForHeaderInSection:(NSInteger)section;
 - (CGFloat)form:(SDForm *)form heightForFooterInSection:(NSInteger)section;
 - (UIView *)form:(SDForm *)form viewForHeaderInSection:(NSInteger)section;
 - (UIView *)form:(SDForm *)form viewForFooterInSection:(NSInteger)section;
-- (SDFormField *)form:(SDForm *)form fieldForRow:(NSInteger)row inSection:(NSInteger)section;
+
 
 @end
 
-@interface SDForm : NSObject <SDFormFieldDelegate, SDFormCellDelegate, SDNavigationToolbarDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SDForm : NSObject <SDFormFieldDelegate, SDFormCellDelegate, SDFormKeyboardToolbarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 - (id)initWithTableView:(UITableView*)tableView;
 - (SDFormField *)fieldForIndexPath:(NSIndexPath *)indexPath;

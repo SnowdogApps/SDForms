@@ -7,19 +7,17 @@
 //
 
 #import "SDSwitchField.h"
-#import "SDSwitchCell.h"
+#import "SDSwitchFormCell.h"
 
 @implementation SDSwitchField
 
-- (void)registerCellsInTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:kSwitchCell bundle:self.defaultBundle] forCellReuseIdentifier:kSwitchCell];
-    self.reuseIdentifiers = @[kSwitchCell];
+- (NSArray *)reuseIdentifiers {
+    return @[kSwitchCell];
 }
 
 - (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index
 {
-    SDSwitchCell *cell = (SDSwitchCell *)[super cellForTableView:tableView atIndex:index];
+    SDSwitchFormCell *cell = (SDSwitchFormCell *)[super cellForTableView:tableView atIndex:index];
     cell.titleLabel.text = self.title;
     [cell.switchControl setOn:[self.value boolValue] animated:NO];
     return cell;
