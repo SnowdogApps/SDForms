@@ -170,13 +170,26 @@
 }
 
 - (void)presentViewController:(UIViewController *)controller animated:(BOOL)animated {
-    if (self.presentingMode == SDFormFieldPresentingModePush && self.delegate) {
-        if ([self.delegate respondsToSelector:@selector(formField:pushesViewController:animated:)]) {
-            [self.delegate formField:self pushesViewController:controller animated:animated];
-        }
-    } else {
-        if ([self.delegate respondsToSelector:@selector(formField:presentsViewController:animated:)]) {
-            [self.delegate formField:self presentsViewController:[[UINavigationController alloc] initWithRootViewController:controller] animated:YES];
+    if (self.delegate) {
+        
+        if (self.presentingMode == SDFormFieldPresentingModePush && ![controller isKindOfClass:[UINavigationController class]]) {
+            
+            if ([self.delegate respondsToSelector:@selector(formField:pushesViewController:animated:)]) {
+                
+                [self.delegate formField:self pushesViewController:controller animated:animated];
+            }
+        } else {
+            if ([self.delegate respondsToSelector:@selector(formField:presentsViewController:animated:)]) {
+                
+                UIViewController *controllerToShow;
+                if (![controller isKindOfClass:[UINavigationController class]]) {
+                    controllerToShow = [[UINavigationController alloc] initWithRootViewController:controller];
+                } else {
+                    controllerToShow = controller;
+                }
+        
+                [self.delegate formField:self presentsViewController:controllerToShow animated:YES];
+            }
         }
     }
 }
@@ -186,6 +199,13 @@
         _editedBackgroundColor = [UIColor colorWithRed:169/255.0 green:188/255.0 blue:209/255.0 alpha:1.0];
     }
     return _editedBackgroundColor;
+}
+
+- (UIViewController *)viewController {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(viewControllerForField:)]) {
+        return [self.delegate viewControllerForField:self];
+    }
+    return nil;
 }
 
 - (NSBundle *)defaultBundle {
