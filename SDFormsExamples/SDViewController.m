@@ -8,6 +8,7 @@
 
 #import "SDViewController.h"
 #import "SDForms.h"
+#import "SDPhotoField.h"
 
 @interface Person : NSObject
 
@@ -218,6 +219,10 @@
 {
     self.sections = [NSMutableArray array];
     
+    SDPhotoField *photo = [[SDPhotoField alloc] init];
+    photo.presentingMode = SDFormFieldPresentingModeModal;
+    photo.title = @"photo";
+    
     SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
     name.title = @"Name";
     name.placeholder = @"Name";
@@ -275,7 +280,7 @@
     SDSwitchField *isStudent = [[SDSwitchField alloc] initWithObject:self.person relatedPropertyKey:@"isStudent"];
     isStudent.title = @"Is student";
     
-    NSArray *section1Fields = [@[name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
+    NSArray *section1Fields = [@[photo, name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
     return [section1Fields mutableCopy];
 }
 

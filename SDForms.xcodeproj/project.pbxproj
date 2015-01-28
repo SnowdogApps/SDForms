@@ -10,6 +10,9 @@
 		B5183A0819C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */; };
 		B5183A0A19C9D7DC00A9B858 /* SDLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */; };
 		B5183A0B19C9DD1800A9B858 /* SDFormItemsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56123A219AB40D8002BB86D /* SDFormItemsPickerViewController.xib */; };
+		B51D24741A77F48A006F5B00 /* SDPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B51D24731A77F48A006F5B00 /* SDPhotoCell.m */; };
+		B51D24791A77F4ED006F5B00 /* SDPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51D24781A77F4ED006F5B00 /* SDPhotoCell.xib */; };
+		B51D247C1A77F5B3006F5B00 /* SDPhotoField.m in Sources */ = {isa = PBXBuildFile; fileRef = B51D247B1A77F5B3006F5B00 /* SDPhotoField.m */; };
 		B52BE29A19AF657E0071BA57 /* SDForms.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F876C019AE201D00C4AF33 /* SDForms.h */; };
 		B52BE29B19AF657E0071BA57 /* SDFormItemsPickerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B56123A019AB40D8002BB86D /* SDFormItemsPickerViewController.h */; };
 		B52BE29C19AF657E0071BA57 /* SDDatePickerField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B57ABC8519A777950062BDBB /* SDDatePickerField.h */; };
@@ -210,6 +213,11 @@
 		B5183A0619C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SDExtensions.h"; sourceTree = "<group>"; };
 		B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SDExtensions.m"; sourceTree = "<group>"; };
 		B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDLaunchScreen.xib; sourceTree = "<group>"; };
+		B51D24721A77F48A006F5B00 /* SDPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoCell.h; sourceTree = "<group>"; };
+		B51D24731A77F48A006F5B00 /* SDPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoCell.m; sourceTree = "<group>"; };
+		B51D24781A77F4ED006F5B00 /* SDPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDPhotoCell.xib; sourceTree = "<group>"; };
+		B51D247A1A77F5B3006F5B00 /* SDPhotoField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoField.h; sourceTree = "<group>"; };
+		B51D247B1A77F5B3006F5B00 /* SDPhotoField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoField.m; sourceTree = "<group>"; };
 		B55F0F1619AF0F9C00685BCA /* SDButtonField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDButtonField.h; sourceTree = "<group>"; };
 		B55F0F1719AF0F9C00685BCA /* SDButtonField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDButtonField.m; sourceTree = "<group>"; };
 		B55F0F1D19AF2F0B00685BCA /* SDSwitchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSwitchField.h; sourceTree = "<group>"; };
@@ -416,6 +424,8 @@
 				B55F0F1E19AF2F0B00685BCA /* SDSwitchField.m */,
 				B57ABC8719A777950062BDBB /* SDTextFormField.h */,
 				B57ABC8819A777950062BDBB /* SDTextFormField.m */,
+				B51D247A1A77F5B3006F5B00 /* SDPhotoField.h */,
+				B51D247B1A77F5B3006F5B00 /* SDPhotoField.m */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
@@ -538,6 +548,9 @@
 				B596CB24199B95DC000AB3A5 /* SDTextViewFormCell.h */,
 				B596CB25199B95DC000AB3A5 /* SDTextViewFormCell.m */,
 				B596CB26199B95DC000AB3A5 /* SDTextViewFormCell.xib */,
+				B51D24721A77F48A006F5B00 /* SDPhotoCell.h */,
+				B51D24731A77F48A006F5B00 /* SDPhotoCell.m */,
+				B51D24781A77F4ED006F5B00 /* SDPhotoCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -718,6 +731,7 @@
 				B5183A0B19C9DD1800A9B858 /* SDFormItemsPickerViewController.xib in Resources */,
 				B55F0F8619AF418300685BCA /* SDFormKeyboardToolbar.xib in Resources */,
 				B55F0F8819AF418300685BCA /* SDButtonFormCell.xib in Resources */,
+				B51D24791A77F4ED006F5B00 /* SDPhotoCell.xib in Resources */,
 				B55F0F8A19AF418300685BCA /* SDDatePickerFormCell.xib in Resources */,
 				B55F0F8B19AF418300685BCA /* SDDatePickerWithLabelFormCell.xib in Resources */,
 				B55F0F8E19AF418300685BCA /* SDPickerFormCell.xib in Resources */,
@@ -786,6 +800,7 @@
 				B59132111A6038500028FBE7 /* NSObject+Differences.m in Sources */,
 				B5F876A319AE1E5B00C4AF33 /* SDForm.m in Sources */,
 				B5F876A419AE1E5B00C4AF33 /* SDFormSection.m in Sources */,
+				B51D247C1A77F5B3006F5B00 /* SDPhotoField.m in Sources */,
 				B5F876A519AE1E5B00C4AF33 /* SDFormField.m in Sources */,
 				B5F876A619AE1E5B00C4AF33 /* SDFormCell.m in Sources */,
 				B5F8768F19AE1E4D00C4AF33 /* SDTextFieldView.m in Sources */,
@@ -800,6 +815,7 @@
 				B5F8769C19AE1E4D00C4AF33 /* SDTextFieldWithLabelFormCell.m in Sources */,
 				B5F8769E19AE1E4D00C4AF33 /* SDSliderFormCell.m in Sources */,
 				B55F0F1F19AF2F0B00685BCA /* SDSwitchField.m in Sources */,
+				B51D24741A77F48A006F5B00 /* SDPhotoCell.m in Sources */,
 				B5F876A019AE1E4D00C4AF33 /* SDSwitchFormCell.m in Sources */,
 				B5F876A119AE1E4D00C4AF33 /* SDTextFieldFormCell.m in Sources */,
 				B5F876A219AE1E4D00C4AF33 /* SDTextViewFormCell.m in Sources */,
