@@ -188,6 +188,13 @@
     return _editedBackgroundColor;
 }
 
+- (UIViewController *)viewController {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(viewControllerForField:)]) {
+        return [self.delegate viewControllerForField:self];
+    }
+    return nil;
+}
+
 - (NSBundle *)defaultBundle {
     NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
     return bundle;

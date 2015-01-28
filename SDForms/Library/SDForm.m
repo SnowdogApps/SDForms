@@ -431,6 +431,10 @@
 
 #pragma mark - SDFormFieldDelegate
 
+- (UIViewController *)viewControllerForField:(SDFormField *)field {
+    return self.viewController;
+}
+
 - (void)formFieldDidUpdateValue:(SDFormField *)field
 {
     NSIndexPath *indexPath = [field.indexPath fieldCellIndexPathWithPickerIndexPath:self.pickerIndexPath];
