@@ -130,6 +130,7 @@
 - (void)setRelatedObjectProperty {
     if (self.relatedObject) {
         if (self.relatedPropertyKey) {
+            if (![[self.relatedObject valueForKey:self.relatedPropertyKey] isEqual:self.value])
             [self.relatedObject setValue:self.value forKey:self.relatedPropertyKey];
         }
         if (self.settabeFormattedValueKey) {

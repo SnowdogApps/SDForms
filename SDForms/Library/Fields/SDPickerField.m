@@ -206,7 +206,10 @@
             id relatedObject = [self.relatedObjects objectAtIndex:i];
             NSString *relatedKey = [self.relatedPropertyKeys objectAtIndex:i];
 
-            [relatedObject setValue:val forKey:relatedKey];
+            
+            if (![[relatedObject valueForKey:relatedKey] isEqual:val]) {
+                [relatedObject setValue:val forKey:relatedKey];
+            }
         }
         i++;
     }
