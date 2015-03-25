@@ -24,16 +24,23 @@
     if (self) {
         self.relatedObject = object;
         self.relatedPropertyKey = key;
-        
         [self setValueBasedOnRelatedObjectProperty];
     }
     return self;
 }
 
-- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey settableFormattedValueKey:(NSString *)settableFormattedKey {
+- (id)initWithObject:(id)object
+        relatedPropertyKey:(NSString *)key
+        formattedValueKey:(NSString *)formattedKey
+        settableFormattedValueKey:(NSString *)settableFormattedKey {
+    
     self = [self initWithObject:object relatedPropertyKey:key];
     if (self) {
-        self.formattedValueKey = formattedKey;
+        self.relatedObject = object;
+        self.relatedPropertyKey = key;
+        _formattedValueKey = formattedKey;
+        _settabeFormattedValueKey = settableFormattedKey;
+        [self setValueBasedOnRelatedObjectProperty];
     }
     return self;
 }
@@ -119,12 +126,10 @@
 
 - (void)setRelatedObject:(id)relatedObject {
     _relatedObject = relatedObject;
-    [self setValueBasedOnRelatedObjectProperty];
 }
 
 - (void) setRelatedPropertyKey:(NSString *)relatedPropertyKey {
     _relatedPropertyKey = relatedPropertyKey;
-    [self setValueBasedOnRelatedObjectProperty];
 }
 
 - (void)setRelatedObjectProperty {

@@ -2,33 +2,43 @@
 //  SDFormsTests.m
 //  SDFormsTests
 //
-//  Created by Rafal Kwiatkowski on 27.08.2014.
-//  Copyright (c) 2014 Snowdog sp. z o.o. All rights reserved.
+//  Created by Rafal Kwiatkowski on 25.03.2015.
+//  Copyright (c) 2015 Snowdog sp. z o.o. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import <Kiwi.h>
+#import "TestClass.h"
+#import "SDForms.h"
 
-@interface SDFormsTests : XCTestCase
+SPEC_BEGIN(SDFormsSpec)
 
-@end
+describe(@"SDPickerField", ^{
+    
+    context(@"when updating value", ^{
+        __block SDPickerField *pickerField;
+        __block TestClass *testObject;
+        
+        beforeAll(^{
+            testObject = [[TestClass alloc] init];
+            testObject.value = @"value";
+            testObject.formattedValue = @"Value";
+            
+            pickerField = [[SDPickerField alloc] initWithObject:testObject relatedPropertyKey:@"value" formattedValueKey:@"formattedValue" settableFormattedValueKey:@"settabeFormattedValue"];
+        });
+        
+        it(@"sets object values as own values", ^{
+            [[pickerField.value should] equal:@"value"];
+            [[pickerField.formattedValue should] equal:@"Value"];
+        });
+        
+        
+        
+        afterAll(^{
+            testObject = nil;
+            pickerField = nil;
+        });
+    });
+    
+});
 
-@implementation SDFormsTests
-
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-@end
+SPEC_END

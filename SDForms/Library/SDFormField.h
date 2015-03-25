@@ -41,7 +41,7 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 
 @property (nonatomic) SDFormFieldValueType valueType;           ///<Type of the value
 
-@property (nonatomic, strong) id formattedValue;                ///<Formatted value of the field that will be displayed in cell
+@property (nonatomic, readonly) id formattedValue;                ///<Formatted value of the field that will be displayed in cell
 
 @property (nonatomic) BOOL hasPicker;                           ///<Indicates if the field shows picker
 
@@ -55,13 +55,13 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 
 @property (nonatomic) SDFormFieldPresentingMode presentingMode; ///<Tells the field how it should present its view controllers. By default it's set to SDFormFieldPresentingModePush
 
-@property (nonatomic, strong) id relatedObject;                 ///<Object related to the field
+@property (nonatomic, readonly) id relatedObject;                 ///<Object related to the field
 
-@property (nonatomic, strong) NSString *relatedPropertyKey;     ///<Key path to property related to field
+@property (nonatomic, readonly) NSString *relatedPropertyKey;     ///<Key path to property related to field
 
-@property (nonatomic, strong) NSString *formattedValueKey;      ///<Key path to property that will be dispayed as field's formatted value
+@property (nonatomic, readonly) NSString *formattedValueKey;      ///<Key path to property that will be dispayed as field's formatted value
 
-@property (nonatomic, strong) NSString *settabeFormattedValueKey;   ///<Key path to property that will be set by the field with its formattedValue property value
+@property (nonatomic, readonly) NSString *settabeFormattedValueKey;   ///<Key path to property that will be set by the field with its formattedValue property value
 
 @property (nonatomic, strong) UIColor *backgroundColor;             ///<Background color of the field
 

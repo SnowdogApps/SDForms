@@ -12,7 +12,6 @@
 
 @interface SDPickerField ()
 
-@property (nonatomic, strong) NSMutableArray *selectedIndexes;
 @property (nonatomic, strong) SDPickerFormCell *pickerCell;
 
 @end
@@ -168,8 +167,7 @@
     [self validateItemsArray:items];
     [self validateValuesArray:self.values];
     _items = items;
-    [self createSelectedIndexesArrayWithItems:items];
-    [self fillSelectedValues];
+    [self setValueBasedOnRelatedObjectProperty];
 }
 
 
@@ -177,16 +175,7 @@
 {
     [self validateValuesArray:values];
     _values = values;
-    [self fillSelectedValues];
-}
-
-- (void)setMinimumSelectedIndexes:(NSArray *)minimumSelectedIndexes
-{
-    _minimumSelectedIndexes = minimumSelectedIndexes;
-    if (self.items.count > 0) {
-        [self createSelectedIndexesArrayWithItems:self.items];
-        [self fillSelectedValues];
-    }
+    [self setValueBasedOnRelatedObjectProperty];
 }
 
 - (void)setValue:(NSArray *)value
@@ -214,10 +203,6 @@
         i++;
     }
     
-    [self updateFormattedValuesInRelatedObject];
-}
-
-- (void)updateFormattedValuesInRelatedObject {
     int j = 0;
     for (id formattedValue in self.formattedValue) {
         if (j < self.relatedObjects.count && j < self.settableFormattedValueKeys.count) {
@@ -229,18 +214,17 @@
     }
 }
 
+
 - (void)setRelatedObjects:(NSArray *)relatedObjects
 {
     [self validateValuesArray:self.values];
     _relatedObjects = relatedObjects;
-    [self setValueBasedOnRelatedObjectProperty];
 }
 
 - (void)setRelatedPropertyKeys:(NSArray *)relatedPropertyKeys
 {
     [self validateValuesArray:self.values];
     _relatedPropertyKeys = relatedPropertyKeys;
-    [self setValueBasedOnRelatedObjectProperty];
 }
 
 - (id)relatedObject
@@ -301,8 +285,6 @@
 - (void)setSettableFormattedValueKeys:(NSArray *)settableFormattedValueKeys
 {
     _settableFormattedValueKeys = settableFormattedValueKeys;
-    [self setRelatedObjectsProperties];
-    
 }
 
 - (void)validateValuesArray:(NSArray *)values
@@ -331,43 +313,6 @@
     }
 }
 
-
-- (void)fillSelectedValues
-{
-    if (self.values) {
-        NSMutableArray *selectedValues = [[NSMutableArray alloc] init];
-        if (self.selectedIndexes) {
-            for (int i = 0; i < self.selectedIndexes.count; i++) {
-                NSNumber *index = [self.selectedIndexes objectAtIndex:i];
-                NSArray *values = [self.values objectAtIndex:i];
-                [selectedValues addObject:[values objectAtIndex:index.integerValue]];
-            }
-        } else {
-            for (int i = 0; i < _values.count; i++) {
-                NSArray *values = [self.values objectAtIndex:i];
-                NSInteger index = 0;
-                [selectedValues addObject:[values objectAtIndex:index]];
-            }
-        }
-        self.value = selectedValues;
-    }
-}
-
-- (void)createSelectedIndexesArrayWithItems:(NSArray *)items
-{
-    NSMutableArray *selected = [NSMutableArray array];
-    for (int i = 0; i < items.count; i++) {
-        NSNumber *minIdx = [self.minimumSelectedIndexes objectAtIndex:i];
-        
-        if (minIdx != nil) {
-            [selected addObject:minIdx];
-        } else {
-            [selected addObject:@0];
-        }
-    }
-    self.selectedIndexes = [selected mutableCopy];
-}
-
 - (void)validateItemsArray:(NSArray *)items
 {
     for (id obj in items) {
@@ -380,28 +325,19 @@
 
 - (void)setValueBasedOnRelatedObjectProperty
 {
-    if (self.relatedObjects && self.relatedPropertyKeys ) {
-        for (int i = 0; i < self.relatedObjects.count; i++) {
-            id val = [[self.relatedObjects objectAtIndex:i] valueForKey:[self.relatedPropertyKeys objectAtIndex:i]];
-            NSArray *values = [self.values objectAtIndex:i];
-            __block NSUInteger valueIndex = NSNotFound;
-            [values enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                if ([obj isEqual:val]) {
-                    valueIndex = idx;
-                    *stop = YES;
-                }
-            }];
-            
-            if (valueIndex == NSNotFound) {
-                valueIndex = 0;
-            }
-            
-            [self.selectedIndexes replaceObjectAtIndex:i withObject:@(valueIndex)];
-            
-        }
+    if (self.relatedObjects && self.relatedPropertyKeys && self.items && self.values) {
         
         self.isInitialValueSet = NO;
-        [self fillSelectedValues];
+        
+        NSArray *selectedIndexes = [self selectedIndexes];
+        NSMutableArray *selectedValues = [[NSMutableArray alloc] init];
+        for (int i = 0; i < selectedIndexes.count; i++) {
+            NSNumber *index = [selectedIndexes objectAtIndex:i];
+            NSArray *values = [self.values objectAtIndex:i];
+            [selectedValues addObject:[values objectAtIndex:index.integerValue]];
+        }
+        
+        self.value = selectedValues;
     }
 }
 
@@ -437,9 +373,9 @@
 - (void)selectItem:(NSUInteger)index inComponent:(NSInteger)component
 {
     if (component < self.selectedIndexes.count) {
-        [self.selectedIndexes replaceObjectAtIndex:component withObject:@(index)];
-        [self fillSelectedValues];
-        [self refreshFieldCell];
+        
+        NSArray *itemValues = [self.values objectAtIndex:component];
+        self.value = [itemValues objectAtIndex:index];
     }
 }
 
@@ -492,26 +428,47 @@
 }
 
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    if (component < self.selectedIndexes.count) {
-        NSInteger minRow = [[self.minimumSelectedIndexes objectAtIndex:component] integerValue];
-        if (row < minRow) {
-            [pickerView selectRow:minRow inComponent:component animated:YES];
-            [self createSelectedIndexesArrayWithItems:self.items];
-            [self fillSelectedValues];
-        } else {
-            [self.selectedIndexes replaceObjectAtIndex:component withObject:@(row)];
-            [self fillSelectedValues];
-            
-            if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerField:didSelectRow:inComponent:)]) {
-                [self.pickerFieldDelegate pickerField:self didSelectRow:row inComponent:component];
-            }
-        }
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    NSInteger minRow = [[self.minimumSelectedIndexes objectAtIndex:component] integerValue];
+    NSInteger realRow = row < minRow ? minRow : row;
+    
+    if (row < minRow) {
+        [pickerView selectRow:minRow inComponent:component animated:YES];
     }
     
-    [self updateFormattedValuesInRelatedObject];
-    [self refreshFieldCell];
+    NSArray *itemValues = [self.values objectAtIndex:component];
+    self.value = [itemValues objectAtIndex:realRow];
+    
+    if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerField:didSelectRow:inComponent:)]) {
+        [self.pickerFieldDelegate pickerField:self didSelectRow:realRow inComponent:component];
+    }
+}
+
+
+- (NSArray *)selectedIndexes {
+    
+    NSMutableArray *selectedIndexes = [NSMutableArray array];
+    NSInteger i = 0;
+    
+    for (id value in self.items) {
+        __block NSInteger index = 0;
+        
+        if (self.values) {
+            NSArray *itemValues = [self.values objectAtIndex:i];
+            [itemValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                if ([obj isEqual:value]) {
+                    index = idx;
+                    *stop = YES;
+                }
+            }];
+        }
+        
+        [selectedIndexes addObject:@(index)];
+        i++;
+    }
+    
+    return selectedIndexes;
 }
 
 
