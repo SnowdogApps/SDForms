@@ -285,6 +285,7 @@
     picker1.name = @"picker1";
     picker1.title = @"Picker 1";
     [picker1 setItems:@[@[@"Option 1", @"Option 2", @"Option 3"]]];
+    [picker1 setValues:@[@[@"Option 1", @"Option 2", @"Option 3"]]];
     [picker1 selectItem:2 inComponent:0];
     
     SDItemSelectionField *selection = [[SDItemSelectionField alloc] init];
