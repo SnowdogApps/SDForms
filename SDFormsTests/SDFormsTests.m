@@ -18,7 +18,7 @@ describe(@"SDPickerField", ^{
         __block SDPickerField *pickerField;
         __block TestClass *testObject;
         
-        beforeAll(^{
+        beforeEach(^{
             testObject = [[TestClass alloc] init];
             testObject.value = @2;
             testObject.formattedValue = @"Item1";
@@ -66,7 +66,18 @@ describe(@"SDPickerField", ^{
             [[testObject.settabeFormattedValue should] equal:@"Item1"];
         });
         
-        afterAll(^{
+        it(@"sets object values below minimum index", ^{
+            
+            pickerField.minimumSelectedIndexes = @[@1];
+            pickerField.value = @[@1];
+            [[pickerField.value.firstObject should] equal:@2];
+            [[pickerField.formattedValue.firstObject should] equal:@"Item2"];
+            [[testObject.value should] equal:@2];
+            [[testObject.settabeFormattedValue should] equal:@"Item2"];
+            
+        });
+        
+        afterEach(^{
             testObject = nil;
             pickerField = nil;
         });
@@ -139,6 +150,30 @@ describe(@"SDPickerField", ^{
             [[testObject.settabeFormattedValue should] equal:@"Item1"];
         });
         
+        it(@"related object has value below minimum index", ^{
+            
+            testObject.value = @1;
+            testObject.formattedValue = @"Item1";
+            
+            pickerField = [[SDPickerField alloc] initWithObjects:nil
+                                             relatedPropertyKeys:nil
+                                              formattedValueKeys:nil
+                                      settableFormattedValueKeys:nil
+                                                           items:items
+                                                          values:values];
+            
+            pickerField.minimumSelectedIndexes = @[@1];
+            
+            pickerField.relatedObject = testObject;
+            pickerField.relatedPropertyKey = @"value";
+            pickerField.settabeFormattedValueKey = @"settabeFormattedValue";
+            
+            [[pickerField.value.firstObject should] equal:@2];
+            [[pickerField.formattedValue.firstObject should] equal:@"Item2"];
+            [[testObject.value should] equal:@2];
+            [[testObject.settabeFormattedValue should] equal:@"Item2"];
+        });
+        
         it(@"items are not set in the constructor", ^{
             
             testObject.value = @2;
@@ -196,6 +231,12 @@ describe(@"SDPickerField", ^{
         it(@"first object selected by default", ^{
             [[pickerField.value.firstObject should] equal:@1];
             [[pickerField.formattedValue.firstObject should] equal:@"Item1"];
+        });
+        
+        it(@"setting value works", ^{
+            pickerField.value = @[@2];
+            [[pickerField.value.firstObject should] equal:@2];
+            [[pickerField.formattedValue.firstObject should] equal:@"Item2"];
         });
         
         afterEach(^{

@@ -187,9 +187,10 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
         id val = [value objectAtIndex:i];
         NSArray *itemValues = [self.values objectAtIndex:i];
         NSInteger index = [self indexOfValue:val inArray:itemValues];
-        if (index == NSNotFound) {
+        if (index == NSNotFound || index < [self minimumIndexInComponent:i]) {
             index = [self minimumIndexInComponent:i];
         }
+        
         [selectedValues addObject:[itemValues objectAtIndex:index]];
     }
     
@@ -337,7 +338,7 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
                 id val = [relatedObject valueForKeyPath:relatedKey];
                 
                 NSInteger index = [self indexOfValue:val inArray:values];
-                if (index == NSNotFound) {
+                if (index == NSNotFound || index < [self minimumIndexInComponent:i]) {
                     index = [self minimumIndexInComponent:i];
                 }
                 
@@ -505,9 +506,9 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
         
         if (self.value) {
             id value = [self.value objectAtIndex:i];
-            NSInteger idx = [self indexOfValue:value inArray:itemValues];
-            if (idx != NSNotFound) {
-                index = idx;
+            index = [self indexOfValue:value inArray:itemValues];
+            if (index == NSNotFound || index < [self minimumIndexInComponent:i]) {
+                index = [self minimumIndexInComponent:i];
             }
         }
         
