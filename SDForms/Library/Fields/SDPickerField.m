@@ -347,7 +347,9 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
             
         } else {
             for (int i = 0; i < self.values.count; i++) {
-                [selectedValues addObject:@[@0]];
+                id itemValues = [self.values objectAtIndex:i];
+                id val = [itemValues objectAtIndex:[self minimumIndexInComponent:i]];
+                [selectedValues addObject:val];
             }
         }
         
