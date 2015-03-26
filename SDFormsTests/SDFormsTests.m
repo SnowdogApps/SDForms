@@ -296,6 +296,62 @@ describe(@"SDPickerField", ^{
             pickerField = nil;
         });
     });
+    
+    context(@"when calling delegate methods", ^{
+        __block SDPickerField *pickerField;
+        __block NSObject<SDPickerFieldProtocol> *delegate;
+        __block NSArray *items;
+        __block NSArray *values;
+        
+        beforeEach(^{
+            items = @[@[@"Item1", @"Item2", @"Item3"]];
+            values = @[@[@1, @2, @3]];
+            
+            pickerField = [[SDPickerField alloc] initWithObjects:nil
+                                             relatedPropertyKeys:nil
+                                              formattedValueKeys:nil
+                                      settableFormattedValueKeys:nil
+                                                           items:items
+                                                          values:values];
+            
+            delegate = [KWMock nullMockForProtocol:@protocol(SDPickerFieldProtocol)];
+            pickerField.pickerFieldDelegate = delegate;
+        });
+        
+        it(@"setting old value", ^{
+            [[delegate shouldNot] receive:@selector(pickerField:didSelectRow:inComponent:)];
+            pickerField.value = @[@1];
+        });
+        
+        it(@"setting value", ^{
+            [[delegate should] receive:@selector(pickerField:didSelectRow:inComponent:)];
+            pickerField.value = @[@2];
+        });
+        
+        it(@"selecting item", ^{
+            [[delegate should] receive:@selector(pickerField:didSelectRow:inComponent:)];
+            [pickerField selectItem:1 inComponent:0];
+        });
+        
+        it(@"selecting item with picker view", ^{
+            [[delegate should] receive:@selector(pickerField:didSelectRow:inComponent:)];
+            [pickerField pickerView:nil didSelectRow:1 inComponent:0];
+        });
+        
+        it (@"setting related object", ^{
+            [[delegate should] receive:@selector(pickerField:didSelectRow:inComponent:)];
+            TestClass *testObject = [[TestClass alloc] init];
+            testObject.value = @2;
+            testObject.formattedValue = @"Item1";
+            pickerField.relatedObject = testObject;
+            pickerField.relatedPropertyKey = @"value";
+        });
+        
+        afterEach(^{
+            pickerField = nil;
+            delegate = nil;
+        });
+    });
 
 });
 

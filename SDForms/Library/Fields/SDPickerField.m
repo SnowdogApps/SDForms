@@ -191,7 +191,15 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
             index = [self minimumIndexInComponent:i];
         }
         
-        [selectedValues addObject:[itemValues objectAtIndex:index]];
+        id newVal = [itemValues objectAtIndex:index];
+        [selectedValues addObject:newVal];
+        
+        
+        if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerField:didSelectRow:inComponent:)]) {
+            if (!self.value || ![[self.value objectAtIndex:i] isEqual:newVal]) {
+                [self.pickerFieldDelegate pickerField:self didSelectRow:index inComponent:i];
+            }
+        }
     }
     
     [self setValue:selectedValues withCellRefresh:YES];
@@ -482,13 +490,7 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
 
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
     [self selectItem:row inComponent:component];
-    NSInteger realRow = [self indexOfSelectedItemInComponent:component];
-    
-    if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerField:didSelectRow:inComponent:)]) {
-        [self.pickerFieldDelegate pickerField:self didSelectRow:realRow inComponent:component];
-    }
 }
 
 
