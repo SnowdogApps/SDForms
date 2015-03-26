@@ -126,10 +126,12 @@
 
 - (void)setRelatedObject:(id)relatedObject {
     _relatedObject = relatedObject;
+    [self setValueBasedOnRelatedObjectProperty];
 }
 
 - (void) setRelatedPropertyKey:(NSString *)relatedPropertyKey {
     _relatedPropertyKey = relatedPropertyKey;
+    [self setValueBasedOnRelatedObjectProperty];
 }
 
 - (void)setRelatedObjectProperty {

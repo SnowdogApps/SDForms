@@ -405,8 +405,7 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
 }
 
 
-- (NSUInteger)indexOfSelectedItemInComponent:(NSInteger)component
-{
+- (NSUInteger)indexOfSelectedItemInComponent:(NSInteger)component {
     if (component < self.selectedIndexes.count) {
         NSNumber *selectedItem = [self.selectedIndexes objectAtIndex:component];
         return selectedItem.unsignedIntegerValue;
@@ -417,10 +416,11 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
 
 - (void)selectItem:(NSUInteger)index inComponent:(NSInteger)component
 {
-    if (component < self.selectedIndexes.count) {
-        
+    if (component < self.values.count) {
         NSArray *itemValues = [self.values objectAtIndex:component];
-        self.value = [itemValues objectAtIndex:index];
+        NSMutableArray *mutableValue = [self.value mutableCopy];
+        [mutableValue replaceObjectAtIndex:component withObject:[itemValues objectAtIndex:index]];
+        self.value = [mutableValue copy];
     }
 }
 
@@ -481,15 +481,8 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    NSInteger minRow = [[self.minimumSelectedIndexes objectAtIndex:component] integerValue];
-    NSInteger realRow = row < minRow ? minRow : row;
-    
-    if (row < minRow) {
-        [pickerView selectRow:minRow inComponent:component animated:YES];
-    }
-    
-    NSArray *itemValues = [self.values objectAtIndex:component];
-    self.value = [itemValues objectAtIndex:realRow];
+    [self selectItem:row inComponent:component];
+    NSInteger realRow = [self indexOfSelectedItemInComponent:component];
     
     if (self.pickerFieldDelegate && [self.pickerFieldDelegate respondsToSelector:@selector(pickerField:didSelectRow:inComponent:)]) {
         [self.pickerFieldDelegate pickerField:self didSelectRow:realRow inComponent:component];

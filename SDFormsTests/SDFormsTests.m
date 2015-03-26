@@ -14,7 +14,7 @@ SPEC_BEGIN(SDFormsSpec)
 
 describe(@"SDPickerField", ^{
     
-    context(@"when updating value", ^{
+    context(@"when updating value with related object", ^{
         __block SDPickerField *pickerField;
         __block TestClass *testObject;
         
@@ -79,6 +79,33 @@ describe(@"SDPickerField", ^{
         
         afterEach(^{
             testObject = nil;
+            pickerField = nil;
+        });
+    });
+    
+    context(@"when updating value without related object", ^{
+        __block SDPickerField *pickerField;
+        
+        beforeEach(^{
+            
+            NSArray *items = @[@[@"Item1", @"Item2", @"Item3"]];
+            NSArray *values = @[@[@1, @2, @3]];
+            
+            pickerField = [[SDPickerField alloc] initWithObjects:nil relatedPropertyKeys:nil items:items values:values];
+        });
+        
+        it(@"first object selected by default", ^{
+            [[pickerField.value.firstObject should] equal:@1];
+            [[pickerField.formattedValue.firstObject should] equal:@"Item1"];
+        });
+        
+        it(@"setting value", ^{
+            pickerField.value = @[@2];
+            [[pickerField.value.firstObject should] equal:@2];
+            [[pickerField.formattedValue.firstObject should] equal:@"Item2"];
+        });
+        
+        afterEach(^{
             pickerField = nil;
         });
     });
@@ -217,32 +244,59 @@ describe(@"SDPickerField", ^{
         });
     });
     
-    context(@"there is no related object", ^{
+    context(@"when using public interface", ^{
         __block SDPickerField *pickerField;
+        __block TestClass *testObject;
+        __block NSArray *items;
+        __block NSArray *values;
         
         beforeEach(^{
-            
-            NSArray *items = @[@[@"Item1", @"Item2", @"Item3"]];
-            NSArray *values = @[@[@1, @2, @3]];
-            
-            pickerField = [[SDPickerField alloc] initWithObjects:nil relatedPropertyKeys:nil items:items values:values];
+            items = @[@[@"Item1", @"Item2", @"Item3"]];
+            values = @[@[@1, @2, @3]];
         });
         
-        it(@"first object selected by default", ^{
-            [[pickerField.value.firstObject should] equal:@1];
-            [[pickerField.formattedValue.firstObject should] equal:@"Item1"];
+        it(@"selecting item by index with related object", ^{
+            
+            testObject = [[TestClass alloc] init];
+            testObject.value = @2;
+            testObject.formattedValue = @"Item1";
+            
+            pickerField = [[SDPickerField alloc] initWithObjects:@[testObject]
+                                             relatedPropertyKeys:@[@"value"]
+                                              formattedValueKeys:@[@"formattedValue"]
+                                      settableFormattedValueKeys:@[@"settabeFormattedValue"]
+                                                           items:items
+                                                          values:values];
+            
+            [pickerField selectItem:2 inComponent:0];
+            
+            [[pickerField.value.firstObject should] equal:@3];
+            [[pickerField.formattedValue.firstObject should] equal:@"Item3"];
+            [[testObject.value should] equal:@3];
+            [[testObject.settabeFormattedValue should] equal:@"Item3"];
         });
         
-        it(@"setting value works", ^{
-            pickerField.value = @[@2];
-            [[pickerField.value.firstObject should] equal:@2];
-            [[pickerField.formattedValue.firstObject should] equal:@"Item2"];
+        it(@"selecting item by index without related object", ^{
+            
+            pickerField = [[SDPickerField alloc] initWithObjects:nil
+                                             relatedPropertyKeys:nil
+                                              formattedValueKeys:nil
+                                      settableFormattedValueKeys:nil
+                                                           items:items
+                                                          values:values];
+            
+            [pickerField selectItem:2 inComponent:0];
+            
+            [[pickerField.value.firstObject should] equal:@3];
+            [[pickerField.formattedValue.firstObject should] equal:@"Item3"];
         });
         
         afterEach(^{
+            testObject = nil;
             pickerField = nil;
         });
     });
+
 });
 
 SPEC_END
