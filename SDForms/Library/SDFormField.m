@@ -38,8 +38,8 @@
     if (self) {
         self.relatedObject = object;
         self.relatedPropertyKey = key;
-        _formattedValueKey = formattedKey;
-        _settabeFormattedValueKey = settableFormattedKey;
+        self.formattedValueKey = formattedKey;
+        self.settabeFormattedValueKey = settableFormattedKey;
         [self setValueBasedOnRelatedObjectProperty];
     }
     return self;

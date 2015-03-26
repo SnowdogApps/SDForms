@@ -10,7 +10,7 @@
 
 @interface TestClass : NSObject
 
-@property (nonatomic, strong) NSString *value;
+@property (nonatomic, strong) id value;
 @property (nonatomic, strong) NSString *formattedValue;
 @property (nonatomic, strong) NSString *settabeFormattedValue;
 

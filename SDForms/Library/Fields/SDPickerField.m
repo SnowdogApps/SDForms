@@ -29,14 +29,10 @@
     return self;
 }
 
-- (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key items:(NSArray *)items values:(NSArray *)values {
-    self = [self initWithObjects:@[object] relatedPropertyKeys:@[key] items:@[items] values:@[values]];
-    if (self) {
-    }
-    return self;
-}
-
-- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys items:(NSArray *)items values:(NSArray *)values {
+- (id)initWithObjects:(NSArray *)objects
+  relatedPropertyKeys:(NSArray *)keys
+                items:(NSArray *)items
+               values:(NSArray *)values {
     self = [self init];
     if (self) {
         self.items = items;
@@ -48,7 +44,11 @@
     return self;
 }
 
-- (id)initWithObjects:(NSArray *)objects relatedPropertyKeys:(NSArray *)keys formattedValueKeys:(NSArray *)formattedKeys settableFormattedValueKeys:(NSArray *)settableFormattedKeys items:(NSArray *)items values:(NSArray *)values {
+- (id)initWithObjects:(NSArray *)objects
+  relatedPropertyKeys:(NSArray *)keys
+   formattedValueKeys:(NSArray *)formattedKeys
+settableFormattedValueKeys:(NSArray *)settableFormattedKeys
+                items:(NSArray *)items values:(NSArray *)values {
     self = [self init];
     if (self) {
         self.items = items;
@@ -165,8 +165,8 @@
 - (void)setItems:(NSArray *)items
 {
     [self validateItemsArray:items];
-    [self validateValuesArray:self.values];
     _items = items;
+    [self validateValuesArray:self.values];
     [self setValueBasedOnRelatedObjectProperty];
 }
 
@@ -180,52 +180,36 @@
 
 - (void)setValue:(NSArray *)value
 {
-    [self setValue:value withCellRefresh:YES];
-}
-
-- (void)setRelatedObjectProperty {
-    [self setRelatedObjectsProperties];
-}
-
-- (void)setRelatedObjectsProperties
-{
-    int i = 0;
-    for (id val in self.value) {
-        if (i < self.relatedObjects.count && i < self.relatedPropertyKeys.count) {
-            id relatedObject = [self.relatedObjects objectAtIndex:i];
-            NSString *relatedKey = [self.relatedPropertyKeys objectAtIndex:i];
-
-            
-            if (![[relatedObject valueForKey:relatedKey] isEqual:val]) {
-                [relatedObject setValue:val forKey:relatedKey];
-            }
+    NSAssert(value.count == self.values.count, @"value must be equal to number of components");
+    NSMutableArray *selectedValues = [NSMutableArray array];
+    
+    for (NSInteger i = 0; i < self.values.count; i++) {
+        id val = [value objectAtIndex:i];
+        NSArray *itemValues = [self.values objectAtIndex:i];
+        NSInteger index = [self indexOfValue:val inArray:itemValues];
+        if (index == NSNotFound) {
+            index = [self minimumIndexInComponent:i];
         }
-        i++;
+        [selectedValues addObject:[itemValues objectAtIndex:index]];
     }
     
-    int j = 0;
-    for (id formattedValue in self.formattedValue) {
-        if (j < self.relatedObjects.count && j < self.settableFormattedValueKeys.count) {
-            id relatedObject = [self.relatedObjects objectAtIndex:j];
-            NSString *relatedKey = [self.settableFormattedValueKeys objectAtIndex:j];
-            [relatedObject setValue:formattedValue forKey:relatedKey];
-        }
-        j++;
-    }
+    [self setValue:selectedValues withCellRefresh:YES];
 }
-
 
 - (void)setRelatedObjects:(NSArray *)relatedObjects
 {
-    [self validateValuesArray:self.values];
     _relatedObjects = relatedObjects;
+    [self validateValuesArray:self.values];
+    [self setValueBasedOnRelatedObjectProperty];
 }
 
 - (void)setRelatedPropertyKeys:(NSArray *)relatedPropertyKeys
 {
-    [self validateValuesArray:self.values];
     _relatedPropertyKeys = relatedPropertyKeys;
+    [self validateValuesArray:self.values];
+    [self setValueBasedOnRelatedObjectProperty];
 }
+
 
 - (id)relatedObject
 {
@@ -271,6 +255,7 @@
 
 - (void)setFormattedValueKeys:(NSArray *)formattedValueKeys {
     _formattedValueKeys = formattedValueKeys;
+    [self validateValuesArray:self.values];
 }
 
 - (void)setSettabeFormattedValueKey:(NSString *)settabeFormattedValueKey
@@ -285,6 +270,8 @@
 - (void)setSettableFormattedValueKeys:(NSArray *)settableFormattedValueKeys
 {
     _settableFormattedValueKeys = settableFormattedValueKeys;
+    [self validateValuesArray:self.values];
+    [self setRelatedObjectsProperties];
 }
 
 - (void)validateValuesArray:(NSArray *)values
@@ -300,6 +287,14 @@
         
         if (self.relatedPropertyKeys) {
             NSAssert(values.count == self.relatedPropertyKeys.count, @"values array should have the same number of objecta as relatedPropertyKeys array");
+        }
+        
+        if (self.formattedValueKeys) {
+            NSAssert(values.count == self.formattedValueKeys.count, @"values array should have the same number of objecta as relatedPropertyKeys array");
+        }
+        
+        if (self.settableFormattedValueKeys) {
+            NSAssert(values.count == self.settableFormattedValueKeys.count, @"values array should have the same number of objecta as relatedPropertyKeys array");
         }
         
         int i = 0;
@@ -323,21 +318,70 @@
     }
 }
 
+#pragma mark - Progressing fields value with related object and vice versa
+
 - (void)setValueBasedOnRelatedObjectProperty
 {
-    if (self.relatedObjects && self.relatedPropertyKeys && self.items && self.values) {
+    if (self.items && self.values) {
         
         self.isInitialValueSet = NO;
-        
-        NSArray *selectedIndexes = [self selectedIndexes];
         NSMutableArray *selectedValues = [[NSMutableArray alloc] init];
-        for (int i = 0; i < selectedIndexes.count; i++) {
-            NSNumber *index = [selectedIndexes objectAtIndex:i];
-            NSArray *values = [self.values objectAtIndex:i];
-            [selectedValues addObject:[values objectAtIndex:index.integerValue]];
+        
+        if (self.relatedObjects && self.relatedPropertyKeys) {
+            
+            for (int i = 0; i < self.values.count; i++) {
+                
+                NSArray *values = [self.values objectAtIndex:i];
+                id relatedObject = [self.relatedObjects objectAtIndex:i];
+                NSString *relatedKey = [self.relatedPropertyKeys objectAtIndex:i];
+                id val = [relatedObject valueForKeyPath:relatedKey];
+                
+                NSInteger index = [self indexOfValue:val inArray:values];
+                if (index == NSNotFound) {
+                    index = [self minimumIndexInComponent:i];
+                }
+                
+                [selectedValues addObject:[values objectAtIndex:index]];
+            }
+            
+        } else {
+            for (int i = 0; i < self.values.count; i++) {
+                [selectedValues addObject:@[@0]];
+            }
         }
         
         self.value = selectedValues;
+    }
+}
+
+- (void)setRelatedObjectProperty {
+    [self setRelatedObjectsProperties];
+}
+
+- (void)setRelatedObjectsProperties
+{
+    int i = 0;
+    for (id val in self.value) {
+        if (i < self.relatedObjects.count && i < self.relatedPropertyKeys.count) {
+            id relatedObject = [self.relatedObjects objectAtIndex:i];
+            NSString *relatedKey = [self.relatedPropertyKeys objectAtIndex:i];
+            
+            
+            if (![[relatedObject valueForKey:relatedKey] isEqual:val]) {
+                [relatedObject setValue:val forKey:relatedKey];
+            }
+        }
+        i++;
+    }
+    
+    int j = 0;
+    for (id formattedValue in self.formattedValue) {
+        if (j < self.relatedObjects.count && j < self.settableFormattedValueKeys.count) {
+            id relatedObject = [self.relatedObjects objectAtIndex:j];
+            NSString *relatedKey = [self.settableFormattedValueKeys objectAtIndex:j];
+            [relatedObject setValue:formattedValue forKey:relatedKey];
+        }
+        j++;
     }
 }
 
@@ -394,6 +438,12 @@
     return nil;
 }
 
+- (NSInteger)minimumIndexInComponent:(NSInteger)component {
+    if (self.minimumSelectedIndexes && component < self.minimumSelectedIndexes.count) {
+        return [[self.minimumSelectedIndexes objectAtIndex:component] integerValue];
+    }
+    return 0;
+}
 
 #pragma mark - UIPickerView stuff
 
@@ -447,21 +497,18 @@
 
 
 - (NSArray *)selectedIndexes {
-    
     NSMutableArray *selectedIndexes = [NSMutableArray array];
     NSInteger i = 0;
     
-    for (id value in self.items) {
-        __block NSInteger index = 0;
+    for (NSArray *itemValues in self.values) {
+        NSInteger index = [self minimumIndexInComponent:i];
         
-        if (self.values) {
-            NSArray *itemValues = [self.values objectAtIndex:i];
-            [itemValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                if ([obj isEqual:value]) {
-                    index = idx;
-                    *stop = YES;
-                }
-            }];
+        if (self.value) {
+            id value = [self.value objectAtIndex:i];
+            NSInteger idx = [self indexOfValue:value inArray:itemValues];
+            if (idx != NSNotFound) {
+                index = idx;
+            }
         }
         
         [selectedIndexes addObject:@(index)];
@@ -471,6 +518,17 @@
     return selectedIndexes;
 }
 
+
+- (NSInteger)indexOfValue:(id)value inArray:(NSArray *)array {
+    __block NSInteger index = NSNotFound;
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isEqual:value]) {
+            index = idx;
+            *stop = YES;
+        }
+    }];
+    return index;
+}
 
 @dynamic value;
 
