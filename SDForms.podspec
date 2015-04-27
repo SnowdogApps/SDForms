@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Snowdog Apps" => "info@snowdog.co" }
   s.platform     = :ios, "7.1"
-  s.source       = { :git => "https://github.com/SnowdogApps/SDForms.git", :tag => "0.9.1" }
-  s.source_files  = "SDForms"
+  s.source       = { :git => "https://github.com/SnowdogApps/SDForms.git", :tag => "0.9.2-beta" }
+  s.source_files  = "SDForms/*"
   s.resource_bundles = {
     'SDFormsResources' => ['SDForms/*/*.xib'],
   }
