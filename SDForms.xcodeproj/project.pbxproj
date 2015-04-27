@@ -116,7 +116,6 @@
 		B5F876BC19AE1F0A00C4AF33 /* SDSwitchFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB20199B95DC000AB3A5 /* SDSwitchFormCell.xib */; };
 		B5F876BD19AE1F0A00C4AF33 /* SDTextFieldFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB23199B95DC000AB3A5 /* SDTextFieldFormCell.xib */; };
 		B5F876BE19AE1F0A00C4AF33 /* SDTextViewFormCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B596CB26199B95DC000AB3A5 /* SDTextViewFormCell.xib */; };
-		B5F876C219AE201D00C4AF33 /* SDForms.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F876C119AE201D00C4AF33 /* SDForms.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,7 +305,6 @@
 		B5F8767D19AE1D9500C4AF33 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B5F876BF19AE201D00C4AF33 /* SDForms-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDForms-Prefix.pch"; sourceTree = "<group>"; };
 		B5F876C019AE201D00C4AF33 /* SDForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDForms.h; sourceTree = "<group>"; };
-		B5F876C119AE201D00C4AF33 /* SDForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDForms.m; sourceTree = "<group>"; };
 		BF01A32819F9598000601928 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		C846C32E9F22FCB738EEB0BF /* Pods-SDFormsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDFormsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDFormsTests/Pods-SDFormsTests.release.xcconfig"; sourceTree = "<group>"; };
 		D7F1ED209A3ECF103A1965F2 /* libPods-SDFormsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDFormsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -458,7 +456,6 @@
 			children = (
 				B5F876BF19AE201D00C4AF33 /* SDForms-Prefix.pch */,
 				B5F876C019AE201D00C4AF33 /* SDForms.h */,
-				B5F876C119AE201D00C4AF33 /* SDForms.m */,
 				B596CAA1199B9569000AB3A5 /* Library */,
 			);
 			path = SDForms;
@@ -489,7 +486,6 @@
 			children = (
 				B561239E19AB40D8002BB86D /* FormControllers */,
 				B57ABC8419A777950062BDBB /* Fields */,
-				B596CBB6199B995E000AB3A5 /* Utils */,
 				B596CBAD199B98A4000AB3A5 /* Categories */,
 				B596CB97199B97FB000AB3A5 /* CustomViews */,
 				B596CAA2199B95DB000AB3A5 /* Cells */,
@@ -571,13 +567,6 @@
 				B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		B596CBB6199B995E000AB3A5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		B5F8764319AE1BAB00C4AF33 /* SDFormsExamples */ = {
@@ -833,7 +822,6 @@
 				B5F876A619AE1E5B00C4AF33 /* SDFormCell.m in Sources */,
 				B5F8768F19AE1E4D00C4AF33 /* SDTextFieldView.m in Sources */,
 				B5F8769019AE1E4D00C4AF33 /* SDFormTextView.m in Sources */,
-				B5F876C219AE201D00C4AF33 /* SDForms.m in Sources */,
 				B5F8769119AE1E4D00C4AF33 /* SDFormKeyboardToolbar.m in Sources */,
 				B5F8769319AE1E4D00C4AF33 /* SDButtonFormCell.m in Sources */,
 				B5F8769519AE1E4D00C4AF33 /* SDDatePickerFormCell.m in Sources */,
