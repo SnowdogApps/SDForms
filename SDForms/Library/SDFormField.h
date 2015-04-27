@@ -41,7 +41,7 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 
 @property (nonatomic) SDFormFieldValueType valueType;           ///<Type of the value
 
-@property (nonatomic, strong) id formattedValue;                ///<Formatted value of the field that will be displayed in cell
+@property (nonatomic, readonly) id formattedValue;                ///<Formatted value of the field that will be displayed in cell
 
 @property (nonatomic) BOOL hasPicker;                           ///<Indicates if the field shows picker
 
