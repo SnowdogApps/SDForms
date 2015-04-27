@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
 
   s.name         = "SDForms"
-  s.version      = "0.9.1"
+  s.version      = "0.9.2"
   s.summary      = "iOS"
   s.description  = <<-DESC
-                   SDForms is an open source iOS forms library that allows to create dynamic UITableView-based forms. It offers different types of fields like text fields, picker fields, date picker fields, switch fields, slider fields etc. It also enables to automatically map fields' values to object properties.
+                   SDForms is an Objective-C library for creating UITableView-based forms.
                    DESC
   s.homepage     = "https://github.com/SnowdogApps/SDForms"
   s.social_media_url = 'https://twitter.com/SnowdogApps'
