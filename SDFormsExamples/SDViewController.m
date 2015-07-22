@@ -98,6 +98,30 @@
 }
 
 
+- (void)saveButtonTapped:(id)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Person" message:[NSString stringWithFormat:@"%@", self.person] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+}
+
+
+#pragma mark - UI actions
+
+- (void) cellWasSwiped:(UIGestureRecognizer *)recognizer
+{
+    CGPoint swipeLocation = [recognizer locationInView:self.tableView];
+    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+    if(swipedIndexPath)
+    {
+        SDFormField *field = [self.form fieldForIndexPath:swipedIndexPath];
+        NSMutableArray *section = [self.sections objectAtIndex:field.indexPath.section];
+        [section removeObject:field];
+        [self.form removeFieldAtIndexPath:field.indexPath withRowAnimation:UITableViewRowAnimationLeft];
+    }
+}
+
+#pragma mark - SDFormFieldCustomizationDelegate
+
 - (NSString *)formattedValueForField:(SDFormField *)field
 {
     if ([field.name isEqualToString:@"selection1"]) {
@@ -122,13 +146,7 @@
     return nil;
 }
 
-
-
-- (void)saveButtonTapped:(id)sender
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Person" message:[NSString stringWithFormat:@"%@", self.person] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alertView show];
-}
+#pragma mark - SDForm delegate & data source
 
 - (UIViewController *)viewControllerForForm:(SDForm *)form
 {
@@ -199,6 +217,7 @@
 }
 
 
+#pragma mark - Fields setup
 
 - (void)initFields
 {
@@ -348,19 +367,6 @@
     
     NSArray *section4Fields = @[addSection];
     return [section4Fields mutableCopy];
-}
-
-- (void) cellWasSwiped:(UIGestureRecognizer *)recognizer
-{
-    CGPoint swipeLocation = [recognizer locationInView:self.tableView];
-    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
-    if(swipedIndexPath)
-    {
-        SDFormField *field = [self.form fieldForIndexPath:swipedIndexPath];
-        NSMutableArray *section = [self.sections objectAtIndex:field.indexPath.section];
-        [section removeObject:field];
-        [self.form removeFieldAtIndexPath:field.indexPath withRowAnimation:UITableViewRowAnimationLeft];
-    }
 }
 
 @end
