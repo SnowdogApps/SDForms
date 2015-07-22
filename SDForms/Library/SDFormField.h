@@ -47,9 +47,20 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 
 @property (nonatomic) BOOL enabled;                             ///<If set to YES, field will react to user interactions
 
-@property (nonatomic, strong) NSArray *reuseIdentifiers;        ///<Reuse identifiers of cells used by field, should be set in subclasses
+/**
+ Reuse identifiers of cells used by the field.
+ 
+ Subclassing notes: Override getter of this property, if you want to use your custom cells instantiated from nibs. Names of nibs should be the same as these identifiers. If you want to use the default implementation of registerCellsInTableView: method, you should also override defaultBundle getter in order to return bundle in which custom nib files are located.
+ */
+@property (nonatomic, readonly) NSArray *reuseIdentifiers;
 
-@property (nonatomic, strong) NSArray *cellHeights;             ///<Heights of cells displayed by field
+
+/**
+ Heights of cells displayed by
+ 
+ Subclassing notes: Override getter of this property in order to return heights of cells used by your SDFormField subclass.
+ */
+@property (nonatomic, readonly) NSArray *cellHeights;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;           //<Field's index path
 
@@ -75,7 +86,13 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 
 @property (nonatomic, strong) void (^onTapBlock)();         ///<Block executed when the field is tapped
 
-@property (nonatomic, readonly) NSBundle *defaultBundle;    ///<Bundle containing resources associated with SDForms library
+
+/**
+ Returns the bundle containing resources used by the field. The default implementation returns SDFormsResources bundle.
+ 
+ Subclassing notes: Override getter of this property if your field uses nib files located in your application's bundle.
+ */
+@property (nonatomic, readonly) NSBundle *defaultBundle;
 
 @property (nonatomic, strong) on_value_changed_t onValueChangedBlock;   ///<Block executed when value of the field has changed
 
@@ -92,9 +109,14 @@ typedef void(^on_value_changed_t)(id originalValue, id newValue, SDFormField *fi
 
 - (id)initWithObject:(id)object relatedPropertyKey:(NSString *)key formattedValueKey:(NSString *)formattedKey settableFormattedValueKey:(NSString *)settableFormattedKey;
 
-- (void)registerCellsInTableView:(UITableView*)tableView;
+/**
+ Method called by SDForm object to register cells used by SDFormField subclass. The default implementation of this method registers nibs using reuse identifiers returned by reuseIdentifiers property. You can specify the bundle of your own nibs by overriding defaultBundle property getter.
+ 
+ Subclassing notes: Override this method to register your custom cells in table view.
+ */
+- (void)registerCellsInTableView:(UITableView *)tableView;
 
-- (SDFormCell *)cellForTableView:(UITableView*)tableView atIndex:(NSUInteger)index;
+- (SDFormCell *)cellForTableView:(UITableView *)tableView atIndex:(NSUInteger)index;
 
 - (void)willDisplayCell:(SDFormCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
