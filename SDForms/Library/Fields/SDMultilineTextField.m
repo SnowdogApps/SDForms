@@ -16,6 +16,8 @@
 
 @interface SDMultilineTextField ()
 
+@property (nonatomic, strong) NSArray *heights;
+
 @end
 
 @implementation SDMultilineTextField
@@ -44,16 +46,20 @@
             maxWidth -= 40.0;   //approximate left content view's inset when delete button is visible
         }
         CGFloat height = [SDMultilineTextField heightForText:self.value font:self.textFont tableViewWidth:maxWidth];
-        self.cellHeights = @[@(height)];
+        self.heights = @[@(height)];
     } else if (self.textViewHeight > 0.0) {
-        self.cellHeights = @[@(self.textViewHeight)];
+        self.heights = @[@(self.textViewHeight)];
     } else {
-        self.cellHeights = @[@88.0];
+        self.heights = @[@88.0];
     }
 }
 
 - (NSArray *)reuseIdentifiers {
     return @[kTextViewCell];
+}
+
+- (NSArray *)cellHeights {
+    return self.heights;
 }
 
 + (CGFloat)heightForText:(NSString *)text font:(UIFont *)font tableViewWidth:(CGFloat)maxWidth;
