@@ -217,8 +217,10 @@
 }
 
 - (NSBundle *)defaultBundle {
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
-    return bundle;
+    NSBundle *bundle = [NSBundle bundleForClass:[SDFormField class]];
+    NSURL *bundleURL = [bundle URLForResource:@"SDFormsResources" withExtension:@"bundle"];
+    NSBundle *formFieldBundle = [NSBundle bundleWithURL:bundleURL];
+    return formFieldBundle;
 }
 
 @end
