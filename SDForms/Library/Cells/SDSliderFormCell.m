@@ -37,4 +37,6 @@
     [super setField:field];
 }
 
+@dynamic field;
+
 @end

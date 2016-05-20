@@ -529,6 +529,6 @@ settableFormattedValueKeys:(NSArray *)settableFormattedKeys
 }
 
 @dynamic value;
-
+@dynamic formatDelegate;
 
 @end

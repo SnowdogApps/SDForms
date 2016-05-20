@@ -77,4 +77,6 @@
     return cell;
 }
 
+@dynamic enabled;
+
 @end

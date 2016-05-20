@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90088FA2801156D2DFE542C7 /* libPods-SDFormsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F1ED209A3ECF103A1965F2 /* libPods-SDFormsTests.a */; };
+		71F766C0EDA99074EE98D337 /* Pods_SDFormsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C50158336DED90316D0F470 /* Pods_SDFormsTests.framework */; };
+		80E8211E0B0EC72DCEBD4F82 /* Pods_SDForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F3C750D5D3D7DA1494E7A2 /* Pods_SDForms.framework */; };
+		878CF7931CF13703006DA4A0 /* BVRatingStarsFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2230A1CEFA2D000F21858 /* BVRatingStarsFormCell.xib */; };
+		878CF7971CF158EC006DA4A0 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878CF7961CF158EC006DA4A0 /* HCSStarRatingView.m */; };
+		87E223061CEFA1C900F21858 /* BVRatingStarsField.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E223051CEFA1C900F21858 /* BVRatingStarsField.m */; };
+		87E223091CEFA28400F21858 /* BVRatingStarsFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E223081CEFA28400F21858 /* BVRatingStarsFormCell.m */; };
 		B5183A0819C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */; };
 		B5183A0A19C9D7DC00A9B858 /* SDLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */; };
 		B5183A0B19C9DD1800A9B858 /* SDFormItemsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56123A219AB40D8002BB86D /* SDFormItemsPickerViewController.xib */; };
@@ -198,7 +203,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16F3C750D5D3D7DA1494E7A2 /* Pods_SDForms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDForms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3082B8EEA480C16B0636483B /* Pods-SDForms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDForms.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDForms/Pods-SDForms.release.xcconfig"; sourceTree = "<group>"; };
 		4FF94D8A4C0A743B359A8BE4 /* Pods-SDFormsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDFormsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDFormsTests/Pods-SDFormsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C50158336DED90316D0F470 /* Pods_SDFormsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDFormsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64494AE8FE314D64E2D55D55 /* Pods-SDForms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDForms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDForms/Pods-SDForms.debug.xcconfig"; sourceTree = "<group>"; };
+		878CF7961CF158EC006DA4A0 /* HCSStarRatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HCSStarRatingView.m; path = ../../../Pods/HCSStarRatingView/HCSStarRatingView/HCSStarRatingView.m; sourceTree = "<group>"; };
+		87E223041CEFA1C900F21858 /* BVRatingStarsField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVRatingStarsField.h; sourceTree = "<group>"; };
+		87E223051CEFA1C900F21858 /* BVRatingStarsField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVRatingStarsField.m; sourceTree = "<group>"; };
+		87E223071CEFA28400F21858 /* BVRatingStarsFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVRatingStarsFormCell.h; sourceTree = "<group>"; };
+		87E223081CEFA28400F21858 /* BVRatingStarsFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVRatingStarsFormCell.m; sourceTree = "<group>"; };
+		87E2230A1CEFA2D000F21858 /* BVRatingStarsFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BVRatingStarsFormCell.xib; sourceTree = "<group>"; };
 		B5183A0619C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SDExtensions.h"; sourceTree = "<group>"; };
 		B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SDExtensions.m"; sourceTree = "<group>"; };
 		B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDLaunchScreen.xib; sourceTree = "<group>"; };
@@ -307,7 +322,6 @@
 		B5F876C019AE201D00C4AF33 /* SDForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDForms.h; sourceTree = "<group>"; };
 		BF01A32819F9598000601928 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		C846C32E9F22FCB738EEB0BF /* Pods-SDFormsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDFormsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDFormsTests/Pods-SDFormsTests.release.xcconfig"; sourceTree = "<group>"; };
-		D7F1ED209A3ECF103A1965F2 /* libPods-SDFormsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDFormsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,7 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5E000061AC2F6C2000E13CB /* libSDForms.a in Frameworks */,
-				90088FA2801156D2DFE542C7 /* libPods-SDFormsTests.a in Frameworks */,
+				71F766C0EDA99074EE98D337 /* Pods_SDFormsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +361,7 @@
 				B5F876A819AE1EAF00C4AF33 /* UIKit.framework in Frameworks */,
 				B5F876A719AE1EA900C4AF33 /* CoreGraphics.framework in Frameworks */,
 				B5F8765C19AE1CDA00C4AF33 /* Foundation.framework in Frameworks */,
+				80E8211E0B0EC72DCEBD4F82 /* Pods_SDForms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +407,8 @@
 		B57ABC8419A777950062BDBB /* Fields */ = {
 			isa = PBXGroup;
 			children = (
+				87E223041CEFA1C900F21858 /* BVRatingStarsField.h */,
+				87E223051CEFA1C900F21858 /* BVRatingStarsField.m */,
 				B55F0F1619AF0F9C00685BCA /* SDButtonField.h */,
 				B55F0F1719AF0F9C00685BCA /* SDButtonField.m */,
 				B57ABC8519A777950062BDBB /* SDDatePickerField.h */,
@@ -446,7 +463,8 @@
 				B596CA70199B9533000AB3A5 /* UIKit.framework */,
 				B596CA8B199B9533000AB3A5 /* XCTest.framework */,
 				B55F0F7819AF416E00685BCA /* CoreFoundation.framework */,
-				D7F1ED209A3ECF103A1965F2 /* libPods-SDFormsTests.a */,
+				16F3C750D5D3D7DA1494E7A2 /* Pods_SDForms.framework */,
+				5C50158336DED90316D0F470 /* Pods_SDFormsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -504,6 +522,10 @@
 		B596CAA2199B95DB000AB3A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				87E223071CEFA28400F21858 /* BVRatingStarsFormCell.h */,
+				87E223081CEFA28400F21858 /* BVRatingStarsFormCell.m */,
+				878CF7961CF158EC006DA4A0 /* HCSStarRatingView.m */,
+				87E2230A1CEFA2D000F21858 /* BVRatingStarsFormCell.xib */,
 				B596CAAF199B95DB000AB3A5 /* SDButtonFormCell.h */,
 				B596CAB0199B95DB000AB3A5 /* SDButtonFormCell.m */,
 				B596CAB1199B95DB000AB3A5 /* SDButtonFormCell.xib */,
@@ -592,6 +614,8 @@
 			children = (
 				4FF94D8A4C0A743B359A8BE4 /* Pods-SDFormsTests.debug.xcconfig */,
 				C846C32E9F22FCB738EEB0BF /* Pods-SDFormsTests.release.xcconfig */,
+				64494AE8FE314D64E2D55D55 /* Pods-SDForms.debug.xcconfig */,
+				3082B8EEA480C16B0636483B /* Pods-SDForms.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -643,6 +667,7 @@
 				B5E0FFFD1AC2F6C2000E13CB /* Frameworks */,
 				B5E0FFFE1AC2F6C2000E13CB /* Resources */,
 				93DDA1F84B1A7CD12496AD4A /* Copy Pods Resources */,
+				7D5D0665F95EB358A3F010BA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -658,9 +683,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5F8767719AE1CDA00C4AF33 /* Build configuration list for PBXNativeTarget "SDForms" */;
 			buildPhases = (
+				7EE8F4BBE39DDC6A14F6CC38 /* Check Pods Manifest.lock */,
 				B5F8765719AE1CD900C4AF33 /* Sources */,
 				B5F8765819AE1CD900C4AF33 /* Frameworks */,
 				B5F8765919AE1CD900C4AF33 /* CopyFiles */,
+				D150932496467699D0477400 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -714,6 +741,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878CF7931CF13703006DA4A0 /* BVRatingStarsFormCell.xib in Resources */,
 				B5183A0B19C9DD1800A9B858 /* SDFormItemsPickerViewController.xib in Resources */,
 				B55F0F8619AF418300685BCA /* SDFormKeyboardToolbar.xib in Resources */,
 				B55F0F8819AF418300685BCA /* SDButtonFormCell.xib in Resources */,
@@ -767,6 +795,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		7D5D0665F95EB358A3F010BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDFormsTests/Pods-SDFormsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EE8F4BBE39DDC6A14F6CC38 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		93DDA1F84B1A7CD12496AD4A /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -780,6 +838,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDFormsTests/Pods-SDFormsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D150932496467699D0477400 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDForms/Pods-SDForms-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -815,6 +888,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878CF7971CF158EC006DA4A0 /* HCSStarRatingView.m in Sources */,
 				B59132111A6038500028FBE7 /* NSObject+Differences.m in Sources */,
 				B5F876A319AE1E5B00C4AF33 /* SDForm.m in Sources */,
 				B5F876A419AE1E5B00C4AF33 /* SDFormSection.m in Sources */,
@@ -827,7 +901,9 @@
 				B5F8769519AE1E4D00C4AF33 /* SDDatePickerFormCell.m in Sources */,
 				B5F8769619AE1E4D00C4AF33 /* SDDatePickerWithLabelFormCell.m in Sources */,
 				B5F8769919AE1E4D00C4AF33 /* SDPickerFormCell.m in Sources */,
+				87E223091CEFA28400F21858 /* BVRatingStarsFormCell.m in Sources */,
 				B5F8769A19AE1E4D00C4AF33 /* SDLabelFormCell.m in Sources */,
+				87E223061CEFA1C900F21858 /* BVRatingStarsField.m in Sources */,
 				B5F8769C19AE1E4D00C4AF33 /* SDTextFieldWithLabelFormCell.m in Sources */,
 				B5F8769E19AE1E4D00C4AF33 /* SDSliderFormCell.m in Sources */,
 				B55F0F1F19AF2F0B00685BCA /* SDSwitchField.m in Sources */,
@@ -1089,6 +1165,7 @@
 		};
 		B5F8767819AE1CDA00C4AF33 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64494AE8FE314D64E2D55D55 /* Pods-SDForms.debug.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/SDForms.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1105,6 +1182,7 @@
 		};
 		B5F8767919AE1CDA00C4AF33 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3082B8EEA480C16B0636483B /* Pods-SDForms.release.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/SDForms.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

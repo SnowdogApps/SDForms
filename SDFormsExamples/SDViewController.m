@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSString *bio;
 @property (nonatomic, strong) NSNumber *hp;
 @property (nonatomic, strong) NSNumber *isStudent;
+@property (nonatomic, strong) NSNumber *rating;
+@property (nonatomic, strong) UIImage *studentImage;
 
 @end
 
@@ -29,7 +31,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent];
+    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@\nRating:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent, self.rating];
 }
 
 - (NSString *)formattedDOB
@@ -63,6 +65,8 @@
         self.person.bio = @"There was a boy";
         self.person.hp = @70;
         self.person.isStudent = @YES;
+        self.person.rating = @0.0;
+        self.person.studentImage = nil;
     }
     return self;
 }
@@ -225,12 +229,14 @@
     NSMutableArray *section2Fields = [self createSecondSection];
     NSMutableArray *section3Fields = [self createThirdSection];
     NSMutableArray *section4Fields = [self createFourthSection];
+    NSMutableArray *section5Fields = [self createFifthSection];
     
     
     [self.sections addObject:section1Fields];
     [self.sections addObject:section2Fields];
     [self.sections addObject:section3Fields];
     [self.sections addObject:section4Fields];
+    [self.sections addObject:section5Fields];
 }
 
 - (NSMutableArray *)createFirstSection
@@ -368,5 +374,18 @@
     NSArray *section4Fields = @[addSection];
     return [section4Fields mutableCopy];
 }
+
+- (NSMutableArray *)createFifthSection
+{
+    BVRatingStarsField *ratingStars = [[BVRatingStarsField alloc] initWithObject:self.person relatedPropertyKey:@"rating"];
+    ratingStars.maximumValue =  5.0;
+    ratingStars.minimumValue = 0.0;
+    ratingStars.starsColor = [UIColor blueColor];
+    ratingStars.value = [NSNumber numberWithFloat:0.0];
+    
+    NSArray *section5Fields = @[ratingStars];
+    return [section5Fields mutableCopy];
+}
+
 
 @end
