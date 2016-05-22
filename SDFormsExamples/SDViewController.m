@@ -32,7 +32,10 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@\nRating:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent, self.rating];
+    
+    NSString *hasImage = self.studentImage ? @"Yes" : @"False";
+    
+    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@\nRating:%@\nhas image:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent, self.rating, hasImage];
 }
 
 - (NSString *)formattedDOB
@@ -244,7 +247,7 @@
 {
     self.sections = [NSMutableArray array];
     
-    SDPhotoField *photo = [[SDPhotoField alloc] init];
+    SDPhotoField *photo = [[SDPhotoField alloc] initWithObject:self.person relatedPropertyKey:@"studentImage"];
     photo.presentingMode = SDFormFieldPresentingModeModal;
     photo.title = @"photo";
     
