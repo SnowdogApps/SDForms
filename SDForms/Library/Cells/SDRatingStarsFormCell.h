@@ -1,5 +1,5 @@
 //
-//  BVRatingStarsFormCell.h
+//  SDRatingStarsFormCell.h
 //  SDForms
 //
 //  Created by Tim Kelly on 5/20/16.
@@ -9,9 +9,9 @@
 #import "SDFormCell.h"
 #import <HCSStarRatingView/HCSStarRatingView.h>
 
-static NSString * const kStarRatingCell = @"BVRatingStarsFormCell";
+static NSString * const kStarRatingCell = @"SDRatingStarsFormCell";
 
-@interface BVRatingStarsFormCell : SDFormCell
+@interface SDRatingStarsFormCell : SDFormCell
 
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *ratingStars;
 

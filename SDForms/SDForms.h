@@ -16,5 +16,5 @@
 #import "SDLabelField.h"
 #import "SDButtonField.h"
 #import "SDSwitchField.h"
-#import "BVRatingStarsField.h"
+#import "SDRatingStarsField.h"
 #import "SDForm.h"

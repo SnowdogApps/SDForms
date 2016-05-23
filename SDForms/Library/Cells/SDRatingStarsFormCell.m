@@ -1,14 +1,14 @@
 //
-//  BVRatingStarsFormCell.m
+//  SDRatingStarsFormCell.m
 //  SDForms
 //
 //  Created by Tim Kelly on 5/20/16.
 //  Copyright © 2016 Snowdog sp. z o.o. All rights reserved.
 //
 
-#import "BVRatingStarsFormCell.h"
+#import "SDRatingStarsFormCell.h"
 
-@implementation BVRatingStarsFormCell
+@implementation SDRatingStarsFormCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

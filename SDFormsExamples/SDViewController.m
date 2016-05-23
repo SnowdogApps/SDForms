@@ -233,14 +233,11 @@
     NSMutableArray *section2Fields = [self createSecondSection];
     NSMutableArray *section3Fields = [self createThirdSection];
     NSMutableArray *section4Fields = [self createFourthSection];
-    NSMutableArray *section5Fields = [self createFifthSection];
-    
     
     [self.sections addObject:section1Fields];
     [self.sections addObject:section2Fields];
     [self.sections addObject:section3Fields];
     [self.sections addObject:section4Fields];
-    [self.sections addObject:section5Fields];
 }
 
 - (NSMutableArray *)createFirstSection
@@ -250,6 +247,12 @@
     SDPhotoField *photo = [[SDPhotoField alloc] initWithObject:self.person relatedPropertyKey:@"studentImage"];
     photo.presentingMode = SDFormFieldPresentingModeModal;
     photo.title = @"photo";
+    
+    SDRatingStarsField *ratingStars = [[SDRatingStarsField alloc] initWithObject:self.person relatedPropertyKey:@"rating"];
+    ratingStars.maximumValue =  5.0;
+    ratingStars.minimumValue = 0.0;
+    ratingStars.starsColor = [UIColor blueColor];
+    ratingStars.value = [NSNumber numberWithFloat:0.0];
     
     SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
     name.title = @"Name";
@@ -308,7 +311,7 @@
     SDSwitchField *isStudent = [[SDSwitchField alloc] initWithObject:self.person relatedPropertyKey:@"isStudent"];
     isStudent.title = @"Is student";
     
-    NSArray *section1Fields = [@[photo, name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
+    NSArray *section1Fields = [@[photo, ratingStars, name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
     return [section1Fields mutableCopy];
 }
 
@@ -381,18 +384,6 @@
     
     NSArray *section4Fields = @[addSection];
     return [section4Fields mutableCopy];
-}
-
-- (NSMutableArray *)createFifthSection
-{
-    BVRatingStarsField *ratingStars = [[BVRatingStarsField alloc] initWithObject:self.person relatedPropertyKey:@"rating"];
-    ratingStars.maximumValue =  5.0;
-    ratingStars.minimumValue = 0.0;
-    ratingStars.starsColor = [UIColor blueColor];
-    ratingStars.value = [NSNumber numberWithFloat:0.0];
-    
-    NSArray *section5Fields = @[ratingStars];
-    return [section5Fields mutableCopy];
 }
 
 

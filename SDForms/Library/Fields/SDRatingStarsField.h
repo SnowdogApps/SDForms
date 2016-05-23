@@ -1,5 +1,5 @@
 //
-//  BVRatingStarsField.h
+//  SDRatingStarsField.h
 //  SDForms
 //
 //  Created by Tim Kelly on 5/20/16.
@@ -8,7 +8,7 @@
 
 #import "SDFormField.h"
 
-@interface BVRatingStarsField : SDFormField
+@interface SDRatingStarsField : SDFormField
 
 @property CGFloat maximumValue;
 @property CGFloat minimumValue;

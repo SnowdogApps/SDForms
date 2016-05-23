@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BVRatingStarsFormCell" rowHeight="67" id="qof-Ks-ld7" customClass="BVRatingStarsFormCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SDRatingStarsFormCell" rowHeight="67" id="qof-Ks-ld7" customClass="SDRatingStarsFormCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qof-Ks-ld7" id="deq-hb-edN">
@@ -48,7 +48,7 @@
             <connections>
                 <outlet property="ratingStars" destination="7U7-rR-cKO" id="3iv-XF-PDU"/>
             </connections>
-            <point key="canvasLocation" x="235" y="106.5"/>
+            <point key="canvasLocation" x="224" y="131.5"/>
         </tableViewCell>
     </objects>
 </document>

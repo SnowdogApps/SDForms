@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		71F766C0EDA99074EE98D337 /* Pods_SDFormsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C50158336DED90316D0F470 /* Pods_SDFormsTests.framework */; };
 		80E8211E0B0EC72DCEBD4F82 /* Pods_SDForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F3C750D5D3D7DA1494E7A2 /* Pods_SDForms.framework */; };
-		878CF7931CF13703006DA4A0 /* BVRatingStarsFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2230A1CEFA2D000F21858 /* BVRatingStarsFormCell.xib */; };
+		878CF7931CF13703006DA4A0 /* SDRatingStarsFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2230A1CEFA2D000F21858 /* SDRatingStarsFormCell.xib */; };
 		878CF7971CF158EC006DA4A0 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878CF7961CF158EC006DA4A0 /* HCSStarRatingView.m */; };
-		87E223061CEFA1C900F21858 /* BVRatingStarsField.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E223051CEFA1C900F21858 /* BVRatingStarsField.m */; };
-		87E223091CEFA28400F21858 /* BVRatingStarsFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E223081CEFA28400F21858 /* BVRatingStarsFormCell.m */; };
+		87E223061CEFA1C900F21858 /* SDRatingStarsField.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E223051CEFA1C900F21858 /* SDRatingStarsField.m */; };
+		87E223091CEFA28400F21858 /* SDRatingStarsFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E223081CEFA28400F21858 /* SDRatingStarsFormCell.m */; };
 		B5183A0819C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */; };
 		B5183A0A19C9D7DC00A9B858 /* SDLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */; };
 		B5183A0B19C9DD1800A9B858 /* SDFormItemsPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56123A219AB40D8002BB86D /* SDFormItemsPickerViewController.xib */; };
-		B52968AB1AC301810092A8C4 /* SDFormsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CA97199B9533000AB3A5 /* SDFormsTests.m */; };
 		B51D24741A77F48A006F5B00 /* SDPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B51D24731A77F48A006F5B00 /* SDPhotoCell.m */; };
 		B51D24791A77F4ED006F5B00 /* SDPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51D24781A77F4ED006F5B00 /* SDPhotoCell.xib */; };
 		B51D247C1A77F5B3006F5B00 /* SDPhotoField.m in Sources */ = {isa = PBXBuildFile; fileRef = B51D247B1A77F5B3006F5B00 /* SDPhotoField.m */; };
+		B52968AB1AC301810092A8C4 /* SDFormsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B596CA97199B9533000AB3A5 /* SDFormsTests.m */; };
 		B52BE29A19AF657E0071BA57 /* SDForms.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F876C019AE201D00C4AF33 /* SDForms.h */; };
 		B52BE29B19AF657E0071BA57 /* SDFormItemsPickerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B56123A019AB40D8002BB86D /* SDFormItemsPickerViewController.h */; };
 		B52BE29C19AF657E0071BA57 /* SDDatePickerField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B57ABC8519A777950062BDBB /* SDDatePickerField.h */; };
@@ -212,11 +212,11 @@
 		5C50158336DED90316D0F470 /* Pods_SDFormsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDFormsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64494AE8FE314D64E2D55D55 /* Pods-SDForms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDForms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDForms/Pods-SDForms.debug.xcconfig"; sourceTree = "<group>"; };
 		878CF7961CF158EC006DA4A0 /* HCSStarRatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HCSStarRatingView.m; path = ../../../Pods/HCSStarRatingView/HCSStarRatingView/HCSStarRatingView.m; sourceTree = "<group>"; };
-		87E223041CEFA1C900F21858 /* BVRatingStarsField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVRatingStarsField.h; sourceTree = "<group>"; };
-		87E223051CEFA1C900F21858 /* BVRatingStarsField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVRatingStarsField.m; sourceTree = "<group>"; };
-		87E223071CEFA28400F21858 /* BVRatingStarsFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVRatingStarsFormCell.h; sourceTree = "<group>"; };
-		87E223081CEFA28400F21858 /* BVRatingStarsFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVRatingStarsFormCell.m; sourceTree = "<group>"; };
-		87E2230A1CEFA2D000F21858 /* BVRatingStarsFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BVRatingStarsFormCell.xib; sourceTree = "<group>"; };
+		87E223041CEFA1C900F21858 /* SDRatingStarsField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRatingStarsField.h; sourceTree = "<group>"; };
+		87E223051CEFA1C900F21858 /* SDRatingStarsField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRatingStarsField.m; sourceTree = "<group>"; };
+		87E223071CEFA28400F21858 /* SDRatingStarsFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRatingStarsFormCell.h; sourceTree = "<group>"; };
+		87E223081CEFA28400F21858 /* SDRatingStarsFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRatingStarsFormCell.m; sourceTree = "<group>"; };
+		87E2230A1CEFA2D000F21858 /* SDRatingStarsFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDRatingStarsFormCell.xib; sourceTree = "<group>"; };
 		B5183A0619C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SDExtensions.h"; sourceTree = "<group>"; };
 		B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SDExtensions.m"; sourceTree = "<group>"; };
 		B5183A0919C9D7DC00A9B858 /* SDLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDLaunchScreen.xib; sourceTree = "<group>"; };
@@ -415,8 +415,8 @@
 		B57ABC8419A777950062BDBB /* Fields */ = {
 			isa = PBXGroup;
 			children = (
-				87E223041CEFA1C900F21858 /* BVRatingStarsField.h */,
-				87E223051CEFA1C900F21858 /* BVRatingStarsField.m */,
+				87E223041CEFA1C900F21858 /* SDRatingStarsField.h */,
+				87E223051CEFA1C900F21858 /* SDRatingStarsField.m */,
 				B55F0F1619AF0F9C00685BCA /* SDButtonField.h */,
 				B55F0F1719AF0F9C00685BCA /* SDButtonField.m */,
 				B57ABC8519A777950062BDBB /* SDDatePickerField.h */,
@@ -532,10 +532,10 @@
 		B596CAA2199B95DB000AB3A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				87E223071CEFA28400F21858 /* BVRatingStarsFormCell.h */,
-				87E223081CEFA28400F21858 /* BVRatingStarsFormCell.m */,
+				87E223071CEFA28400F21858 /* SDRatingStarsFormCell.h */,
+				87E223081CEFA28400F21858 /* SDRatingStarsFormCell.m */,
 				878CF7961CF158EC006DA4A0 /* HCSStarRatingView.m */,
-				87E2230A1CEFA2D000F21858 /* BVRatingStarsFormCell.xib */,
+				87E2230A1CEFA2D000F21858 /* SDRatingStarsFormCell.xib */,
 				B596CAAF199B95DB000AB3A5 /* SDButtonFormCell.h */,
 				B596CAB0199B95DB000AB3A5 /* SDButtonFormCell.m */,
 				B596CAB1199B95DB000AB3A5 /* SDButtonFormCell.xib */,
@@ -754,7 +754,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				878CF7931CF13703006DA4A0 /* BVRatingStarsFormCell.xib in Resources */,
+				878CF7931CF13703006DA4A0 /* SDRatingStarsFormCell.xib in Resources */,
 				B5183A0B19C9DD1800A9B858 /* SDFormItemsPickerViewController.xib in Resources */,
 				B55F0F8619AF418300685BCA /* SDFormKeyboardToolbar.xib in Resources */,
 				B55F0F8819AF418300685BCA /* SDButtonFormCell.xib in Resources */,
@@ -916,9 +916,9 @@
 				B5F8769519AE1E4D00C4AF33 /* SDDatePickerFormCell.m in Sources */,
 				B5F8769619AE1E4D00C4AF33 /* SDDatePickerWithLabelFormCell.m in Sources */,
 				B5F8769919AE1E4D00C4AF33 /* SDPickerFormCell.m in Sources */,
-				87E223091CEFA28400F21858 /* BVRatingStarsFormCell.m in Sources */,
+				87E223091CEFA28400F21858 /* SDRatingStarsFormCell.m in Sources */,
 				B5F8769A19AE1E4D00C4AF33 /* SDLabelFormCell.m in Sources */,
-				87E223061CEFA1C900F21858 /* BVRatingStarsField.m in Sources */,
+				87E223061CEFA1C900F21858 /* SDRatingStarsField.m in Sources */,
 				B5F8769C19AE1E4D00C4AF33 /* SDTextFieldWithLabelFormCell.m in Sources */,
 				B5F8769E19AE1E4D00C4AF33 /* SDSliderFormCell.m in Sources */,
 				B55F0F1F19AF2F0B00685BCA /* SDSwitchField.m in Sources */,
