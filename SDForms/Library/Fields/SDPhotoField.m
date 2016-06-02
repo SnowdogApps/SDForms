@@ -29,10 +29,16 @@
     if (self.value != nil) {
         cell.photoView.image = self.value;
         cell.placeholderLabel.hidden = YES;
+        cell.callToActionImageView.hidden = YES;
     } else {
         cell.photoView.image = nil;
         cell.placeholderLabel.hidden = NO;
+        cell.callToActionImageView.hidden = NO;
         cell.placeholderLabel.text = NSLocalizedString(@"Tap to add a photo", nil);
+    }
+    
+    if (self.callToActionImage){
+        cell.callToActionImageView.image = self.callToActionImage;
     }
     
     return cell;

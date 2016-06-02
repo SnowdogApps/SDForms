@@ -10,4 +10,7 @@
 
 @interface SDPhotoField : SDFormField
 
+/// Icon to be used in the call toa ction in the cell. Will be 44x44
+@property (strong, nonatomic) UIImage *callToActionImage;
+
 @end

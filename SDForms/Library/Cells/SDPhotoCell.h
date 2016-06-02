@@ -14,5 +14,6 @@ static NSString *kPhotoCell = @"SDPhotoCell";
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *callToActionImageView;
 
 @end

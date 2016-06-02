@@ -9,6 +9,7 @@
 #import "SDViewController.h"
 #import "SDForms.h"
 #import "SDPhotoField.h"
+#import <FontAwesomeKit/FAKFontAwesome.h>
 
 @interface Person : NSObject
 
@@ -247,6 +248,12 @@
     SDPhotoField *photo = [[SDPhotoField alloc] initWithObject:self.person relatedPropertyKey:@"studentImage"];
     photo.presentingMode = SDFormFieldPresentingModeModal;
     photo.title = @"photo";
+    
+
+    FAKFontAwesome *cameraIcon = [FAKFontAwesome cameraIconWithSize:48];
+    [cameraIcon addAttribute:NSForegroundColorAttributeName value:[UIColor
+                                                                 lightGrayColor]];
+    photo.callToActionImage = [cameraIcon imageWithSize:CGSizeMake(48, 48)];
     
     SDRatingStarsField *ratingStars = [[SDRatingStarsField alloc] initWithObject:self.person relatedPropertyKey:@"rating"];
     ratingStars.maximumValue =  5.0;

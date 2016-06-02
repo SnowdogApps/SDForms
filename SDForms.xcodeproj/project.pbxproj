@@ -11,6 +11,7 @@
 		80E8211E0B0EC72DCEBD4F82 /* Pods_SDForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F3C750D5D3D7DA1494E7A2 /* Pods_SDForms.framework */; };
 		878CF7931CF13703006DA4A0 /* SDRatingStarsFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2230A1CEFA2D000F21858 /* SDRatingStarsFormCell.xib */; };
 		878CF7971CF158EC006DA4A0 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878CF7961CF158EC006DA4A0 /* HCSStarRatingView.m */; };
+		879144E11D0067C000976220 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 879144E01D0067C000976220 /* FontAwesome.otf */; };
 		87E223061CEFA1C900F21858 /* SDRatingStarsField.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E223051CEFA1C900F21858 /* SDRatingStarsField.m */; };
 		87E223091CEFA28400F21858 /* SDRatingStarsFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E223081CEFA28400F21858 /* SDRatingStarsFormCell.m */; };
 		B5183A0819C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B5183A0719C9CEAA00A9B858 /* NSMutableDictionary+SDExtensions.m */; };
@@ -212,6 +213,7 @@
 		5C50158336DED90316D0F470 /* Pods_SDFormsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDFormsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64494AE8FE314D64E2D55D55 /* Pods-SDForms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDForms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDForms/Pods-SDForms.debug.xcconfig"; sourceTree = "<group>"; };
 		878CF7961CF158EC006DA4A0 /* HCSStarRatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HCSStarRatingView.m; path = ../../../Pods/HCSStarRatingView/HCSStarRatingView/HCSStarRatingView.m; sourceTree = "<group>"; };
+		879144E01D0067C000976220 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = ../Pods/FontAwesomeKit/FontAwesomeKit/FontAwesome.otf; sourceTree = "<group>"; };
 		87E223041CEFA1C900F21858 /* SDRatingStarsField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRatingStarsField.h; sourceTree = "<group>"; };
 		87E223051CEFA1C900F21858 /* SDRatingStarsField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRatingStarsField.m; sourceTree = "<group>"; };
 		87E223071CEFA28400F21858 /* SDRatingStarsFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRatingStarsFormCell.h; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				B5F8764419AE1BAB00C4AF33 /* Main.storyboard */,
+				879144E01D0067C000976220 /* FontAwesome.otf */,
 				B5F8764619AE1BAB00C4AF33 /* InfoPlist.strings */,
 				B5F8764819AE1BAB00C4AF33 /* Images.xcassets */,
 				B5F8764919AE1BAB00C4AF33 /* main.m */,
@@ -776,6 +779,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879144E11D0067C000976220 /* FontAwesome.otf in Resources */,
 				B5183A0A19C9D7DC00A9B858 /* SDLaunchScreen.xib in Resources */,
 				B558865A19B755750082CCF9 /* SDFormsResources.bundle in Resources */,
 				B5F876A919AE1ED100C4AF33 /* Main.storyboard in Resources */,
