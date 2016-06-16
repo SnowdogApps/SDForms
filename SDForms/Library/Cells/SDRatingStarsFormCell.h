@@ -7,7 +7,8 @@
 //
 
 #import "SDFormCell.h"
-#import <HCSStarRatingView/HCSStarRatingView.h>
+
+@import HCSStarRatingView;
 
 static NSString * const kStarRatingCell = @"SDRatingStarsFormCell";
 
