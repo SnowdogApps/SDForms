@@ -15,4 +15,6 @@
     [super setField:field];
 }
 
+@dynamic textField;
+
 @end

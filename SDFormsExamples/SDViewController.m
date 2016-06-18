@@ -8,6 +8,8 @@
 
 #import "SDViewController.h"
 #import "SDForms.h"
+#import "SDPhotoField.h"
+#import <FontAwesomeKit/FAKFontAwesome.h>
 
 @interface Person : NSObject
 
@@ -22,6 +24,8 @@
 @property (nonatomic, strong) NSString *bio;
 @property (nonatomic, strong) NSNumber *hp;
 @property (nonatomic, strong) NSNumber *isStudent;
+@property (nonatomic, strong) NSNumber *rating;
+@property (nonatomic, strong) UIImage *studentImage;
 
 @end
 
@@ -29,7 +33,10 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent];
+    
+    NSString *hasImage = self.studentImage ? @"Yes" : @"False";
+    
+    return [NSString stringWithFormat:@"name:%@\nsurname:%@\nage:%@\nsex:%@\nsalary:%@\ndob:%@\nbio:%@\nhp:%@\nisStudent:%@\nRating:%@\nhas image:%@", self.name, self.surname, self.age, self.sex, self.salary, self.dateOfBirth, self.bio, self.hp, self.isStudent, self.rating, hasImage];
 }
 
 - (NSString *)formattedDOB
@@ -63,6 +70,8 @@
         self.person.bio = @"There was a boy";
         self.person.hp = @70;
         self.person.isStudent = @YES;
+        self.person.rating = @0.0;
+        self.person.studentImage = nil;
     }
     return self;
 }
@@ -226,7 +235,6 @@
     NSMutableArray *section3Fields = [self createThirdSection];
     NSMutableArray *section4Fields = [self createFourthSection];
     
-    
     [self.sections addObject:section1Fields];
     [self.sections addObject:section2Fields];
     [self.sections addObject:section3Fields];
@@ -236,6 +244,22 @@
 - (NSMutableArray *)createFirstSection
 {
     self.sections = [NSMutableArray array];
+    
+    SDPhotoField *photo = [[SDPhotoField alloc] initWithObject:self.person relatedPropertyKey:@"studentImage"];
+    photo.presentingMode = SDFormFieldPresentingModeModal;
+    photo.title = @"photo";
+    
+
+    FAKFontAwesome *cameraIcon = [FAKFontAwesome cameraIconWithSize:48];
+    [cameraIcon addAttribute:NSForegroundColorAttributeName value:[UIColor
+                                                                 lightGrayColor]];
+    photo.callToActionImage = [cameraIcon imageWithSize:CGSizeMake(48, 48)];
+    
+    SDRatingStarsField *ratingStars = [[SDRatingStarsField alloc] initWithObject:self.person relatedPropertyKey:@"rating"];
+    ratingStars.maximumValue =  5.0;
+    ratingStars.minimumValue = 0.0;
+    ratingStars.starsColor = [UIColor blueColor];
+    ratingStars.value = [NSNumber numberWithFloat:0.0];
     
     SDTextFormField *name = [[SDTextFormField alloc] initWithObject:self.person relatedPropertyKey:@"name"];
     name.title = @"Name";
@@ -294,7 +318,7 @@
     SDSwitchField *isStudent = [[SDSwitchField alloc] initWithObject:self.person relatedPropertyKey:@"isStudent"];
     isStudent.title = @"Is student";
     
-    NSArray *section1Fields = [@[name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
+    NSArray *section1Fields = [@[photo, ratingStars, name, surname, password, age, sex, salary, label, bio, dob, hp, isStudent] mutableCopy];
     return [section1Fields mutableCopy];
 }
 
@@ -368,5 +392,6 @@
     NSArray *section4Fields = @[addSection];
     return [section4Fields mutableCopy];
 }
+
 
 @end

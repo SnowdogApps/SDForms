@@ -159,5 +159,6 @@
     }
 }
 
+@dynamic field;
 
 @end

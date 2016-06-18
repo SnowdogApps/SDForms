@@ -28,8 +28,10 @@ static NSString *kStandardCell = @"StandardCell";
 
 - (id) init
 {
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
-    self = [self initWithNibName:@"SDFormItemsPickerViewController" bundle:bundle];
+    NSBundle *bundle = [NSBundle bundleForClass:[SDFormItemsPickerViewController class]];
+    NSURL *bundleURL = [bundle URLForResource:@"SDFormsResources" withExtension:@"bundle"];
+    NSBundle *pickerBundle = [NSBundle bundleWithURL:bundleURL];
+    self = [self initWithNibName:@"SDFormItemsPickerViewController" bundle:pickerBundle];
     if(self) {
         
     }

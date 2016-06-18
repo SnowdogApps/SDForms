@@ -38,8 +38,10 @@
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
-        NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SDFormsResources" withExtension:@"bundle"]];
-        self.toolbar = (SDFormKeyboardToolbar *)[[bundle loadNibNamed:kSDNavigationToolbar owner:[[SDFormKeyboardToolbar alloc] init] options:nil] lastObject];
+        NSBundle *bundle = [NSBundle bundleForClass:[SDForm class]];
+        NSURL *bundleURL = [bundle URLForResource:@"SDFormsResources" withExtension:@"bundle"];
+        NSBundle *formBundle = [NSBundle bundleWithURL:bundleURL];
+        self.toolbar = (SDFormKeyboardToolbar *)[[formBundle loadNibNamed:kSDNavigationToolbar owner:[[SDFormKeyboardToolbar alloc] init] options:nil] lastObject];
         [self.toolbar setToolbarDelegate:self];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];

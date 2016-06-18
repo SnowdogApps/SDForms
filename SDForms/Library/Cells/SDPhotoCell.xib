@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SDPhotoCell" id="Ru4-Xm-9Mr" customClass="SDPhotoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ru4-Xm-9Mr" id="DyV-s0-M0v">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="159.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8VT-jg-gQb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to select a photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKo-oN-Vnd">
+                        <rect key="frame" x="24" y="70" width="272" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="smM-UH-PlM">
+                        <rect key="frame" x="16" y="57" width="44" height="44"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8VT-jg-gQb" firstAttribute="leading" secondItem="smM-UH-PlM" secondAttribute="trailing" constant="-60" id="14e-ib-wrW"/>
+                    <constraint firstItem="smM-UH-PlM" firstAttribute="centerY" secondItem="8VT-jg-gQb" secondAttribute="centerY" constant="-1" id="2C1-HP-rrr"/>
+                    <constraint firstItem="vKo-oN-Vnd" firstAttribute="leading" secondItem="smM-UH-PlM" secondAttribute="trailing" constant="-36" id="2Py-ka-ImS"/>
+                    <constraint firstItem="smM-UH-PlM" firstAttribute="leading" secondItem="DyV-s0-M0v" secondAttribute="leadingMargin" constant="8" id="5T9-YJ-8Fb"/>
+                    <constraint firstItem="vKo-oN-Vnd" firstAttribute="centerY" secondItem="8VT-jg-gQb" secondAttribute="centerY" id="5Zk-dY-1fC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vKo-oN-Vnd" secondAttribute="trailing" constant="16" id="9RM-Uq-Ih4"/>
+                    <constraint firstItem="8VT-jg-gQb" firstAttribute="top" secondItem="DyV-s0-M0v" secondAttribute="topMargin" constant="-8" id="CiH-NM-FOY"/>
+                    <constraint firstAttribute="centerY" secondItem="vKo-oN-Vnd" secondAttribute="centerY" id="Ho5-Za-qoV"/>
+                    <constraint firstItem="vKo-oN-Vnd" firstAttribute="leading" secondItem="DyV-s0-M0v" secondAttribute="leadingMargin" constant="16" id="TIU-om-JUI"/>
+                    <constraint firstItem="smM-UH-PlM" firstAttribute="top" secondItem="DyV-s0-M0v" secondAttribute="topMargin" constant="49" id="Z7s-Is-MsX"/>
+                    <constraint firstAttribute="centerX" secondItem="vKo-oN-Vnd" secondAttribute="centerX" id="bJd-WU-SYC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8VT-jg-gQb" secondAttribute="bottom" constant="-8" id="dvr-mT-Huk"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8VT-jg-gQb" secondAttribute="trailing" constant="-8" id="m3E-rA-6y6"/>
+                    <constraint firstItem="vKo-oN-Vnd" firstAttribute="leading" secondItem="smM-UH-PlM" secondAttribute="trailing" constant="-36" id="v5x-GJ-DU4"/>
+                    <constraint firstItem="8VT-jg-gQb" firstAttribute="leading" secondItem="DyV-s0-M0v" secondAttribute="leadingMargin" constant="-8" id="vus-P5-fCI"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ho5-Za-qoV"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="callToActionImageView" destination="smM-UH-PlM" id="bkm-Ue-nkX"/>
+                <outlet property="photoView" destination="8VT-jg-gQb" id="7qo-Q5-dub"/>
+                <outlet property="placeholderLabel" destination="vKo-oN-Vnd" id="lxT-3k-mAZ"/>
+            </connections>
+            <point key="canvasLocation" x="192" y="246"/>
+        </tableViewCell>
+    </objects>
+</document>
